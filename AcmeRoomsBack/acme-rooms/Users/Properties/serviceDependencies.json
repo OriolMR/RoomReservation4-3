@@ -1,0 +1,13 @@
+{
+  "dependencies": {
+    "mssql1": {
+      "type": "mssql",
+      "connectionId": "ConnectionStrings:UsersContextConnection"
+    },
+    "mssql2": {
+      "type": "mssql",
+      "connectionId": "UserDB",
+      "dynamicId": null
+    }
+  }
+}
