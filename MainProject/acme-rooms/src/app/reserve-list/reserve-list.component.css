@@ -1,0 +1,98 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.imagen {
+  margin: 10px;
+  height: 200px;
+  width: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url(https://res.cloudinary.com/worksuites-cms/image/upload/h_1024,q_80/v1/prod/media/images/becrjx6ohofajzqdixgs); /*cambiar a variable que contenga la foto de cada user*/
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.general {
+  background-color: #e8e8e8;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0% 5% 2% 5%;
+  padding: 1% 4%;
+  /*box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;*/
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+.subGeneral {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 8%;
+}
+
+.generalLeft {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding-right: 15px;
+}
+
+.generalCenter {
+  display: flex;
+  justify-content: center;
+  align-items: self-start;
+  padding: 3%;
+}
+
+.generalRight {
+  display: flex;
+  position: static;
+  flex-direction: column;
+  justify-content: center;
+}
+
+h1 {
+  font-weight: bolder;
+}
+
+@media (max-width: 600px) {
+
+  .imagen {
+    display: none;
+  }
+}
+
+.generalLeft p {
+  font-weight: normal;
+}
+
+.generalCenter p {
+  font-weight: bold;
+}
+
+
+.generalRight > button {
+  margin: 15px;
+  border: 1px solid black;
+  display: flex;
+  padding: 5px 20px;
+  text-align: center;
+  letter-spacing: 2px;
+  border: 0.5px solid black;
+  outline: none;
+  font-weight: normal;
+  box-shadow: 3px 3px #C3cbcb;
+}
+
+  .generalRight > button:hover {
+    color: black;
+    background-color: #C3cbcb;
+    transition: all 0.2s ease;
+    /*border: none;*/
+    outline: none;
+    border: 1px solid black;
+  }

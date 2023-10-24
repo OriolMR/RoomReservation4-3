@@ -1,0 +1,210 @@
+@import url('https://fonts.googleapis.com/css2?family=Caprasimo&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700&display=swap');
+/*
+    FONT-WEIGHT
+    titulo grande: 600;
+    texto normal: 300;
+    texto negrita: 500;
+
+    FONT SIZE
+    14px 16px 38px(titulo)
+    
+*/
+
+* {
+  font-family: 'Roboto', sans-serif; /*Tipografia general*/
+  font-weight: 100;
+}
+  /* CAJA fondo */
+  #navbar {
+  height: 30vh;
+  background-image: url("../../../../images/MicrosoftTeams-image.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 0px 65%;
+  width: 100%;
+  padding: 25px 45px 12px 45px;
+}
+
+/* Contenedor logo+opciones */
+#menu {
+  display: flex;
+  flex-direction: row;
+  height: 30%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* LOGO */
+
+.linkHome {
+  width: 100%;
+  display: flex;
+  color: white;
+  font-family: 'Caprasimo', cursive;
+  font-size: 60px;
+}
+.linkHome:hover {
+  cursor: pointer;
+}
+
+
+/* PARTE DERECHA DEL MENÚ */
+.menuRight {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: right;
+    gap: 40px;
+}
+
+.menuRight a:link, .menuRight a:visited {
+    color: white;
+    text-decoration: none;
+}
+
+/* ANIMACIÓN UNDERLINE */
+
+/* ANIMACIÓN DE COLOR BLANCO */
+.underline-animation {
+    display: inline-block;
+    position: relative;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.underline-animation::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 1px;
+    bottom: 0;
+    left: 0;
+    background-color: white;
+    transform-origin: bottom right;
+    transition: transform 0.2s ease-out;
+}
+
+.underline-animation:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+/* ANIMACIÓN DE COLOR NEGRO */
+.underline-animation-black {
+    display: inline-block;
+    position: relative; 
+}
+
+.underline-animation-black::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 1px;
+    bottom: 0;
+    left: 0;
+    background-color: black;
+    transform-origin: bottom right;
+    transition: transform 0.2s ease-out;
+}
+
+.underline-animation-black:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+
+
+/* PARTE DE ABAJO DEL MENÚ */
+
+/* PARTE IZQUIERDA DEL MENÚ */
+
+/* TITULO DE LA IZQUIERDA */
+#title {
+    height: 70%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    color: white;
+}
+#homeTitle:hover {
+    cursor: pointer;
+}
+#homeTitle {
+    font-weight: 300;
+    user-select: none;
+    margin: 0;
+}
+h3 {
+  margin: 0;
+  font-family: inherit 'Roboto', sans-serif;
+  font-size: 26px;
+  font-weight: 100;
+}
+h3:hover {
+    cursor: default;
+}
+.opened {
+    border: black solid 1px;
+    border-bottom: none;
+    color: black;
+    padding: 6px 6px 0px 0px;
+    background-color: rgba(255, 255, 255, 0.9);
+}
+#homeTitle.opened:hover {
+    color: black;
+}
+
+/* MENU DESPLEGABLE find your country */
+#littleMenu {
+    background-color: rgba(255, 255, 255, 0.9);
+    border: black solid 1px;
+    border-top: none;
+    position: absolute;
+    width: 70%;
+    height: 65%;
+    padding: 1rem 0 0 1rem;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.city {
+    color: black;
+    font-size: 16px;
+    font-weight: 500;
+    width: fit-content;
+}
+
+.room {
+    font-weight: 300;
+    color: black;
+    margin-left: 1rem;
+    width: fit-content;
+}
+
+.cityList {
+    display: flex;
+    flex-direction: column;
+}
+
+.city:hover, .room:hover {
+    cursor: pointer;
+}
+
+/* PARTE DERECHA DEL MENÚ */
+
+/* BOTTON RESERVAS */
+.reservas {
+    color: white;
+    padding: 8px 20px;
+    background-color: transparent;
+    border: white solid 1px;
+}
+.reservas:hover {
+    background-color: whitesmoke;
+    color: black;
+}

@@ -1,0 +1,16 @@
+<app-navbar titulo="Find your country"></app-navbar>
+<div id="allRooms">
+    <h3>All rooms</h3>
+    <div id="roomList">
+        <div class="roomCard" *ngFor="let room of allRooms" [routerLink]="['room-detail', room.id]">
+            <div class="image">
+                
+            </div>
+            <div class="texto">
+                <p class="idText">Id: {{room.id}}</p>
+                <p class="nameText">{{room.name}}</p>
+                <p><b>Office: {{room.officeName}}</b></p>
+            </div>
+        </div>
+    </div>
+</div>

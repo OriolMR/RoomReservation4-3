@@ -1,0 +1,75 @@
+#allRooms {
+    padding: 2rem 4rem;
+    background-color: white;
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+
+}
+
+#allRooms h3 {
+    font-weight: bold;
+}
+
+#roomList {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 2rem;
+    margin: auto;
+}
+
+@keyframes colorChangeHover {
+    from {background-color: white;}
+    to {background-color: rgb(255, 224, 188);}    
+}
+
+@keyframes zoomCard {
+    from {width: 25vw; height: 20vh;}
+    to {width: 25vw; height: 25vh;}
+}
+
+.roomCard {
+    display: flex;
+    flex-direction: row;
+    height: 20vh;
+    width: 25vw;
+    user-select: none;
+    box-shadow: 5px 5px 1rem gray;
+    transition: .3s;
+}
+
+.roomCard:hover {
+    animation-name: colorChangeHover;
+    animation-duration: .3s;
+    animation: zoomCard .3s;
+    width: 25vw;
+    height: 25vh;
+    background-color: rgb(255, 224, 188);
+    cursor: pointer;
+}
+
+.image {
+    width: 30%;
+    display: flex;
+    width: fit-content;
+}
+
+.texto {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 10px;
+    width: 70%;
+}
+
+.texto .idText {
+    font-size: 100%;
+    font-weight: bold;
+}
+
+.texto .nameText {
+    font-size: 150%;
+    font-weight: bold;
+}

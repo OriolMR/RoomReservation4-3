@@ -1,0 +1,32 @@
+<div id="navbar">
+    <div id="menu">
+        <div class="menuLeft">
+            <p class="linkHome" routerLink="/home">acme</p>
+        </div>
+        <div class="menuRight">
+            <a routerLink="/reservation" class="underline-animation" *ngIf="showButton(titulo)">My Reservations</a>
+            <a routerLink="/hello-user" class="underline-animation">My Account</a>
+            <a (click)="salir()" class="underline-animation">Log out</a>
+        </div>
+    </div>
+    <div id="title">
+        <div>
+            <h3 *ngIf="isHomePage(titulo); else noHomePage" (click)="goToAllRooms()" id="homeTitle" class="underline-animation" >{{titulo}}</h3>
+            <ng-template #noHomePage>
+                <h3>{{titulo}}</h3>
+            </ng-template>
+            <div id="littleMenu" *ngIf="isOpen">
+                <div *ngFor="let country of navbarInfo">
+                    <p class="city">{{country.countryName}}</p>
+                    <div class="cityList">
+                        <p class="room underline-animation-black" *ngFor="let office of country.officeName">{{office.name}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <button routerLink="/reservas" class="reservas" *ngIf="showButton(titulo)">Reserve a room</button>
+        </div>
+    </div>
+    
+</div>

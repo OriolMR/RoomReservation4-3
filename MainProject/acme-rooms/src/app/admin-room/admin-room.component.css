@@ -1,0 +1,175 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700&display=swap');
+/*
+    FONT-WEIGHT
+    titulo grande: 500;
+    texto normal: 300;
+    texto negrita: 400;
+
+    FONT SIZE
+    14px 16px 38px(titulo)
+    
+*/
+
+.cajaFondo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+  height: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/*Barra opciones de tabla bbdd */
+.dataOption {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  width: 90vw;
+}
+
+.option {
+  display: flex;
+  flex-direction: row;
+  gap: 25px;
+  border: 1px solid black;
+  padding: 5px 15px;
+}
+
+.thisOpt {
+  font-weight: 500;
+  cursor: pointer;
+  color: #c20000;
+  margin: 5px;
+}
+
+.opt {
+  margin: 5px;
+}
+
+  .opt:hover {
+    color: #c20000;
+    cursor: pointer;
+  }
+
+button {
+  background-color: #ffff;
+  border: 1px solid black;
+  height: 28px;
+  width: 130px;
+}
+
+  button:hover {
+    background-color: #c4c4c4;
+  }
+
+
+/*CRUD desplegable*/
+
+#accordion {
+  width: 60vw;
+  margin: 20px auto;
+  padding: 0px;
+}
+
+  #accordion li {
+    list-style: none;
+    width: 100%;
+    margin-bottom: 10px;
+    background: #fff;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid;
+  }
+
+    #accordion li .accLabel {
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 20px;
+      font-weight: 500;
+      cursor: pointer;
+      color: #c20000;
+    }
+
+      #accordion li .accLabel span {
+        transform: rotate(90deg);
+        font-size: 20px;
+        color: #333;
+      }
+
+  #accordion .accLabel + input[type="radio"] {
+    display: none;
+  }
+
+  #accordion .content {
+    padding: 0 10px;
+    line-height: 26px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s;
+    transition: max-height 0.5s;
+  }
+
+  #accordion .accLabel + input[type="radio"]:checked + .content {
+    max-height: fit-content;
+  }
+
+/*formulario de CRUD*/
+
+.box {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.agrupador {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.agr2 {
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+}
+
+.agrCol {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.textLabel {
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.text {
+  font-size: 14px;
+  font-weight: 400;
+  margin: 0px 8px;
+}
+
+.addButton {
+  position: relative;
+  right: 0;
+}
+
+.butt {
+  font-size: 14px;
+}
+
+/*Motrar resultados*/
+.resultDiv {
+  font-size: 14px;
+}
+
+.result {
+  margin: 0;
+}

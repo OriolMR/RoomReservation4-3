@@ -1,0 +1,10 @@
+@import url("./home/home.component.css");
+
+body {
+  height: 100vh;
+  background-image: url("../../../images/MicrosoftTeams-image.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 0;
+  padding: 0;
+}
