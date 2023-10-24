@@ -12264,19 +12264,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\oriol.martinez\\.nuget\\packages\\": {}
+    "C:\\Users\\harpreet.kaur\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\oriol.martinez\\Desktop\\RoomReservation4-3\\AcmeRoomsBack\\acme-rooms\\Users\\Users.csproj",
+      "projectUniqueName": "C:\\Users\\harpreet.kaur\\Desktop\\git\\RoomReservation4-3\\AcmeRoomsBack\\acme-rooms\\Users\\Users.csproj",
       "projectName": "Users",
-      "projectPath": "C:\\Users\\oriol.martinez\\Desktop\\RoomReservation4-3\\AcmeRoomsBack\\acme-rooms\\Users\\Users.csproj",
-      "packagesPath": "C:\\Users\\oriol.martinez\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\oriol.martinez\\Desktop\\RoomReservation4-3\\AcmeRoomsBack\\acme-rooms\\Users\\obj\\",
+      "projectPath": "C:\\Users\\harpreet.kaur\\Desktop\\git\\RoomReservation4-3\\AcmeRoomsBack\\acme-rooms\\Users\\Users.csproj",
+      "packagesPath": "C:\\Users\\harpreet.kaur\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\harpreet.kaur\\Desktop\\git\\RoomReservation4-3\\AcmeRoomsBack\\acme-rooms\\Users\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\oriol.martinez\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\harpreet.kaur\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -12284,7 +12284,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\sdk\\7.0.308\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
+        "C:\\Program Files\\dotnet\\sdk\\7.0.304\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -12365,7 +12365,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.308\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
       }
     }
   }
