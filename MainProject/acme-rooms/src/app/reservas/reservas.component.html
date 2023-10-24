@@ -1,0 +1,138 @@
+<app-navbar titulo="Make a reservation"></app-navbar>
+<div class="cajaFondo">
+  <div class="container">
+    <form #reservationForm="ngForm">
+      <div class="cajas">
+        <div class="col col1">
+          <div class="row divCountry">
+            <p>Select a country</p>
+            <select
+              [(ngModel)]="selection.country"
+              #countryList
+              (change)="onCountrySelected(countryList.value)"
+              name="countryList"
+            >
+              <option selected value="any">Any country</option>
+              <option *ngFor="let country of countries" [value]="country.id">
+                {{ country.name }}
+              </option>
+            </select>
+          </div>
+          <div class="row divDate">
+            <p>Select a day</p>
+            <input
+              [(ngModel)]="reservationRegistrationForm.date"
+              type="date"
+              name="day"
+              id="date"
+              required
+            />
+          </div>
+        </div>
+        <div class="col col2">
+          <div class="row divOffice">
+            <p>Select an office</p>
+            <select
+              [(ngModel)]="selection.office"
+              #officeList
+              (change)="onOfficeSelected(officeList.value)"
+              name="officeList"
+              required
+            >
+              <option selected value="any">Any office</option>
+              <optgroup *ngFor="let city of cities" label="{{ city.name }}">
+                <ng-container *ngFor="let office of offices">
+                  <option *ngIf="office.cityId === city.id" [value]="office.id">
+                    {{ office.name }}
+                  </option>
+                </ng-container>
+              </optgroup>
+            </select>
+          </div>
+          <div class="row divTime1">
+            <p>Start time</p>
+            <input
+              [(ngModel)]="reservationRegistrationForm.startTime"
+              type="time"
+              name="startTime"
+              id="time"
+              step="1800"
+              required
+            />
+          </div>
+        </div>
+        <div class="col col3">
+          <div class="row divRoom">
+            <p>Select a room</p>
+            <select
+              id="roomList"
+              [(ngModel)]="selection.room"
+              #roomList
+              (change)="onRoomSelected(roomList.value)"
+              name="roomList"
+              required
+            >
+              <ng-container *ngFor="let office of offices">
+                <ng-container
+                  *ngIf="selection.office == 'any'; else particularOffice"
+                >
+                  <optgroup label="{{ office.name }}">
+                    <ng-container *ngFor="let room of rooms; let i = index">
+                      <option
+                        *ngIf="room.officeId === office.id"
+                        [value]="room.id"
+                        [attr.selected]="i > 0 ? null : 'selected'"
+                      >
+                        {{ room.name }}
+                      </option>
+                    </ng-container>
+                  </optgroup>
+                </ng-container>
+                <ng-template #particularOffice>
+                  <optgroup
+                    *ngIf="office.id == selection.office"
+                    label="{{ office.name }}"
+                  >
+                    <ng-container *ngFor="let room of rooms">
+                      <option
+                        *ngIf="room.officeId === office.id"
+                        [value]="room.id"
+                      >
+                        {{ room.name }}
+                      </option>
+                    </ng-container>
+                  </optgroup>
+                </ng-template>
+              </ng-container>
+            </select>
+          </div>
+          <div class="row divTime2">
+            <p>End time</p>
+            <input
+              [(ngModel)]="reservationRegistrationForm.endTime"
+              type="time"
+              name="endTime"
+              id="time"
+              min="0"
+              max="60"
+              step="1800"
+              required
+            />
+          </div>
+        </div>
+      </div>
+      <div class="subm">
+        <div class="row divSubmit">
+          <input
+            class="submitReserve"
+            (click)="validateReservation()"
+            type="submit"
+            value="Reserve"
+            name="submit"
+            id="submitForm"
+          />
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Caprasimo&display=swap');
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  width: 60%;
+}
+
+.imagen {
+  margin: 10px;
+  height: 300px;
+  width: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url(https://res.cloudinary.com/worksuites-cms/image/upload/h_1024,q_80/v1/prod/media/images/becrjx6ohofajzqdixgs); /*cambiar a variable que contenga la foto de cada user*/
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.right {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  font-weight: bolder;
+  padding: 20px;
+  gap:30px;
+}
+
+.close {
+  display: flex;
+  flex-direction: row;
+  justify-content:space-between;
+}
+
+.bye button {  
+  color: black;
+  font-weight: bold;
+  border:none;
+  outline:none;
+  background:none;
+
+}
+
+.information p {
+  margin-bottom: 10px;
+  font-size: medium;
+}
+
+#room {
+  font-family: Caprasimo, cursive;
+  font-weight: 100;
+  font-size: 30px;
+}
+/*----------------------------------------------*/
+
+.center{
+    display: flex;
+    flex-direction: column;
+    gap:5px;
+    text-align:left;
+    
+}
+
+.centerTime{
+    display: flex;
+    flex-direction: row;
+    
+}
+
+label{
+    margin:10px;
+}
+
+.last {
+  display: flex;
+  justify-content: end;
+  margin-left:300px;
+}
+
+.last button{
+    border:1px solid lightgrey;
+    color:black;
+    font-weight:bold;
+    padding:5px 15px;
+}

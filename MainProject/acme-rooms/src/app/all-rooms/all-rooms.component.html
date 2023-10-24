@@ -1,0 +1,8 @@
+<app-navbar titulo="Find your country"></app-navbar>
+
+<div id="roomList">
+    <div class="allRooms"  *ngFor="let country of allRoomsInfo">
+        <h1>{{country.countryName}}</h1>
+        <h2 *ngFor="let office of country.offices">{{office.name}}</h2>
+    </div>
+</div>

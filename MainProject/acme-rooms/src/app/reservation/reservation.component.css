@@ -1,0 +1,116 @@
+
+.principal {
+  background-color: white;
+  margin: 0%;
+  padding: 20px;
+  overflow-y: auto;
+  height: 70vh;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  width: 100%;
+}
+
+form {
+  background: #fff;
+  width: 400px;
+  height: 30px;
+  display: flex;
+  border: 0.5px solid black;
+}
+
+  form input {
+    flex: 1;
+    border: none;
+    outline: none;
+    padding-left: 5px;
+  }
+
+  form button {
+    background: #913831;
+    padding: 10px 20px;
+    border: none;
+    outline: none;
+    color: #fff;
+    letter-spacing: 1px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+  }
+
+  form .fa-search {
+    align-self: center;
+    padding-left: 10px;
+  }
+
+a {
+  text-decoration: none;
+  color: black;
+  margin: 5%;
+  font-weight:400;
+}
+/* ANIMACIÓN UNDERLINE */
+a {
+  display: inline-block;
+  position: relative;
+}
+
+  a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 1px;
+    bottom: 0;
+    left: 0;
+    background-color: black;
+    transform-origin: bottom right;
+    transition: transform 0.2s ease-out;
+  }
+
+  a:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+.reserve-list {
+    margin: 0px 10px;
+}
+
+.changes button {
+  background-color:white;
+  border: 1px solid black;
+  color:black;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  height: 30px;
+  width: 130%;
+  font-weight:bolder;
+}
+  .changes button:hover {
+    background-color:whitesmoke;
+    color: black;
+  }
+
+.changes{
+    align-items:center;
+    justify-content:center;
+    margin-left:auto;
+}
+/*@media (max-width: 600px) {*/ /* Modifica el tamaño máximo según tus necesidades */
+  /*.container {
+    flex-wrap: nowrap;
+  }
+
+  a {
+    display: none;
+  }
+
+  .changes {
+    padding-left: 5%;
+  }
+}*/

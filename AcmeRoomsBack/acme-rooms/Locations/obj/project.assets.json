@@ -469,19 +469,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\joana.jiayun\\.nuget\\packages\\": {}
+    "C:\\Users\\oriol.martinez\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\joana.jiayun\\Desktop\\FusionTeam\\RoomReservation4-3\\AcmeRoomsBack\\acme-rooms\\Locations\\Locations.csproj",
+      "projectUniqueName": "C:\\Users\\oriol.martinez\\Desktop\\RoomReservation4-3\\AcmeRoomsBack\\acme-rooms\\Locations\\Locations.csproj",
       "projectName": "Locations",
-      "projectPath": "C:\\Users\\joana.jiayun\\Desktop\\FusionTeam\\RoomReservation4-3\\AcmeRoomsBack\\acme-rooms\\Locations\\Locations.csproj",
-      "packagesPath": "C:\\Users\\joana.jiayun\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\joana.jiayun\\Desktop\\FusionTeam\\RoomReservation4-3\\AcmeRoomsBack\\acme-rooms\\Locations\\obj\\",
+      "projectPath": "C:\\Users\\oriol.martinez\\Desktop\\RoomReservation4-3\\AcmeRoomsBack\\acme-rooms\\Locations\\Locations.csproj",
+      "packagesPath": "C:\\Users\\oriol.martinez\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\oriol.martinez\\Desktop\\RoomReservation4-3\\AcmeRoomsBack\\acme-rooms\\Locations\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\joana.jiayun\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\oriol.martinez\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -489,7 +489,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\sdk\\7.0.304\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
+        "C:\\Program Files\\dotnet\\sdk\\7.0.308\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -536,7 +536,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.308\\RuntimeIdentifierGraph.json"
       }
     }
   }
