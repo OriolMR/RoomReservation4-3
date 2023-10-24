@@ -1,0 +1,35 @@
+<div class="mainpage">
+  <div class="izquierda">
+    <h1 class="empresa">acme</h1>
+    <p>
+      Meeting rooms reservation page<br>
+      <br>We’ve been growing along with a changing society, economy and new technologies, yet maintained our entrepreneurial culture and the daring spirit of our beginnings. Today we are getting ready to write a new chapter in our history.
+    <p>
+  </div>
+  <div class="derecha box">
+    <h1>Log In</h1>
+    <form #myForm="ngForm">      
+      <label>Email</label>
+      <div>
+        <i class="textoDentro"></i>
+        <input type="text" [(ngModel)]="user.email" name="email" placeholder="Please enter your user name">
+      </div>
+      <label>Password</label>
+      <div>
+        <i></i>
+        <input type="password" [(ngModel)]="user.password" name="password" placeholder="Please enter your password">
+      </div>
+      <!--<a href="#" class="forgot">Forgot Password</a>-->
+
+      <div class="botones">
+        <div class="registro">
+          <!--<input type="submit" class="regi" value="Register">-->
+          <button type="button"  (click)="goToRegister()" class="regi">Register</button>
+        </div>
+        <div class="log">
+          <button type="submit" (keydown.enter)="login()" (click)="login()" class="logi">Login</button> <!--CAMBIAR routerLink-->
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

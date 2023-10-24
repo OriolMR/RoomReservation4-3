@@ -1,0 +1,341 @@
+* {
+  font-family: 'Raleway', sans-serif;
+}
+
+.cajaFondo {
+  display: flex;
+  justify-content: center;
+  background-color: #ffffff;
+  height: 70vh; /* 70 + 30 del navbar */
+  align-items: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  margin: 20px 0px;
+  padding: 0;
+  height:60vh;
+}
+
+.izquierda {
+  width: 25vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.picture {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.imagen {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.img {
+  /*border: 1px dotted;*/
+  margin: 10px;
+  height: 15ex;
+  width: 15ex;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  /*background-image: url(https://img.freepik.com/foto-gratis/disparo-al-aire-libre-joven-caucasico-barba-relajandose-al-aire-libre-rodeado-hermoso-entorno-montana-selva_273609-1855.jpg?w=1060&t=st=1689159663~exp=1689160263~hmac=a55e0a004d54c20ae45a15fb0a22517489d7285a0fde3b147f817d1a1a0f29f8); /*cambiar a variable que contenga la foto de cada user*/
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  overflow: hidden;
+  border: black 1px solid;
+}
+
+.cajaIzq {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 80%;
+}
+
+.idioma {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.lang {
+  width: 150px;
+}
+.cajaInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+select {
+  background-color: #e8e8e8;
+  border: none;
+  height: 28px;
+  width: 80%;
+}
+.container {
+    display: flex;
+    justify-content: center;
+}
+.derecha {
+  width: 60vw;
+  display: flex;
+  flex-direction: column;
+}
+.izquierda {
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.cajaDatos {
+  display: flex;
+  flex-direction: row;
+  padding: 0% 10%;
+  height: 40%;
+  justify-content:space-between;
+}
+p {
+    padding: 0;
+    margin: 5px 0px;
+}
+h1 {
+  color: #c20000;
+  font-size: 50px;
+}
+
+/*ACCORDION change*/
+.cajaAccordion {
+    padding: 0% 10%;
+    height: 60%;
+}
+#accordion {
+  width: 100%;
+  margin: 20px auto;
+  padding: 0px;
+}
+
+#accordion li {
+  list-style: none;
+  width: 100%;
+  margin-bottom: 10px;
+  background: #fff;
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid;
+}
+  #accordion li .accLabel {
+    padding: 8px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 16px;
+    font-weight: bolder;
+    cursor: pointer;
+    color: black;
+  }
+    #accordion li .accLabel span {
+      transform: rotate(90deg);
+      font-size: 20px;
+      color: #333;
+    }
+
+#accordion .accLabel + input[type="radio"] {
+  display: none;
+}
+
+#accordion .content {
+  padding: 0 10px;
+  line-height: 23px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s;
+  transition: max-height 0.5s;
+}
+
+#accordion .accLabel + input[type="radio"]:checked + .content {
+  max-height: fit-content;
+}
+/*content de cada acordion*/
+.content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.cont {
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    justify-content:space-between;    
+    padding: 0;
+    gap: 20px;
+    margin-bottom: 10px;
+}
+.butt {
+    display: flex;
+    align-items: end;
+    justify-content: center;
+}
+/*label con su input*/
+.agrupador {
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+  position: static;
+}
+  .agrupador label.textLabel {
+    font-size: 0.75rem;
+    color: black;
+    font-weight: 400;
+    position: relative;
+    top: 0.8rem;
+    margin: 0 0 0 7px;
+    padding: 0 3px;
+    width: fit-content;
+    background: white;
+  }
+  .agrupador input.text {
+    padding: 5px 10px;
+    font-size: 0.75rem;
+    border: 1px black solid;
+    border-radius: 5px;
+  }
+  input {
+      padding: 5px;
+  }
+/*boton*/
+button {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #aa2929;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 12px;
+  padding: 6px;
+  width: 120px;
+  transition: all 0.5s;
+  cursor: pointer;
+}
+
+  button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
+
+    button span:after {
+      content: '»';
+      position: absolute;
+      opacity: 0;
+      top: 0;
+      right: -15px;
+      transition: 0.5s;
+    }
+
+  button:hover span {
+    padding-right: 15px;
+  }
+
+    button:hover span:after {
+      opacity: 1;
+      right: 0;
+    }
+/*@media (max-width: 800px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .izquierda {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .picture {
+    align-items: center;
+    height: 70%;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 0px 0px 0px;*/ /*pendiente ajustar espaciado*/
+  /*}
+
+  .changePic {
+    display: none;
+  }
+
+  .derecha {
+    width: 100%;
+  }
+
+  .cajaDatos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-left: 0px;
+    width: 100%;
+  }
+
+    .cajaDatos div {
+      height: 100%;
+      width: 70%;
+    }
+
+  input {
+    background-color: #e8e8e8;
+    border: none;
+    height: 28px;
+    width: 100%;
+  }
+
+  .idioma {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    width: 70%;
+    height: 50%;*/ /*comparte la otra mitad de la caja con .picture*/
+  /*}
+
+  p {
+    margin: 0;
+    padding: 10px 0px 5px 0px;
+  }
+
+  .lang {
+    width: 150px;
+  }
+
+  .cajaSave {
+    order: 1;
+    display: flex;
+    justify-content: center;
+  }
+
+  .save {
+    background-color: transparent;
+    font-weight: bold;
+    color: black;
+  }
+
+    .save:hover {
+      background-color: whitesmoke;
+      color: black;
+    }
+
+
+
+}*/

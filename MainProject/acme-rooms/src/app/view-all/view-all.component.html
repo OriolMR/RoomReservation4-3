@@ -1,0 +1,26 @@
+<app-navbar titulo="Find your country"></app-navbar>
+<div id="home">
+  <div class="superiorHome">
+    <h3>All Rooms</h3>
+    <form name="searchForm">
+      <input type="text" placeholder="Search by ID/City/Country" [(ngModel)]="userInput" name="userInput" (keyup)="getAllRooms()">
+      <i class="fas fa-search"></i>
+    </form>
+  </div>
+    <div id="container">
+        <div *ngFor="let pais of countryKeys" id="cajaPais">
+            <h2>Rooms in {{pais}}</h2>
+            <div class="pais">                
+                <div *ngFor="let room of roomDTOsByCountry[pais]" id="roomCard">
+                    <img src="https://i.pinimg.com/736x/61/30/e3/6130e3adf957d8c9f43d48fa194c5274.jpg" alt="{{room.name}}" >
+                    <!--<p class="roomTitle">{{room.name}} {{room.cityName}}</p>-->
+                    <div class="overlay">
+                        <p>{{room.name}}</p>
+                        <p>{{room.cityName}}, {{room.countryName}}</p>
+                        <p>Capacity: {{room.capacity}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

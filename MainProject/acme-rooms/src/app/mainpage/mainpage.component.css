@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700&display=swap');
+/*
+    FONT-WEIGHT
+    titulo grande: 600;
+    texto normal: 300;
+    texto negrita: 400;
+
+    FONT SIZE
+    14px 16px 38px(titulo)
+    
+*/
+
+#home {
+  padding: 25px 38px 12px 38px;
+  background-color: white;
+  height: 70vh;
+}
+
+#home h3 {
+    font-weight: 400;
+    margin: 0;
+    font-size: 26px;
+}
+h3:hover {
+    cursor: default;
+}
+.superiorHome {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    align-content: center;
+}
+.reservas {
+    border: 1px solid black;
+    width: 150px;
+    background-color: white;
+    height: 30px;
+}
+  .reservas:hover {
+    background-color: #e8e8e8;
+  }
+/* ESTILO DE LA LISTA DE SALAS */
+#roomList {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px;
+
+}
+
+#roomList .roomCard:nth-child(odd) {
+    background-color: lightgray;
+}
+
+#roomList .roomCard:nth-child(even) {
+    background-color: lightslategray;
+}
+
+/* ESTILO DE LAS TARJETAS DE LAS SALAS */
+@media (max-width: 500px) {
+    .roomCard {
+        min-width: 200px;
+        height: auto;
+
+    }
+
+    #roomList {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    
+    }
+}
+
+
+.roomCard p{
+    margin: 0;
+    padding: 1rem 0 1rem 1rem;
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.roomCard img {
+    width: 100%;
+}
+
+.roomCard {
+    font-size: 2.5vw;
+    width: 25%;
+    height: 35%;
+    margin-bottom: 40px;
+}

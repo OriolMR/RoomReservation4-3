@@ -1,0 +1,65 @@
+<div class="overlay" *ngIf="showPopup">
+  <div class="popup-content">
+    <div class="imagen"></div>
+
+    <div class="right">
+      <div class="close">
+        <div class="information">
+          <p>Reservation Id: {{ reservationData.id }}</p>
+
+          <P id="room"> {{ reservationData.roomName }} </P>
+
+          <p>
+            {{ reservationData.officeName }}, {{ reservationData.countryName }}
+          </p>
+        </div>
+
+        <div class="bye">
+          <button (click)="closePopup()">X</button>
+        </div>
+      </div>
+
+      <div class="center">
+        <div class="centerDate">
+          <label for="Date"> Date: </label>
+
+          <input type="date" id="fecha" name="date" [(ngModel)]="reservationData.date" />
+        </div>
+
+        <div class="centerTime">
+          <div class="startTime">
+            <label for="time"> Time: </label>
+
+            <input
+              type="time"
+              id="tiempo"
+              name="time"
+              [(ngModel)]="reservationData.startTime"
+            />
+          </div>
+
+          <div class="endTime">
+            <label for="time"> -- </label>
+
+            <input
+              type="time"
+              id="tiempo"
+              name="time"
+              [(ngModel)]="reservationData.endTime"
+            />
+          </div>
+        </div>
+        <!--CenterTime-->
+      </div>
+      <!--center-->
+
+      <div class="last">
+        <button (click)="modifyReservation()">Modify</button>
+      </div>
+      <!--last-->
+    </div>
+    <!--right-->
+  </div>
+  <!--PopUp cintent-->
+</div>
+<!-- show PopUp-->
