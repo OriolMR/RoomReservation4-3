@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\harpreet.kaur\\Desktop\\git\\RoomReservation4-3\\AcmeRoomsBack\\acme-rooms\\LockedDates\\LockedDates.csproj": {}
+    "C:\\Users\\harpreet.kaur\\Desktop\\rooms\\RoomReservation4-3\\AcmeRoomsBack\\acme-rooms\\LockedDates\\LockedDates.csproj": {}
   },
   "projects": {
-    "C:\\Users\\harpreet.kaur\\Desktop\\git\\RoomReservation4-3\\AcmeRoomsBack\\acme-rooms\\LockedDates\\LockedDates.csproj": {
+    "C:\\Users\\harpreet.kaur\\Desktop\\rooms\\RoomReservation4-3\\AcmeRoomsBack\\acme-rooms\\LockedDates\\LockedDates.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\harpreet.kaur\\Desktop\\git\\RoomReservation4-3\\AcmeRoomsBack\\acme-rooms\\LockedDates\\LockedDates.csproj",
+        "projectUniqueName": "C:\\Users\\harpreet.kaur\\Desktop\\rooms\\RoomReservation4-3\\AcmeRoomsBack\\acme-rooms\\LockedDates\\LockedDates.csproj",
         "projectName": "LockedDates",
-        "projectPath": "C:\\Users\\harpreet.kaur\\Desktop\\git\\RoomReservation4-3\\AcmeRoomsBack\\acme-rooms\\LockedDates\\LockedDates.csproj",
+        "projectPath": "C:\\Users\\harpreet.kaur\\Desktop\\rooms\\RoomReservation4-3\\AcmeRoomsBack\\acme-rooms\\LockedDates\\LockedDates.csproj",
         "packagesPath": "C:\\Users\\harpreet.kaur\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\harpreet.kaur\\Desktop\\git\\RoomReservation4-3\\AcmeRoomsBack\\acme-rooms\\LockedDates\\obj\\",
+        "outputPath": "C:\\Users\\harpreet.kaur\\Desktop\\rooms\\RoomReservation4-3\\AcmeRoomsBack\\acme-rooms\\LockedDates\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\harpreet.kaur\\AppData\\Roaming\\NuGet\\NuGet.Config",

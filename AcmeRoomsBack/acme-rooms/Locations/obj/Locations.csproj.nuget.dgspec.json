@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\harpreet.kaur\\Desktop\\git\\RoomReservation4-3\\AcmeRoomsBack\\acme-rooms\\Locations\\Locations.csproj": {}
+    "C:\\Users\\harpreet.kaur\\Desktop\\rooms\\RoomReservation4-3\\AcmeRoomsBack\\acme-rooms\\Locations\\Locations.csproj": {}
   },
   "projects": {
-    "C:\\Users\\harpreet.kaur\\Desktop\\git\\RoomReservation4-3\\AcmeRoomsBack\\acme-rooms\\Locations\\Locations.csproj": {
+    "C:\\Users\\harpreet.kaur\\Desktop\\rooms\\RoomReservation4-3\\AcmeRoomsBack\\acme-rooms\\Locations\\Locations.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\harpreet.kaur\\Desktop\\git\\RoomReservation4-3\\AcmeRoomsBack\\acme-rooms\\Locations\\Locations.csproj",
+        "projectUniqueName": "C:\\Users\\harpreet.kaur\\Desktop\\rooms\\RoomReservation4-3\\AcmeRoomsBack\\acme-rooms\\Locations\\Locations.csproj",
         "projectName": "Locations",
-        "projectPath": "C:\\Users\\harpreet.kaur\\Desktop\\git\\RoomReservation4-3\\AcmeRoomsBack\\acme-rooms\\Locations\\Locations.csproj",
+        "projectPath": "C:\\Users\\harpreet.kaur\\Desktop\\rooms\\RoomReservation4-3\\AcmeRoomsBack\\acme-rooms\\Locations\\Locations.csproj",
         "packagesPath": "C:\\Users\\harpreet.kaur\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\harpreet.kaur\\Desktop\\git\\RoomReservation4-3\\AcmeRoomsBack\\acme-rooms\\Locations\\obj\\",
+        "outputPath": "C:\\Users\\harpreet.kaur\\Desktop\\rooms\\RoomReservation4-3\\AcmeRoomsBack\\acme-rooms\\Locations\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\harpreet.kaur\\AppData\\Roaming\\NuGet\\NuGet.Config",
