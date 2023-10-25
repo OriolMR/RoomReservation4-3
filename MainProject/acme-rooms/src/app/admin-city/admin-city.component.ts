@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { RequestService } from 'src/app/services/request.service';
-import { environment, apiControllers, apiUrls, localizacionUrls } from 'src/environments/environment';
 import { City } from 'src/app/models/city';
 import { HttpParams } from '@angular/common/http';
+import { LocalizacionesService } from '../services/localizaciones.service';
 
 @Component({
   selector: 'app-admin-city',
@@ -10,7 +10,7 @@ import { HttpParams } from '@angular/common/http';
   styleUrls: ['./admin-city.component.css']
 })
 export class AdminCityComponent {
-  constructor(private requestService: RequestService) { }
+  constructor(private requestService: RequestService, private localizacionesService: LocalizacionesService) { }
   /*general vars*/
   cityName = "xx"
   cityId = 32
@@ -21,7 +21,7 @@ export class AdminCityComponent {
   updatedCity: (City) = new City()
 
   addCity() {
-    this.requestService.post(`${environment.localizacionApiUrl}${apiControllers.city}${localizacionUrls.city.createCity}`,
+    this.requestService.post(`${this.localizacionesService.createCity}`,
       {
         "Name": this.cityName,
         "CountryId": this.cityCountryId
@@ -38,8 +38,9 @@ export class AdminCityComponent {
 
 
   }
+
   getCityById(id: number) {
-    this.requestService.get(`${environment.localizacionApiUrl}${apiControllers.city}${localizacionUrls.city.getCityById}`, new HttpParams().append("id", id))
+    this.requestService.get(`${this.localizacionesService.getCityById}`, new HttpParams().append("id", id))
       .subscribe({
         next: (fetchedCity: any) => {
           this.cities = [{
@@ -50,8 +51,9 @@ export class AdminCityComponent {
         },
       });
   }
+
   getAllCities() {
-    this.requestService.get(`${environment.localizacionApiUrl}${apiControllers.city}${localizacionUrls.city.getAllCities}`)
+    this.requestService.get(`${this.localizacionesService.getAllCities}`)
       .subscribe({
         next: (fetchedCities: any[]) => {
           this.cities = fetchedCities.map((city: any): any => {
@@ -64,10 +66,11 @@ export class AdminCityComponent {
         },
       });
   }
+
   updateCity() {
     /* getting old info*/
     this.requestService
-      .get(`${environment.localizacionApiUrl}${apiControllers.city}${localizacionUrls.city.getCityById}`,
+      .get(`${this.localizacionesService.getAllCities}`,
         new HttpParams().append('id', this.cityId))
       .subscribe({
         next: (fetchedCity: any) => {
@@ -80,7 +83,7 @@ export class AdminCityComponent {
       });
     /*update database*/
     this.requestService
-      .put(`${environment.localizacionApiUrl}${apiControllers.city}${localizacionUrls.city.updateCity}`,
+      .put(`${this.localizacionesService.updateCity}`,
         {
           "Id": this.cityId,
           "Name": this.cityName,
@@ -95,7 +98,7 @@ export class AdminCityComponent {
     /*Get country with new info*/
     /*this.getCityById(this.cityId)*/
     this.requestService
-      .get(`${environment.localizacionApiUrl}${apiControllers.city}${localizacionUrls.city.getCityById}`,
+      .get(`${this.localizacionesService.getCityById}`,
         new HttpParams().append('id', this.cityId))
       .subscribe({
         next: (fetchedCity: any) => {
@@ -107,10 +110,11 @@ export class AdminCityComponent {
         },
       });
   }
+
   deleteCity() {
     alert(this.cityId);
     this.requestService
-      .delete(`${environment.localizacionApiUrl}${apiControllers.city}${localizacionUrls.city.deleteCity}`,
+      .delete(`${this.localizacionesService.deleteCity}`,
       new HttpParams().append('id', `${this.cityId.toString()}`))
       .subscribe({});
   }

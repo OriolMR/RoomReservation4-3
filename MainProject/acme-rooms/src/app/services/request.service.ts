@@ -10,13 +10,13 @@ export class RequestService {
 
   constructor(private httpClient: HttpClient) { }
 
-  public post(url: string, body: object): Observable<any> {
-    return this.httpClient.post<any>(url, body);
-  }
-
   // if parameters is undefined, the options parameter of httpClient.get() is passed an empty object
   public get(url: string, parameters?: HttpParams): Observable<any> {
     return this.httpClient.get<any>(url, parameters === undefined ? {} : { params: parameters });
+  }
+
+  public post(url: string, body: object): Observable<any> {
+    return this.httpClient.post<any>(url, body);
   }
 
   public put(url: string, body: object): Observable<any> {
