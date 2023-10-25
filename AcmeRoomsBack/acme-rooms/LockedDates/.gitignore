@@ -1,0 +1,11 @@
+*.dll
+**/System.*
+**/Microsoft.*
+**/Newtonsoft.*
+**/bin
+**/.vs
+**/.vscode
+**/obj
+**/.angular
+**/node_modules
+**/assets
