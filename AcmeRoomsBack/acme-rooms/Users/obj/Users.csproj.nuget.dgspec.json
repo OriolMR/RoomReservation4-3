@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\oriol.martinez\\Desktop\\RoomReservation4-3\\AcmeRoomsBack\\acme-rooms\\Users\\Users.csproj": {}
+    "C:\\Users\\john.uy.ext\\Documents\\RoomReservation4-3\\AcmeRoomsBack\\acme-rooms\\Users\\Users.csproj": {}
   },
   "projects": {
-    "C:\\Users\\oriol.martinez\\Desktop\\RoomReservation4-3\\AcmeRoomsBack\\acme-rooms\\Users\\Users.csproj": {
+    "C:\\Users\\john.uy.ext\\Documents\\RoomReservation4-3\\AcmeRoomsBack\\acme-rooms\\Users\\Users.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\oriol.martinez\\Desktop\\RoomReservation4-3\\AcmeRoomsBack\\acme-rooms\\Users\\Users.csproj",
+        "projectUniqueName": "C:\\Users\\john.uy.ext\\Documents\\RoomReservation4-3\\AcmeRoomsBack\\acme-rooms\\Users\\Users.csproj",
         "projectName": "Users",
-        "projectPath": "C:\\Users\\oriol.martinez\\Desktop\\RoomReservation4-3\\AcmeRoomsBack\\acme-rooms\\Users\\Users.csproj",
-        "packagesPath": "C:\\Users\\oriol.martinez\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\oriol.martinez\\Desktop\\RoomReservation4-3\\AcmeRoomsBack\\acme-rooms\\Users\\obj\\",
+        "projectPath": "C:\\Users\\john.uy.ext\\Documents\\RoomReservation4-3\\AcmeRoomsBack\\acme-rooms\\Users\\Users.csproj",
+        "packagesPath": "C:\\Users\\john.uy.ext\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\john.uy.ext\\Documents\\RoomReservation4-3\\AcmeRoomsBack\\acme-rooms\\Users\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\oriol.martinez\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\john.uy.ext\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

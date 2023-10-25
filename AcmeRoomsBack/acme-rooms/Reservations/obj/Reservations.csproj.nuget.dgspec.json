@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\oriol.martinez\\Desktop\\RoomReservation4-3\\AcmeRoomsBack\\acme-rooms\\Reservations\\Reservations.csproj": {}
+    "C:\\Users\\john.uy.ext\\Documents\\RoomReservation4-3\\AcmeRoomsBack\\acme-rooms\\Reservations\\Reservations.csproj": {}
   },
   "projects": {
-    "C:\\Users\\oriol.martinez\\Desktop\\RoomReservation4-3\\AcmeRoomsBack\\acme-rooms\\Reservations\\Reservations.csproj": {
+    "C:\\Users\\john.uy.ext\\Documents\\RoomReservation4-3\\AcmeRoomsBack\\acme-rooms\\Reservations\\Reservations.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\oriol.martinez\\Desktop\\RoomReservation4-3\\AcmeRoomsBack\\acme-rooms\\Reservations\\Reservations.csproj",
+        "projectUniqueName": "C:\\Users\\john.uy.ext\\Documents\\RoomReservation4-3\\AcmeRoomsBack\\acme-rooms\\Reservations\\Reservations.csproj",
         "projectName": "Reservations",
-        "projectPath": "C:\\Users\\oriol.martinez\\Desktop\\RoomReservation4-3\\AcmeRoomsBack\\acme-rooms\\Reservations\\Reservations.csproj",
-        "packagesPath": "C:\\Users\\oriol.martinez\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\oriol.martinez\\Desktop\\RoomReservation4-3\\AcmeRoomsBack\\acme-rooms\\Reservations\\obj\\",
+        "projectPath": "C:\\Users\\john.uy.ext\\Documents\\RoomReservation4-3\\AcmeRoomsBack\\acme-rooms\\Reservations\\Reservations.csproj",
+        "packagesPath": "C:\\Users\\john.uy.ext\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\john.uy.ext\\Documents\\RoomReservation4-3\\AcmeRoomsBack\\acme-rooms\\Reservations\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\oriol.martinez\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\john.uy.ext\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -44,6 +44,20 @@
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[7.0.7, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[7.0.12, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.12, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[7.0.9, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
