@@ -9,11 +9,11 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = LockedDates
 build_property.RootNamespace = LockedDates
-build_property.ProjectDir = C:\Users\joana.jiayun\Desktop\FusionTeam\RoomReservation4-3\AcmeRoomsBack\acme-rooms\LockedDates\
+build_property.ProjectDir = C:\Users\harpreet.kaur\Desktop\git\RoomReservation4-3\AcmeRoomsBack\acme-rooms\LockedDates\
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\joana.jiayun\Desktop\FusionTeam\RoomReservation4-3\AcmeRoomsBack\acme-rooms\LockedDates
+build_property.MSBuildProjectDirectory = C:\Users\harpreet.kaur\Desktop\git\RoomReservation4-3\AcmeRoomsBack\acme-rooms\LockedDates
 build_property._RazorSourceGeneratorDebug = 
 
 [C:/Users/joana.jiayun/Desktop/FusionTeam/RoomReservation4-3/AcmeRoomsBack/acme-rooms/LockedDates/Views/LockedDates/Create.cshtml]
