@@ -1,4 +1,9 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using LockedDates.Data;
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<LockedDatesContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("LockedDatesContext") ?? throw new InvalidOperationException("Connection string 'LockedDatesContext' not found.")));
 
 // Add services to the container.
 
