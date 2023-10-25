@@ -9,9 +9,33 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = LockedDates
 build_property.RootNamespace = LockedDates
-build_property.ProjectDir = C:\Users\oriol.martinez\Desktop\RoomReservation4-3\AcmeRoomsBack\acme-rooms\LockedDates\
+build_property.ProjectDir = C:\Users\joana.jiayun\Desktop\FusionTeam\RoomReservation4-3\AcmeRoomsBack\acme-rooms\LockedDates\
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\oriol.martinez\Desktop\RoomReservation4-3\AcmeRoomsBack\acme-rooms\LockedDates
+build_property.MSBuildProjectDirectory = C:\Users\joana.jiayun\Desktop\FusionTeam\RoomReservation4-3\AcmeRoomsBack\acme-rooms\LockedDates
 build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/joana.jiayun/Desktop/FusionTeam/RoomReservation4-3/AcmeRoomsBack/acme-rooms/LockedDates/Views/LockedDates/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9ja2VkRGF0ZXNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/joana.jiayun/Desktop/FusionTeam/RoomReservation4-3/AcmeRoomsBack/acme-rooms/LockedDates/Views/LockedDates/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9ja2VkRGF0ZXNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/joana.jiayun/Desktop/FusionTeam/RoomReservation4-3/AcmeRoomsBack/acme-rooms/LockedDates/Views/LockedDates/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9ja2VkRGF0ZXNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/joana.jiayun/Desktop/FusionTeam/RoomReservation4-3/AcmeRoomsBack/acme-rooms/LockedDates/Views/LockedDates/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9ja2VkRGF0ZXNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/joana.jiayun/Desktop/FusionTeam/RoomReservation4-3/AcmeRoomsBack/acme-rooms/LockedDates/Views/LockedDates/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9ja2VkRGF0ZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/joana.jiayun/Desktop/FusionTeam/RoomReservation4-3/AcmeRoomsBack/acme-rooms/LockedDates/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
