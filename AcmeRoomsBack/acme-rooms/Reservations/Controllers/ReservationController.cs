@@ -15,12 +15,12 @@ namespace Reservations.Controllers;
 //[Authorize]
 [ApiController]
 [Route("api/[controller]")]
-public class ReservationsController : Controller
+public class ReservationController : Controller
 {
     private readonly ReservasContext _context;
     private readonly IAuthorizationService _authorizationService;
 
-    public ReservationsController(ReservasContext context, IAuthorizationService authorizationService)
+    public ReservationController(ReservasContext context, IAuthorizationService authorizationService)
     {
         _context = context;
         _authorizationService = authorizationService;

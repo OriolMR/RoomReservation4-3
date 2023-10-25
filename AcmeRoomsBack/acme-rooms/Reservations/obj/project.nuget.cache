@@ -2,7 +2,7 @@
   "version": 2,
   "dgSpecHash": "nS15k0uv4PDs6BkiGB1ISeIehxfaUltNhpOBkVT366RfxVQHWUw5DsP/lv5qP8hFW+6baXFqCjMQjvfiqbAmIA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\oriol.martinez\\Desktop\\RoomReservation4-3\\AcmeRoomsBack\\acme-rooms\\Reservations\\Reservations.csproj",
+  "projectFilePath": "C:\\Users\\joana.jiayun\\Desktop\\FusionTeam\\RoomReservation4-3\\AcmeRoomsBack\\acme-rooms\\Reservations\\Reservations.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\joana.jiayun\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\joana.jiayun\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
