@@ -65,7 +65,7 @@ export class LocalizacionesService {
     return this.requestService.get(url);
   }
 
-  getCountryById(countryId: string): Observable<any> {
+  getCountryById(countryId: number): Observable<any> {
     const url = `${this.apiUrl}/${localizacionUrls.country.getCountryById}/${countryId}`;
     return this.requestService.get(url);
   }
@@ -166,12 +166,12 @@ export class LocalizacionesService {
     return this.requestService.get(url);
   }
 
-  getRoomsBycityId(cityId: string): Observable<any[]> {
+  getRoomsBycityId(cityId: number): Observable<any[]> {
     const url = `${this.apiUrl}/${localizacionUrls.room.getRoomsByCityId}/${cityId}`;
     return this.requestService.get(url);
   }
 
-  getRoomsByOfficeId(cityId: string): Observable<any[]> {
+  getRoomsByOfficeId(cityId: number): Observable<any[]> {
     const url = `${this.apiUrl}/${localizacionUrls.room.getRoomsByOfficeId}/${cityId}`;
     return this.requestService.get(url);
   }

@@ -2,11 +2,6 @@ import { Component } from '@angular/core';
 import { easepick } from '@easepick/bundle';
 import { DateTime } from '@easepick/bundle';
 import { RequestService } from '../services/request.service';
-import {
-  apiControllers,
-  apiUrls,
-  environment,
-} from 'src/environments/environment';
 import { LockedDate } from '../models/locked-date';
 
 @Component({

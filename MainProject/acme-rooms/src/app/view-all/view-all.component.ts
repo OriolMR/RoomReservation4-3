@@ -1,11 +1,6 @@
 import { Component } from '@angular/core';
 import { RequestService } from 'src/app/services/request.service';
-import {
-  environment,
-  apiControllers,
-  apiUrls,
-  localizacionUrls,
-} from '../../environments/environment';
+
 import { Room } from '../models/room';
 import { RoomExtendedDTO } from '../models/room-extended-dto';
 
