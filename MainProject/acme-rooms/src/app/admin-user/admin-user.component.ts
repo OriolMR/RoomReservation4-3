@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { RequestService } from 'src/app/services/request.service';
-import { environment, apiControllers, apiUrls } from 'src/environments/environment';
 import { User } from 'src/app/models/user';
-import { HttpParams } from '@angular/common/http';
+import { UserServiceService } from '../user.service.service';
+import { UserService } from '../services/users.service';
 
 @Component({
   selector: 'app-admin-user',
@@ -27,13 +27,13 @@ export class AdminUserComponent {
   /*crud */
   users: (User[]) = [];
   oldUser: (User) = new User();
-  constructor(private requestService: RequestService) { }
+  constructor(private requestService: RequestService, private userService: UserService) { }
 
   /*CREATE*/
   addUser() { }
 
   getAllUsers() {
-    this.requestService.get(`${environment.apiUrl}${apiControllers.user}${apiUrls.user.getAllUsers}`)
+    this.requestService.get(`${this.userService.getAllUsers}`)
       .subscribe({
         next: (fetchedUsers: any[]) => {
           this.users = fetchedUsers.map((user: any): any => {

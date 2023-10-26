@@ -47,8 +47,6 @@ export class AdminCountryComponent {
     }
   }
 
- 
-
   getAllCountries() {
     alert(this.countryId);
     this.requestService
@@ -64,8 +62,8 @@ export class AdminCountryComponent {
           });
         },
       });
-
   }
+
   getCountryById(id:number) {
     this.requestService
       .get(`${this.localizacionesService.getCountryById}`,
