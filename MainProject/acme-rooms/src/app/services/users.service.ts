@@ -8,8 +8,8 @@ import { __rest } from 'tslib';
 @Injectable({
   providedIn: 'root'
 })
-export class ReservationsService {
-  private apiUrl = 'https://localhost:5188/api';
+export class UserService {
+  private apiUrl = 'https://localhost:7296/api';
   requestService: any;
 
   constructor(private http: HttpClient) { }
