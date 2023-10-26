@@ -18,7 +18,7 @@ export class LocalizacionesService {
     return throwError('Something went wrong. Please, try again.');
   }
 
-  export const localizacionUrls = {
+  localizacionUrls = {
     country: {
       getAllCountries: 'GetAllCountries',
       getCountryById: 'GetCountryById',
@@ -219,12 +219,12 @@ export class LocalizacionesService {
 
 
 
-
+/*
 this.requestService
   .post(
     `${environment.endpoint.apiUrl}${apiControllers.reservation}${apiUrls.reservation.createReservation}`,
 
-
+    
     this.requestService
       .put(
         `${environment.apiUrl}${apiControllers.reservation}${apiUrls.reservation.updateReservation}`,
@@ -244,7 +244,7 @@ this.requestService
         new HttpParams().append('id', `${id}`))
       .subscribe({});
   }
-
+ */
 
 export const localizacionUrls = {
   country: {
