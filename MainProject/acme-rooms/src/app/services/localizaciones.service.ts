@@ -18,7 +18,7 @@ export class LocalizacionesService {
     return throwError('Something went wrong. Please, try again.');
   }
 
-  export const localizacionUrls = {
+  localizacionUrls = {
     country: {
       getAllCountries: 'GetAllCountries',
       getCountryById: 'GetCountryById',

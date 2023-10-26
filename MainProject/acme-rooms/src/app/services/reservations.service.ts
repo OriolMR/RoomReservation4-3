@@ -18,18 +18,18 @@ export class ReservationsService {
     return throwError('Something went wrong. Please, try again.');
   }
 
-   export const reservationUrls = {
-    getAllReservations: 'GetAllReservations',
-    getReservationById: 'GetReservationById',
-    getReservationsByCountryId: 'GetReservationsByCountryId',
-    getReservationsByCityId: 'GetReservationsByCityId',
-    getReservationsByOfficeId: 'GetReservationsByOfficeId',
-    getReservationsByRoomId: 'GetReservationsByRoomId',
-    getReservationsByUserId: 'GetReservationsByUserId',
-    createReservation: 'CreateReservation',
-    updateReservation: 'UpdateReservation',
-    deleteReservation: 'DeleteReservation'
-  }
+   reservationUrls = {
+      getAllReservations: 'GetAllReservations',
+      getReservationById: 'GetReservationById',
+      getReservationsByCountryId: 'GetReservationsByCountryId',
+      getReservationsByCityId: 'GetReservationsByCityId',
+      getReservationsByOfficeId: 'GetReservationsByOfficeId',
+      getReservationsByRoomId: 'GetReservationsByRoomId',
+      getReservationsByUserId: 'GetReservationsByUserId',
+      createReservation: 'CreateReservation',
+      updateReservation: 'UpdateReservation',
+      deleteReservation: 'DeleteReservation'
+   }
 
   getAllReservations(): Observable<any[]> {
     const url = `${this.apiUrl}/${this.reservationUrls.getAllReservations}`;
@@ -60,7 +60,7 @@ export class ReservationsService {
     return this.requestService.get(url);
   }
 
-  getReservationsByUserId(userId: number): Observable<any[]> {
+  getReservationsByUserId(userId: string): Observable<any[]> {
     const url = `${this.apiUrl}/${this.reservationUrls.getReservationsByUserId}/${userId}`;
     return this.requestService.get(url);
   }
