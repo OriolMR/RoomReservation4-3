@@ -9,9 +9,93 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Locations
 build_property.RootNamespace = Locations
-build_property.ProjectDir = C:\Users\joana.jiayun\Desktop\FusionTeam\RoomReservation4-3\AcmeRoomsBack\acme-rooms\Locations\
+build_property.ProjectDir = C:\Users\harpreet.kaur\Pictures\git\RoomReservation4-3\AcmeRoomsBack\acme-rooms\Locations\
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\joana.jiayun\Desktop\FusionTeam\RoomReservation4-3\AcmeRoomsBack\acme-rooms\Locations
+build_property.MSBuildProjectDirectory = C:\Users\harpreet.kaur\Pictures\git\RoomReservation4-3\AcmeRoomsBack\acme-rooms\Locations
 build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/harpreet.kaur/Pictures/git/RoomReservation4-3/AcmeRoomsBack/acme-rooms/Locations/Views/Cities/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2l0aWVzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/harpreet.kaur/Pictures/git/RoomReservation4-3/AcmeRoomsBack/acme-rooms/Locations/Views/Cities/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2l0aWVzXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/harpreet.kaur/Pictures/git/RoomReservation4-3/AcmeRoomsBack/acme-rooms/Locations/Views/Cities/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2l0aWVzXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/harpreet.kaur/Pictures/git/RoomReservation4-3/AcmeRoomsBack/acme-rooms/Locations/Views/Cities/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2l0aWVzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/harpreet.kaur/Pictures/git/RoomReservation4-3/AcmeRoomsBack/acme-rooms/Locations/Views/Cities/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2l0aWVzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/harpreet.kaur/Pictures/git/RoomReservation4-3/AcmeRoomsBack/acme-rooms/Locations/Views/Countries/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291bnRyaWVzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/harpreet.kaur/Pictures/git/RoomReservation4-3/AcmeRoomsBack/acme-rooms/Locations/Views/Countries/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291bnRyaWVzXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/harpreet.kaur/Pictures/git/RoomReservation4-3/AcmeRoomsBack/acme-rooms/Locations/Views/Countries/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291bnRyaWVzXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/harpreet.kaur/Pictures/git/RoomReservation4-3/AcmeRoomsBack/acme-rooms/Locations/Views/Countries/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291bnRyaWVzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/harpreet.kaur/Pictures/git/RoomReservation4-3/AcmeRoomsBack/acme-rooms/Locations/Views/Countries/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291bnRyaWVzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/harpreet.kaur/Pictures/git/RoomReservation4-3/AcmeRoomsBack/acme-rooms/Locations/Views/Offices/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT2ZmaWNlc1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/harpreet.kaur/Pictures/git/RoomReservation4-3/AcmeRoomsBack/acme-rooms/Locations/Views/Offices/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT2ZmaWNlc1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/harpreet.kaur/Pictures/git/RoomReservation4-3/AcmeRoomsBack/acme-rooms/Locations/Views/Offices/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT2ZmaWNlc1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/harpreet.kaur/Pictures/git/RoomReservation4-3/AcmeRoomsBack/acme-rooms/Locations/Views/Offices/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT2ZmaWNlc1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/harpreet.kaur/Pictures/git/RoomReservation4-3/AcmeRoomsBack/acme-rooms/Locations/Views/Offices/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT2ZmaWNlc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/harpreet.kaur/Pictures/git/RoomReservation4-3/AcmeRoomsBack/acme-rooms/Locations/Views/Rooms/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9vbXNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/harpreet.kaur/Pictures/git/RoomReservation4-3/AcmeRoomsBack/acme-rooms/Locations/Views/Rooms/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9vbXNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/harpreet.kaur/Pictures/git/RoomReservation4-3/AcmeRoomsBack/acme-rooms/Locations/Views/Rooms/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9vbXNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/harpreet.kaur/Pictures/git/RoomReservation4-3/AcmeRoomsBack/acme-rooms/Locations/Views/Rooms/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9vbXNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/harpreet.kaur/Pictures/git/RoomReservation4-3/AcmeRoomsBack/acme-rooms/Locations/Views/Rooms/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9vbXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/harpreet.kaur/Pictures/git/RoomReservation4-3/AcmeRoomsBack/acme-rooms/Locations/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 

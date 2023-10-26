@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\joana.jiayun\\Desktop\\FusionTeam\\RoomReservation4-3\\AcmeRoomsBack\\acme-rooms\\Locations\\Locations.csproj": {}
+    "C:\\Users\\harpreet.kaur\\Pictures\\git\\RoomReservation4-3\\AcmeRoomsBack\\acme-rooms\\Locations\\Locations.csproj": {}
   },
   "projects": {
-    "C:\\Users\\joana.jiayun\\Desktop\\FusionTeam\\RoomReservation4-3\\AcmeRoomsBack\\acme-rooms\\Locations\\Locations.csproj": {
+    "C:\\Users\\harpreet.kaur\\Pictures\\git\\RoomReservation4-3\\AcmeRoomsBack\\acme-rooms\\Locations\\Locations.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\joana.jiayun\\Desktop\\FusionTeam\\RoomReservation4-3\\AcmeRoomsBack\\acme-rooms\\Locations\\Locations.csproj",
+        "projectUniqueName": "C:\\Users\\harpreet.kaur\\Pictures\\git\\RoomReservation4-3\\AcmeRoomsBack\\acme-rooms\\Locations\\Locations.csproj",
         "projectName": "Locations",
-        "projectPath": "C:\\Users\\joana.jiayun\\Desktop\\FusionTeam\\RoomReservation4-3\\AcmeRoomsBack\\acme-rooms\\Locations\\Locations.csproj",
-        "packagesPath": "C:\\Users\\joana.jiayun\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\joana.jiayun\\Desktop\\FusionTeam\\RoomReservation4-3\\AcmeRoomsBack\\acme-rooms\\Locations\\obj\\",
+        "projectPath": "C:\\Users\\harpreet.kaur\\Pictures\\git\\RoomReservation4-3\\AcmeRoomsBack\\acme-rooms\\Locations\\Locations.csproj",
+        "packagesPath": "C:\\Users\\harpreet.kaur\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\harpreet.kaur\\Pictures\\git\\RoomReservation4-3\\AcmeRoomsBack\\acme-rooms\\Locations\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\joana.jiayun\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\harpreet.kaur\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -44,6 +44,20 @@
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[7.0.7, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[7.0.12, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.12, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[7.0.9, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
