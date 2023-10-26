@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { RequestService } from 'src/app/services/request.service';
-import { environment, apiControllers, apiUrls, localizacionUrls } from 'src/environments/environment';
 import { Room } from 'src/app/models/room';
 import { HttpParams } from '@angular/common/http';
+import { LocalizacionesService } from '../services/localizaciones.service';
 
 @Component({
   selector: 'app-admin-room',
@@ -20,11 +20,11 @@ export class AdminRoomComponent {
   rooms: (Room[]) = []
   oldRoom: (Room) = new Room()
   updatedRoom: (Room) = new Room()
-  constructor(private requestService: RequestService) { }
+  constructor(private requestService: RequestService, private localizacionesService: LocalizacionesService) { }
 
   /*CREATE*/
   addRoom() {
-    this.requestService.post(`${environment.localizacionApiUrl}${apiControllers.room}${localizacionUrls.room.createRoom}`,
+    this.requestService.post(`${this.localizacionesService.createOffice}`,
       {
         "Name": this.roomName,
         "Capacity": this.roomCapacity,
@@ -40,7 +40,7 @@ export class AdminRoomComponent {
       });
   }
   getAllRooms() {
-    this.requestService.get(`${environment.localizacionApiUrl}${apiControllers.room}${localizacionUrls.room.getAllRooms}`)
+    this.requestService.get(`${this.localizacionesService.getAllRooms}`)
       .subscribe({
         next: (fetchedRooms: any[]) => {
           this.rooms = fetchedRooms.map((room: any): any => {
@@ -55,7 +55,7 @@ export class AdminRoomComponent {
       });
   }
   getRoomById(id: number) {
-    this.requestService.get(`${environment.localizacionApiUrl}${apiControllers.room}${localizacionUrls.room.getRoomById}`, new HttpParams().append("id", id))
+    this.requestService.get(`${this.localizacionesService.getRoomById}`, new HttpParams().append("id", id))
       .subscribe({
         next: (fetchedRoom: any) => {
           this.rooms = [{
@@ -69,7 +69,7 @@ export class AdminRoomComponent {
   }
   updateRoom(id: number) {
     /* getting old info*/
-    this.requestService.get(`${environment.localizacionApiUrl}${apiControllers.room}${localizacionUrls.room.getRoomById}`, new HttpParams().append("id", id))
+    this.requestService.get(`${this.localizacionesService.getRoomById}`, new HttpParams().append("id", id))
       .subscribe({
         next: (fetchedRoom: any) => {
           this.oldRoom = {
@@ -82,7 +82,7 @@ export class AdminRoomComponent {
       });
     /*update database*/
     this.requestService
-      .put(`${environment.localizacionApiUrl}${apiControllers.room}${localizacionUrls.room.updateRoom}`,
+      .put(`${this.localizacionesService.updateRoom}`,
         {
           "Id": this.roomId,
           "Name": this.roomName,
@@ -96,7 +96,7 @@ export class AdminRoomComponent {
           }
         });
     /*Get country with new info*/
-    this.requestService.get(`${environment.localizacionApiUrl}${apiControllers.room}${localizacionUrls.room.getRoomById}`, new HttpParams().append("id", id))
+    this.requestService.get(`${this.localizacionesService.getRoomById}`, new HttpParams().append("id", id))
       .subscribe({
         next: (fetchedRoom: any) => {
           this.updatedRoom = {
@@ -111,7 +111,7 @@ export class AdminRoomComponent {
   deleteRoom() {
     alert(this.roomId);
     this.requestService
-      .delete(`${environment.localizacionApiUrl}${apiControllers.room}${localizacionUrls.room.deleteRoom}`,
+      .delete(`${this.localizacionesService.deleteRoom}`,
       new HttpParams().append('id', `${this.roomId.toString()}`))
       .subscribe({});
   }

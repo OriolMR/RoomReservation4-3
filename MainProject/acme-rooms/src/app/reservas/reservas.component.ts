@@ -2,12 +2,7 @@ import { Component, ElementRef } from '@angular/core';
 import * as dayjs from 'dayjs';
 import { FormsModule } from '@angular/forms';
 import { RequestService } from 'src/app/services/request.service';
-import {
-  environment,
-  apiControllers,
-  apiUrls,
-  localizacionUrls,
-} from '../../environments/environment';
+
 import { OnInit, ViewChild } from '@angular/core';
 import { Observable } from 'rxjs';
 import { toArray } from 'rxjs/operators';
@@ -18,6 +13,7 @@ import { Room } from '../models/room';
 import { ReservationRegistrationForm } from '../models/reservation-registration-form';
 import { Reservation } from '../models/reservation';
 import { HttpParams } from '@angular/common/http';
+import { LocalizacionesService } from '../services/localizaciones.service';
 
 @Component({
   selector: 'app-reservas',
@@ -41,14 +37,14 @@ export class ReservasComponent implements OnInit {
   offices: Office[] = [];
   rooms: Room[] = [];
 
-  constructor(private requestService: RequestService) {
+  constructor(private requestService: RequestService, private localizacionesService: LocalizacionesService) {
     this.reservationRegistrationForm = new ReservationRegistrationForm();
   }
 
   ngOnInit(): void {
     this.requestService
       .get(
-        `${environment.localizacionApiUrl}${apiControllers.country}${localizacionUrls.country.getAllCountries}`
+        `${this.localizacionesService.getAllCountries}`
       )
       //.pipe(toArray())
       .subscribe({
@@ -87,7 +83,7 @@ export class ReservasComponent implements OnInit {
     if (id === 'any') {
       this.requestService
         .get(
-          `${environment.localizacionApiUrl}${apiControllers.city}${localizacionUrls.city.getAllCities}`
+          `${this.localizacionesService.getAllCities}`
         )
         .subscribe({
           next: (cities: City[]) => {
@@ -97,7 +93,7 @@ export class ReservasComponent implements OnInit {
         });
       this.requestService
         .get(
-          `${environment.localizacionApiUrl}${apiControllers.office}${localizacionUrls.office.getAllOffices}`
+          `${this.localizacionesService.getAllOffices}`
         )
         .subscribe({
           next: (offices: Office[]) => {
@@ -112,7 +108,7 @@ export class ReservasComponent implements OnInit {
     } else {
       this.requestService
         .get(
-          `${environment.localizacionApiUrl}${apiControllers.city}${localizacionUrls.city.getCitiesByCountryId}`,
+          `${this.localizacionesService.getCitiesByCountryId}`,
           new HttpParams().append('countryId', id)
         )
         .subscribe({
@@ -125,7 +121,7 @@ export class ReservasComponent implements OnInit {
         });
       this.requestService
         .get(
-          `${environment.localizacionApiUrl}${apiControllers.office}${localizacionUrls.office.getOfficesByCountryId}`,
+          `${this.localizacionesService.getOfficesByCountryId}`,
           new HttpParams().append('countryId', id)
         )
         .subscribe({
@@ -143,7 +139,7 @@ export class ReservasComponent implements OnInit {
     if (id === 'any') {
       this.requestService
         .get(
-          `${environment.localizacionApiUrl}${apiControllers.room}${localizacionUrls.room.getAllRooms}`
+          `${this.localizacionesService.getAllRooms}`
         )
         //.pipe(toArray())
         .subscribe({
@@ -156,7 +152,7 @@ export class ReservasComponent implements OnInit {
     } else {
       this.requestService
         .get(
-          `${environment.localizacionApiUrl}${apiControllers.room}${localizacionUrls.room.getRoomsByOfficeId}`,
+          `${this.localizacionesService.getRoomsByOfficeId}`,
           new HttpParams().append('officeId', id)
         )
         .subscribe({
