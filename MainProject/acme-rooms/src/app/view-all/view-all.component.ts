@@ -3,6 +3,7 @@ import { RequestService } from 'src/app/services/request.service';
 
 import { Room } from '../models/room';
 import { RoomExtendedDTO } from '../models/room-extended-dto';
+import { ReservationService } from '../services/reservation.service';
 
 @Component({
   selector: 'app-view-all',
@@ -149,7 +150,7 @@ export class ViewAllComponent {
   countryKeys: string[] = [];
   userInput: string = "";
 
-  constructor(private requestService: RequestService) {
+  constructor(private requestService: RequestService, private reservationService: ReservationService) {
     this.getAllRooms();
   }
 
@@ -157,7 +158,7 @@ export class ViewAllComponent {
   getAllRooms(): void {
     this.requestService
       .get(
-        `${environment.localizacionApiUrl}${apiControllers.room}${localizacionUrls.room.getAllRoomExtendedDTOs}`
+        `${this.reservationService.}`
       )
       .subscribe({
         next: (fetchedRoomDTOs: RoomExtendedDTO[]) => {

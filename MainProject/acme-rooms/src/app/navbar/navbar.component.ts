@@ -3,8 +3,8 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { RequestService } from '../services/request.service';
-import { apiControllers, apiUrls, environment, localizacionUrls } from 'src/environments/environment';
 import { HttpParams } from '@angular/common/http';
+import { LocalizacionesService } from '../services/localizaciones.service';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -16,6 +16,7 @@ export class NavbarComponent implements OnInit {
   constructor(
     private router: Router,
     private authenticationService: AuthenticationService,
+    private localizacionesService: LocalizacionesService,
     private crudService: RequestService
   ) {}
 
@@ -67,12 +68,12 @@ export class NavbarComponent implements OnInit {
     this.router.navigate(['view-all-rooms']);
   }
   ngOnInit(): void {
-    this.crudService.get(`${environment.localizacionApiUrl}${apiControllers.country}${localizacionUrls.country.getAllCountries}`)
+    this.crudService.get(`${this.localizacionesService.getAllCountries}`)
       .subscribe({next: (countries:any) => {
         countries.forEach((country:any) => {
           console.log(country);
           let offices = [];
-          this.crudService.get(`${environment.localizacionApiUrl}${apiControllers.office}${localizacionUrls.office.getOfficesByCountryId}`, new HttpParams().append('countryId', country.id))
+          this.crudService.get(`${this.localizacionesService.getCountryById}`, new HttpParams().append('countryId', country.id))
             .subscribe({next: (officesResponse:any) => {
               console.table(officesResponse);
               let newInfo = new NavbarInfo(country.id,country.name,officesResponse);

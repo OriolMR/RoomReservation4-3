@@ -18,7 +18,7 @@ export class ReservationsService {
     return throwError('Something went wrong. Please, try again.');
   }
 
-   export const reservationUrls = {
+   reservationUrls = {
     getAllReservations: 'GetAllReservations',
     getReservationById: 'GetReservationById',
     getReservationsByCountryId: 'GetReservationsByCountryId',

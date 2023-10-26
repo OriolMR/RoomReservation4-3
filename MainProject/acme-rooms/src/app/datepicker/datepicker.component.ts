@@ -3,6 +3,7 @@ import { easepick } from '@easepick/bundle';
 import { DateTime } from '@easepick/bundle';
 import { RequestService } from '../services/request.service';
 import { LockedDate } from '../models/locked-date';
+import { LockedDatesService } from '../services/lockeddates.service';
 
 @Component({
   selector: 'app-datepicker',
@@ -13,12 +14,12 @@ export class DatepickerComponent {
   dateStrings: string[] = [];
   disabledDates: DateTime[] = [];
 
-  constructor(private requestService: RequestService) {}
+  constructor(private requestService: RequestService, private lockedDatesService: LockedDatesService) { }
 
   ngOnInit() {
     this.requestService
       .get(
-        `${environment.apiUrl}${apiControllers.lockedDate}${apiUrls.lockedDate.getAllLockedDates}`
+        `${this.lockedDatesService.getAllLockedDates}`
       )
       .subscribe({
         next: (lockedDates: LockedDate[]) => {
