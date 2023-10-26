@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { RequestService } from 'src/app/services/request.service';
-import { environment, apiControllers, apiUrls } from 'src/environments/environment';
 
 @Component({
   selector: 'app-admin-administrator',

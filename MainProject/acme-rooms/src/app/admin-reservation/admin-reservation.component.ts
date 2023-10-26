@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { RequestService } from 'src/app/services/request.service';
-import { environment, apiControllers, apiUrls } from 'src/environments/environment';
 import { Reservation } from 'src/app/models/reservation';
 import { HttpParams } from '@angular/common/http';
 import { ReservationRegistrationForm } from '../models/reservation-registration-form';
@@ -10,6 +9,7 @@ import { Office } from '../models/office';
 import { Room } from '../models/room';
 import * as dayjs from 'dayjs';
 import { ReservationExtendedDTO } from '../models/reservation-extended-dto';
+import { ReservationsService } from '../services/reservations.service';
 
 @Component({
   selector: 'app-admin-reservation',
@@ -31,13 +31,13 @@ export class AdminReservationComponent {
   userId!: string;
   reservas: (Reservation[]) = []
   reservation: (Reservation) = new Reservation()
-  constructor(private requestService: RequestService) { }
+  constructor(private requestService: RequestService, private reservationsService: ReservationsService) { }
 
   /*CREATE*/
   addReservation() {
     this.requestService
       .post(
-        `${environment.apiUrl}${apiControllers.reservation}${apiUrls.reservation.createReservation}`,
+        `${this.reservationsService.createCountry}`,
         {
           "date": this.reservation.date,
           "startTime": this.reservation.startTime,
@@ -59,7 +59,7 @@ export class AdminReservationComponent {
   getAllReservations() {
     this.requestService
       .get(
-        `${environment.apiUrl}${apiControllers.reservation}${apiUrls.reservation.getAllReservations}`)
+        `${this.reservationsService.getAllReservations}`)
       .subscribe({
         next: (fetchedReservations: ReservationExtendedDTO[]) => {
           const currentDate = dayjs(undefined, 'YYYY-MM-DD');
@@ -79,7 +79,7 @@ export class AdminReservationComponent {
   getReservationByUserId(id: string) {
     this.requestService
       .get(
-        `${environment.apiUrl}${apiControllers.reservation}${apiUrls.reservation.getReservationsByUserId}`,
+        `${this.reservationsService.getReservationsByUserId}`,
         new HttpParams().append('userId', `${id}`)
       )
       .subscribe({
@@ -95,7 +95,7 @@ export class AdminReservationComponent {
   getReservationById(id: number) {
     this.requestService
       .get(
-        `${environment.apiUrl}${apiControllers.reservation}${apiUrls.reservation.getReservationById}`,
+        `${this.reservationsService.getReservationById}`,
         new HttpParams().append('id', `${id}`)
       )
       .subscribe({
@@ -125,7 +125,7 @@ export class AdminReservationComponent {
     /* comprobamos y obtenemos datos de la reserva */
     this.requestService
       .get(
-        `${environment.apiUrl}${apiControllers.reservation}${apiUrls.reservation.getReservationById}`,
+        `${this.reservationsService.getReservationById}`,
         new HttpParams().append('id', id)
       )
       .subscribe({
@@ -156,7 +156,7 @@ export class AdminReservationComponent {
     /* */
     this.requestService
       .put(
-        `${environment.apiUrl}${apiControllers.reservation}${apiUrls.reservation.updateReservation}`, {
+        `${this.reservationsService.updateReservation}`, {
           "id": this.updateThisReservation.id,
           "date": this.updateThisReservation.date,
           "startTime": this.updateThisReservation.startTime,
