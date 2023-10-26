@@ -18,7 +18,7 @@ export class UserService {
     return throwError('Something went wrong. Please, try again.');
   }
 
-  export const userUrls = {
+  userUrls = {
     getAllUsers: 'GetAllUsers',
     getUserById: 'GetUserById',
     getUserByEmail: 'GetUserByEmail',

@@ -3,8 +3,7 @@ import { Component, Input, ElementRef, Renderer2, ViewChild, Output, EventEmitte
 } from '@angular/core';
 import { RequestService } from '../services/request.service';
 import { ReservationExtendedDTO } from '../models/reservation-extended-dto';
-import { environment, apiControllers, apiUrls } from 'src/environments/environment';
-
+import { ReservationsService } from '../services/reservations.service';
 @Component({
   selector: 'app-reserve-list',
   templateUrl: './reserve-list.component.html',
@@ -19,7 +18,7 @@ export class ReserveListComponent {
   @Output("getReservas")
   getReservas: EventEmitter<any> = new EventEmitter();
 
-  constructor(private requestService: RequestService) {}
+  constructor(private requestService: RequestService, private reservations: ReservationsService) { }
 
   onDeleteClick() {
     alert(`${this.reservation.id}`);
@@ -39,12 +38,8 @@ export class ReserveListComponent {
     alert(JSON.stringify(new HttpParams().append('id', `${id.toString()}`)));
     this.requestService
       .delete(
-        `${environment.apiUrl}${apiControllers.reservation}${apiUrls.reservation.deleteReservation}`,
+        this.reservations.deleteReservation(id),
         new HttpParams().append('id', `${id.toString()}`))
-      //   {
-      //     id: this.reservation.id,
-      //   }
-      // )
       .subscribe({
         next: (response) => {
           this.getReservas.emit();

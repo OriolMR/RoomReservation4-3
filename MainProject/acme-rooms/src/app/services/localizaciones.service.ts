@@ -14,6 +14,10 @@ export class LocalizacionesService {
 
   constructor(private http: HttpClient, private requestService: RequestService) { }
 
+  private handleError(error: HttpErrorResponse) {
+    return throwError('Something went wrong. Please, try again.');
+  }
+
   localizacionUrls = {
     country: {
       getAllCountries: 'GetAllCountries',
@@ -209,5 +213,32 @@ export class LocalizacionesService {
 
 
 
+
+/*
+this.requestService
+  .post(
+    `${environment.endpoint.apiUrl}${apiControllers.reservation}${apiUrls.reservation.createReservation}`,
+
+    
+    this.requestService
+      .put(
+        `${environment.apiUrl}${apiControllers.reservation}${apiUrls.reservation.updateReservation}`,
+        {
+          id: this.reservationData.id,
+          date: this.reservationData.date,
+          startTime: this.reservationData.startTime,
+          endTime: this.reservationData.endTime,
+          roomId: this.reservationData.roomId,
+          userId: this.reservationData.userId
+        }
+    )
+
+
+        this.requestService
+      .delete(`${environment.apiUrl}${apiControllers.country}${localizacionUrls.country.deleteCountry}`,
+        new HttpParams().append('id', `${id}`))
+      .subscribe({});
+  }
+ */
 
 
