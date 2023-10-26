@@ -37,7 +37,7 @@ export class AdminReservationComponent {
   addReservation() {
     this.requestService
       .post(
-        `${this.reservationsService.createCountry}`,
+        `${this.reservationsService.createReservation}`,
         {
           "date": this.reservation.date,
           "startTime": this.reservation.startTime,
