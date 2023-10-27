@@ -14,7 +14,7 @@ export class UserServiceService {
   setUserName(email: string) {
     this.requestService
       .get(
-        `${}`,
+        `${this.setUserName}`,
         new HttpParams().append('email', email)
       )
       .subscribe({

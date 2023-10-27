@@ -1,6 +1,6 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { RequestService } from '../services/request.service';
-import { AuthenticationService } from 'src/app/services/authentication.service';
+/*import { AuthenticationService } from 'src/app/services/authentication.service';*/
 import { ReservationExtendedDTO } from '../models/reservation-extended-dto';
 import { HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -21,7 +21,7 @@ export class ReservationComponent implements OnInit {
   showNoReservaComponent: boolean = true;
   valorInput: string = "";
 
-  constructor(private authenticationService: AuthenticationService, private requestService: RequestService, private reservations: ReservationsService) {
+  constructor(/*private authenticationService: AuthenticationService,*/ private requestService: RequestService, private reservations: ReservationsService) {
   }
 
   ngOnInit() {

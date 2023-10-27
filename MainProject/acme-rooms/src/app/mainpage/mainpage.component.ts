@@ -150,23 +150,21 @@ export class MainpageComponent {
   }
 
   getRooms(): void {
-    this.requestService
-      .get(
-        `${this.localizacionesService.getAllRooms}`
-      )
-      //.pipe(toArray())
-      .subscribe({
-        next: (fetchedRooms: any[]) => {
-          this.rooms = fetchedRooms.map((room: any, index: number): any => {
-            return {
-              id: room.id,
-              name: room.name,
-              officeId: room.officeId,
-              img: this.roomImages[index],
-            };
-          });
-        },
-      });
+    this.localizacionesService.getAllCountries().subscribe({
+      next: (fetchedRooms: any[]) => {
+        this.rooms = fetchedRooms.map((room: any, index: number): any => {
+          return {
+            id: room.id,
+            name: room.name,
+            officeId: room.officeId,
+            img: this.roomImages[index],
+          };
+        });
+      },
+      error: (error: any) => {
+        console.error('Error fetching rooms:', error);
+      }
+    });
   }
 
   goToDetails(id: number) {

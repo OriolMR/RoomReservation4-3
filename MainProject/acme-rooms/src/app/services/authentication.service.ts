@@ -30,9 +30,10 @@ export class AuthenticationService {
   }
 
   public login(email: string, password: string): Observable<any> {
-    return this.httpClient
+  
+  return this.httpClient
       .post(
-        `${environment.apiUrl}${apiControllers.authentication}${apiUrls.authentication.login}`,
+        `${/*environment.apiUrl}${apiControllers.authentication}${apiUrls.authentication.login*/""}`,
         { email: email, password: password }
       )
       .pipe(

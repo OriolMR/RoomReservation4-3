@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 import { __rest } from 'tslib';
 import { RequestService } from './request.service';
 
@@ -10,7 +10,7 @@ import { RequestService } from './request.service';
   providedIn: 'root'
 })
 export class LocalizacionesService {
-  private apiUrl = 'https://localhost:7281/api';
+  private apiUrl = 'https://localhost:7249/api';
 
   constructor(private http: HttpClient, private requestService: RequestService) { }
 
@@ -56,18 +56,24 @@ export class LocalizacionesService {
     },
   }
 
+  countries = 'Countries';
+  cities = 'Cities';
+  offices = 'Offices';
+  rooms = 'Rooms'
+
   // Assuming localizacionUrls is an object with properties, and getAllCountries is a property containing the path.
 
   // Countries
 
   getAllCountries(): Observable<any[]> {
-    const url = `${this.apiUrl}/${this.localizacionUrls.country.getAllCountries}`;
+    const url = `${this.apiUrl}/${this.countries}/${this.localizacionUrls.country.getAllCountries}`;
     return this.requestService.get(url);
   }
 
+
   getCountryById(countryId: number): Observable<any> {
-    const url = `${this.apiUrl}/${this.localizacionUrls.country.getCountryById}/${countryId}`;
-    return this.requestService.get(url);
+    const url = `${this.apiUrl}/${this.localizacionUrls.country.getCountryById}`;
+    return this.requestService.get(url, new HttpParams().append('id', countryId));
   }
 
   createCountry(countryData: any): Observable<any>  {
@@ -81,8 +87,8 @@ export class LocalizacionesService {
   }
 
   deleteCountry(countryId: number) {
-    const url = `${this.apiUrl}/${this.localizacionUrls.country.deleteCountry}`;
-    return this.requestService.delete(url, countryId);
+    const url = `${this.apiUrl}/${this.localizacionUrls.country.deleteCountry}/${countryId}`;
+    return this.requestService.delete(url);
   }
 
   // Cities
@@ -114,7 +120,7 @@ export class LocalizacionesService {
 
   deleteCity(cityId: number) {
     const url = `${this.apiUrl}/${this.localizacionUrls.city.deleteCity}/${cityId}`;
-    return this.requestService.delete(url, cityId);
+    return this.requestService.delete(url);
   }
 
   // Offices
@@ -145,7 +151,7 @@ export class LocalizacionesService {
   }
 
   deleteOffice(officeId: number) {
-    const url = `${this.apiUrl}/${this.localizacionUrls.office.deleteOffice}`;
+    const url = `${this.apiUrl}/${this.localizacionUrls.office.deleteOffice}/${officeId}`;
     return this.requestService.delete(url);
   }
 
@@ -191,8 +197,8 @@ export class LocalizacionesService {
     return this.requestService.put(url, roomData);
   }
 
-  deleteRoom(): Observable<number> {
-    const url = `${this.apiUrl}/${this.localizacionUrls.room.deleteRoom}`;
+  deleteRoom(roomId: number): Observable<number> {
+    const url = `${this.apiUrl}/${this.localizacionUrls.room.deleteRoom}/${roomId}`;
     return this.requestService.delete(url);
   }
 

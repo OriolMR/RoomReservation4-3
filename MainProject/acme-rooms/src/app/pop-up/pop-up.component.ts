@@ -1,8 +1,8 @@
 import { Component, Input } from '@angular/core';
-import { ReservationService } from 'src/app/services/reservation.service';
-import { environment,apiControllers,apiUrls} from 'src/environments/environment';
 import { RequestService } from '../services/request.service';
 import { ReservationExtendedDTO } from '../models/reservation-extended-dto';
+import { ReservationsService } from '../services/reservations.service';
+import { ReservationService } from '../services/reservation.service';
 
 @Component({
   selector: 'app-pop-up',
@@ -14,6 +14,7 @@ export class PopUpComponent {
 
   constructor(
     private reservationService: ReservationService,
+    private reservationsService: ReservationsService,
     private requestService: RequestService
   ) {}
 
@@ -22,7 +23,7 @@ export class PopUpComponent {
     alert(`${JSON.stringify(this.reservationData)}`);
     this.requestService
       .put(
-        `${environment.apiUrl}${apiControllers.reservation}${apiUrls.reservation.updateReservation}`,
+        `${this.reservationsService.updateReservation}`,
         {
           id: this.reservationData.id,
           date: this.reservationData.date,
