@@ -2,11 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'node_modules/rxjs';
 import { tap, shareReplay } from 'node_modules/rxjs/operators';
-import {
-  environment,
-  apiControllers,
-  apiUrls,
-} from '../../environments/environment';
 import * as dayjs from 'dayjs';
 import { UserServiceService } from 'src/app/user.service.service';
 
@@ -35,9 +30,10 @@ export class AuthenticationService {
   }
 
   public login(email: string, password: string): Observable<any> {
-    return this.httpClient
+  
+  return this.httpClient
       .post(
-        `${environment.apiUrl}${apiControllers.authentication}${apiUrls.authentication.login}`,
+        `${/*environment.apiUrl}${apiControllers.authentication}${apiUrls.authentication.login*/""}`,
         { email: email, password: password }
       )
       .pipe(

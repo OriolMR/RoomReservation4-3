@@ -2,11 +2,11 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { Observable } from 'node_modules/rxjs';
-import {
-  environment,
-  apiControllers,
-  apiUrls,
-} from 'src/environments/environment';
+//import {
+//  environment,
+//  apiControllers,
+//  apiUrls,
+//} from 'src/environments/environment';
 import { UserServiceService } from 'src/app/user.service.service';
 
 @Component({

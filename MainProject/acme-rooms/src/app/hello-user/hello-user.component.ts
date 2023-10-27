@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { RequestService } from 'src/app/services/request.service';
 import { Observable } from 'node_modules/rxjs';
-import { environment, apiControllers, apiUrls } from 'src/environments/environment';
+/*import { environment, apiControllers, apiUrls } from 'src/environments/environment';*/
 import { UserServiceService } from 'src/app/user.service.service';
 import { FormsModule } from '@angular/forms';
 import { HttpParams } from '@angular/common/http';
+import { UserService } from '../services/users.service';
 
 
 @Component({
@@ -29,7 +30,7 @@ export class HelloUserComponent {
 
   newPhone: string = "";
 
-  constructor(private requestService: RequestService, private userServiceService: UserServiceService) {
+  constructor(private requestService: RequestService, private userService: UserService, private userServiceService: UserServiceService) {
     this.userName = localStorage.getItem('userName')!;
     this.email = localStorage.getItem('email')!;
     this.phone = localStorage.getItem('phoneNumber')!;
@@ -43,7 +44,7 @@ export class HelloUserComponent {
     /*update database*/
     this.requestService
       .put(
-        `${environment.apiUrl}${apiControllers.user}${apiUrls.user.updateUser}`,
+        `${this.userService.updateUser}`,
         {
           UserName: this.userName,
           Email: this.email,
@@ -65,7 +66,7 @@ export class HelloUserComponent {
   public changePassword() {
     this.requestService
       .put(
-        `${environment.apiUrl}${apiControllers.user}${apiUrls.user.updatePassword}?id=${this.userId}`,
+        `${this.userService.updateUser}/${this.userId}`,
         {         
           currentPassword: this.currentPassword,
           newPassword: this.newPassword,

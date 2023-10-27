@@ -13,7 +13,7 @@ export class AllRoomsComponent {
   constructor (
     private router: Router,
     private crudService: RequestService,
-    private localizacionesService: LocalizacionesService
+    private localizacionesService: LocalizacionesService,
   ) {}
 
   allRoomsInfo:allRoomsInfo[]= [];
@@ -22,7 +22,7 @@ export class AllRoomsComponent {
     this.crudService.get(`${this.localizacionesService.getAllCountries}`)
       .subscribe({next: (countries:any) => {
         countries.forEach((country: any) => {
-          this.crudService.get(`${this.localizacionesService.getCountryById}`, new HttpParams().append('countryId', country.id))
+          this.crudService.get(`${this.localizacionesService.getAllOffices}`, new HttpParams().append('countryId', country.id))
             .subscribe({next:(officesResponse:any) => {
               let allRooms = new allRoomsInfo(country.id, country.name, officesResponse);
               this.allRoomsInfo.push(allRooms);

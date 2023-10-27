@@ -14,6 +14,7 @@ import { ReservationRegistrationForm } from '../models/reservation-registration-
 import { Reservation } from '../models/reservation';
 import { HttpParams } from '@angular/common/http';
 import { LocalizacionesService } from '../services/localizaciones.service';
+import { ReservationsService } from '../services/reservations.service';
 
 @Component({
   selector: 'app-reservas',
@@ -37,7 +38,7 @@ export class ReservasComponent implements OnInit {
   offices: Office[] = [];
   rooms: Room[] = [];
 
-  constructor(private requestService: RequestService, private localizacionesService: LocalizacionesService) {
+  constructor(private requestService: RequestService, private localizacionesService: LocalizacionesService, private reservationsService: ReservationsService) {
     this.reservationRegistrationForm = new ReservationRegistrationForm();
   }
 
@@ -59,7 +60,7 @@ export class ReservasComponent implements OnInit {
   postReservation(): void {
     this.requestService
       .post(
-        `${environment.apiUrl}${apiControllers.reservation}${apiUrls.reservation.createReservation}`,
+        `${this.reservationsService.createReservation}`,
         this.reservationRegistrationForm
       )
       .subscribe({
