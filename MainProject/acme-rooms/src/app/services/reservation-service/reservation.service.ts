@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 import { Observable, Subject } from 'rxjs';
 
-import { ReservationExtendedDTO } from '../models/reservation-extended-dto';
+import { ReservationExtendedDTO } from '../../models/reservation-models/reservation-extended-dto';
 
 @Injectable({
   providedIn: 'root',
