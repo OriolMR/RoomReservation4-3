@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RequestService } from 'src/app/services/request.service';
-import { Room } from 'src/app/models/room';
+import { Room } from 'src/app/models/room-models/room';
 import { HttpParams } from '@angular/common/http';
 import { LocalizacionesService } from '../../services/localizaciones.service';
 

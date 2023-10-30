@@ -1,8 +1,8 @@
 import { Component, Input } from '@angular/core';
-import { RequestService } from '../services/request.service';
-import { ReservationExtendedDTO } from '../models/reservation-extended-dto';
-import { ReservationsService } from '../services/reservations.service';
-import { ReservationService } from '../services/reservation.service';
+import { RequestService } from '../../../../services/request.service';
+import { ReservationExtendedDTO } from '../../../../models/reservation-models/reservation-extended-dto';
+import { ReservationsService } from '../../../../services/reservation-service/reservations.service';
+import { ReservationService } from '../../../../services/reservation-service/reservation.service';
 
 @Component({
   selector: 'app-pop-up',
