@@ -36,8 +36,9 @@ export class LoginComponent {
   }
 
   login() {
-    this.authenticationService
-      .login(this.user.email, this.user.password)
+    //this.authenticationService
+    //  .login(this.user.email, this.user.password)
+    this.requestService.
       .subscribe({
         next: (response: any) => {
           //alert(JSON.stringify(response));

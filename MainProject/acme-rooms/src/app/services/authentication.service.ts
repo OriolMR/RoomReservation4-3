@@ -4,6 +4,7 @@ import { Observable, of } from 'node_modules/rxjs';
 import { tap, shareReplay } from 'node_modules/rxjs/operators';
 import * as dayjs from 'dayjs';
 import { UserServiceService } from 'src/app/user.service.service';
+import { RequestService } from './request.service';
 
 @Injectable({
   providedIn: 'root',
@@ -12,7 +13,13 @@ export class AuthenticationService {
   constructor(
     private httpClient: HttpClient,
     private userService: UserServiceService
-  ) {}
+  ) { }
+
+  authentication = {
+    login: 'Login',
+    register: 'Register',
+    registerAdmin: 'RegisterAdmin',
+  }
 
   private setSession(authenticationResult: any, email: string): void {
     const expiration = dayjs().add(authenticationResult.expiration, 'minutes');
@@ -28,6 +35,8 @@ export class AuthenticationService {
     /*alert(JSON.stringify(authenticationResult));*/
     //alert(JSON.stringify(authenticationResult.claims));
   }
+
+
 
   public login(email: string, password: string): Observable<any> {
   

@@ -21,8 +21,7 @@ export class HomeComponent {
   }
 
   registerSubmit() {
-    let self = this;
-    /*alert(`${this.user.name}, ${this.user.email} and ${this.user.password}`);*/
+    let self = this;    
     this.requestService.post(`${/*environment.apiUrl}${apiControllers.authentication}${apiUrls.authentication.register*/""}`,
       {
         "UserName": this.user.name,
