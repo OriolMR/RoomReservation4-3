@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { RequestService } from 'src/app/services/request.service';
 
-import { Room } from '../models/room';
-import { RoomExtendedDTO } from '../models/room-extended-dto';
+import { Room } from '../models/room-models/room';
+import { RoomExtendedDTO } from '../models/room-models/room-extended-dto';
 import { LocalizacionesService } from '../services/localizaciones.service';
-import { ReservationService } from '../services/reservation.service';
-import { ReservationsService } from '../services/reservations.service';
+import { ReservationService } from '../services/reservation-service/reservation.service';
+import { ReservationsService } from '../services/reservation-service/reservations.service';
 
 @Component({
   selector: 'app-view-all',

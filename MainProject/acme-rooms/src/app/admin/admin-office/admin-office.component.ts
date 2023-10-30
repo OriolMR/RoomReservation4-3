@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RequestService } from 'src/app/services/request.service';
-import { Office } from 'src/app/models/office';
+import { Office } from 'src/app/models/office-models/office';
 import { HttpParams } from '@angular/common/http';
 import { LocalizacionesService } from '../../services/localizaciones.service';
 

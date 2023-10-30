@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { RequestService } from 'src/app/services/request.service';
 import { HttpParams } from '@angular/common/http';
-import { Country } from 'src/app/models/country';
+import { Country } from 'src/app/models/country-models/country';
 import { LocalizacionesService } from '../../services/localizaciones.service';
 
 @Component({
