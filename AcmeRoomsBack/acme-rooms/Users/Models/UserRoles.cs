@@ -1,4 +1,4 @@
-﻿namespace Usuarios.Models;
+﻿namespace Users.Models;
 
 public class UserRoles
 {
