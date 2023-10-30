@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { RequestService } from 'src/app/services/request.service';
-import { Room } from '../models/room';
-import { LocalizacionesService } from '../services/localizaciones.service';
+import { Room } from '../../models/room';
+import { LocalizacionesService } from '../../services/localizaciones.service';
 
 @Component({
   selector: 'app-mainpage',

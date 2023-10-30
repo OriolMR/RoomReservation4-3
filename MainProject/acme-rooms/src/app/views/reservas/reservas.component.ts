@@ -6,15 +6,15 @@ import { RequestService } from 'src/app/services/request.service';
 import { OnInit, ViewChild } from '@angular/core';
 import { Observable } from 'rxjs';
 import { toArray } from 'rxjs/operators';
-import { Country } from '../models/country';
-import { City } from '../models/city';
-import { Office } from '../models/office';
-import { Room } from '../models/room';
-import { ReservationRegistrationForm } from '../models/reservation-registration-form';
-import { Reservation } from '../models/reservation';
+import { Country } from '../../models/country';
+import { City } from '../../models/city';
+import { Office } from '../../models/office';
+import { Room } from '../../models/room';
+import { ReservationRegistrationForm } from '../../models/reservation-registration-form';
+import { Reservation } from '../../models/reservation';
 import { HttpParams } from '@angular/common/http';
-import { LocalizacionesService } from '../services/localizaciones.service';
-import { ReservationsService } from '../services/reservations.service';
+import { LocalizacionesService } from '../../services/localizaciones.service';
+import { ReservationsService } from '../../services/reservations.service';
 
 @Component({
   selector: 'app-reservas',

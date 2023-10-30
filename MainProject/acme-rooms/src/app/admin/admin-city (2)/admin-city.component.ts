@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { RequestService } from 'src/app/services/request.service';
 import { City } from 'src/app/models/city';
 import { HttpParams } from '@angular/common/http';
-import { LocalizacionesService } from '../services/localizaciones.service';
+import { LocalizacionesService } from '../../services/localizaciones.service';
 
 @Component({
   selector: 'app-admin-city',
