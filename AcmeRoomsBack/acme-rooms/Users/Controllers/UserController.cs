@@ -2,10 +2,10 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
-using Usuarios.Models;
+using Users.Models;
 
 
-namespace Usuarios.Controllers;
+namespace Users.Controllers;
 
 //[Authorize]
 [ApiController]
