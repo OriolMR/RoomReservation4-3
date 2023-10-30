@@ -5,7 +5,7 @@ import { Observable } from 'node_modules/rxjs';
 import { UserServiceService } from 'src/app/user.service.service';
 import { FormsModule } from '@angular/forms';
 import { HttpParams } from '@angular/common/http';
-import { UserService } from '../services/users.service';
+import { UserService } from '../../services/users.service';
 
 
 @Component({

@@ -1,7 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Component, OnInit, AfterViewInit } from '@angular/core';
-import { LocalizacionesService } from '../services/localizaciones.service';
-import { RequestService } from '../services/request.service';
+import { LocalizacionesService } from '../../services/localizaciones.service';
+import { RequestService } from '../../services/request.service';
 
 
 @Component({

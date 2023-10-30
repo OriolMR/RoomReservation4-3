@@ -2,14 +2,14 @@ import { Component } from '@angular/core';
 import { RequestService } from 'src/app/services/request.service';
 import { Reservation } from 'src/app/models/reservation';
 import { HttpParams } from '@angular/common/http';
-import { ReservationRegistrationForm } from '../models/reservation-registration-form';
-import { Country } from '../models/country';
-import { City } from '../models/city';
-import { Office } from '../models/office';
-import { Room } from '../models/room';
+import { ReservationRegistrationForm } from '../../models/reservation-registration-form';
+import { Country } from '../../models/country';
+import { City } from '../../models/city';
+import { Office } from '../../models/office';
+import { Room } from '../../models/room';
 import * as dayjs from 'dayjs';
-import { ReservationExtendedDTO } from '../models/reservation-extended-dto';
-import { ReservationsService } from '../services/reservations.service';
+import { ReservationExtendedDTO } from '../../models/reservation-extended-dto';
+import { ReservationsService } from '../../services/reservations.service';
 
 @Component({
   selector: 'app-admin-reservation',

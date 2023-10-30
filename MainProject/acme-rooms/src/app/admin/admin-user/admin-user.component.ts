@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { RequestService } from 'src/app/services/request.service';
 import { User } from 'src/app/models/user';
-import { UserServiceService } from '../user.service.service';
-import { UserService } from '../services/users.service';
+import { UserServiceService } from '../../user.service.service';
+import { UserService } from '../../services/users.service';
 
 @Component({
   selector: 'app-admin-user',
