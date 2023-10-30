@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace Usuarios.Models;
+namespace Users.Models;
 
 public class Response : Controller
 {

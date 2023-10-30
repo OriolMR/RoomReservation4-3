@@ -4,9 +4,9 @@ using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
-using Usuarios.Models;
+using Users.Models;
 
-namespace Usuarios.Controllers;
+namespace Users.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
@@ -48,7 +48,7 @@ public class AuthenticationController : Controller
 
     [HttpPost]
     [Route("Login")]
-    public async Task<IActionResult> Login([FromBody] Usuarios.Models.LoginModel model)
+    public async Task<IActionResult> Login([FromBody] Users.Models.LoginModel model)
     {
         var user = await _userManager.FindByEmailAsync(model.Email);
 
@@ -89,7 +89,7 @@ public class AuthenticationController : Controller
     [HttpPost]
     [Route("Register")]
     public async Task<IActionResult> Register(
-        [FromBody] Usuarios.Models.RegisterModel model
+        [FromBody] Users.Models.RegisterModel model
     )
     {
         var userExists = await _userManager.FindByNameAsync(model.UserName);
@@ -137,7 +137,7 @@ public class AuthenticationController : Controller
     [HttpPost]
     [Route("RegisterAdmin")]
     public async Task<IActionResult> RegisterAdmin(
-        [FromBody] Usuarios.Models.RegisterModel model
+        [FromBody] Users.Models.RegisterModel model
     )
     {
         var userExists = await _userManager.FindByNameAsync(model.UserName);
