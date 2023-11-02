@@ -158,13 +158,11 @@ export class ViewAllComponent {
 
 
   getAllRooms(): void {
-    this.requestService
-      .get(
-        `${this.localizacionesService.getAllRooms}`
-      )
+    this.localizacionesService.getAllRooms()
       .subscribe({
         next: (fetchedRoomDTOs: RoomExtendedDTO[]) => {
           this.rooms = fetchedRoomDTOs;
+          
           this.roomDTOsByCountry = fetchedRoomDTOs.reduce(
 
             (accumulatorObject: { [country: string]: RoomExtendedDTO[] }, room: RoomExtendedDTO) => {
@@ -191,12 +189,12 @@ export class ViewAllComponent {
 
 
   }
+  //filtro de search
   public filterRoom(): void {
-    //if (this.valorInput === "") {
     if (this.userInput === "") {
       return;
     } else {
-      alert(this.userInput);
+      //alert(this.userInput);
       this.rooms = ([] as RoomExtendedDTO[])
         .concat(
           this.rooms.filter((roomDTO) =>

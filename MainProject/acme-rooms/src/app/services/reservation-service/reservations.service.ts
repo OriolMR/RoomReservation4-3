@@ -9,7 +9,7 @@ import { __rest } from 'tslib';
   providedIn: 'root'
 })
 export class ReservationsService {
-  private apiUrl = 'https://localhost:5188/api';
+  private apiUrl = 'https://localhost:7152/api/';
   requestService: any;
 
   constructor(private http: HttpClient) { }
@@ -19,17 +19,19 @@ export class ReservationsService {
   }
 
    reservationUrls = {
-      getAllReservations: 'GetAllReservations',
-      getReservationById: 'GetReservationById',
-      getReservationsByCountryId: 'GetReservationsByCountryId',
-      getReservationsByCityId: 'GetReservationsByCityId',
-      getReservationsByOfficeId: 'GetReservationsByOfficeId',
-      getReservationsByRoomId: 'GetReservationsByRoomId',
-      getReservationsByUserId: 'GetReservationsByUserId',
-      createReservation: 'CreateReservation',
-      updateReservation: 'UpdateReservation',
-      deleteReservation: 'DeleteReservation'
-   }
+      getAllReservations: 'Reservations/GetAllReservations',
+     getReservationById: 'Reservations/GetReservationById',
+     getReservationsByCountryId: 'Reservations/GetReservationsByCountryId',
+     getReservationsByCityId: 'Reservations/GetReservationsByCityId',
+     getReservationsByOfficeId: 'Reservations/GetReservationsByOfficeId',
+     getReservationsByRoomId: 'Reservations/GetReservationsByRoomId',
+     getReservationsByUserId: 'Reservations/GetReservationsByUserId',
+     createReservation: 'Reservations/CreateReservation',
+     updateReservation: 'Reservations/UpdateReservation',
+     deleteReservation: 'Reservations/DeleteReservation'
+  }
+
+  reservation = 'Reservation';
 
   getAllReservations(): Observable<any[]> {
     const url = `${this.apiUrl}/${this.reservationUrls.getAllReservations}`;

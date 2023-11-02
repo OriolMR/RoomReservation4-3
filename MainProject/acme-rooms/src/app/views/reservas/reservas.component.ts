@@ -42,25 +42,23 @@ export class ReservasComponent implements OnInit {
     this.reservationRegistrationForm = new ReservationRegistrationForm();
   }
 
-  ngOnInit(): void {
-    this.requestService
-      .get(
-        `${this.localizacionesService.getAllCountries}`
-      )
-      //.pipe(toArray())
+
+  ngOnInit(): void {  
+    this.localizacionesService.getAllCountries()
       .subscribe({
         next: (countries: Country[]) => {
           this.countries = countries;
         },
       });
+
+
     this.onCountrySelected(this.selection.country.toString());
     this.onOfficeSelected(this.selection.office.toString());
   }
 
   postReservation(): void {
-    this.requestService
-      .post(
-        `${this.reservationsService.createReservation}`,
+    console.log(this.reservationRegistrationForm);
+    this.reservationsService.createReservation(
         this.reservationRegistrationForm
       )
       .subscribe({
@@ -80,22 +78,15 @@ export class ReservasComponent implements OnInit {
   }
 
   onCountrySelected(id: string): void {
-    /*alert(id);*/
+    console.log('Pais seleccionado: ' + this.selection.country.toString());
     if (id === 'any') {
-      this.requestService
-        .get(
-          `${this.localizacionesService.getAllCities}`
-        )
+      this.localizacionesService.getAllCities()
         .subscribe({
           next: (cities: City[]) => {
             this.cities = cities;
-            /*alert(JSON.stringify(cities));*/
           },
         });
-      this.requestService
-        .get(
-          `${this.localizacionesService.getAllOffices}`
-        )
+      this.localizacionesService.getAllOffices()
         .subscribe({
           next: (offices: Office[]) => {
             this.offices = offices;
@@ -107,11 +98,7 @@ export class ReservasComponent implements OnInit {
       this.selection.office = 'any';
       this.onOfficeSelected('any');
     } else {
-      this.requestService
-        .get(
-          `${this.localizacionesService.getCitiesByCountryId}`,
-          new HttpParams().append('countryId', id)
-        )
+      this.localizacionesService.getCitiesByCountryId(id)      
         .subscribe({
           next: (cities: City[]) => {
             this.cities = cities;
@@ -120,12 +107,8 @@ export class ReservasComponent implements OnInit {
             console.log(err.message);
           },
         });
-      this.requestService
-        .get(
-          `${this.localizacionesService.getOfficesByCountryId}`,
-          new HttpParams().append('countryId', id)
-        )
-        .subscribe({
+      this.localizacionesService.getOfficesByCountryId(id)
+      .subscribe({
           next: (offices: Office[]) => {
             this.offices = offices;
           },
@@ -138,11 +121,7 @@ export class ReservasComponent implements OnInit {
 
   onOfficeSelected(id: string): void {
     if (id === 'any') {
-      this.requestService
-        .get(
-          `${this.localizacionesService.getAllRooms}`
-        )
-        //.pipe(toArray())
+      this.localizacionesService.getAllRooms()      
         .subscribe({
           next: (rooms: Room[]) => {
             this.rooms = rooms;
@@ -151,11 +130,7 @@ export class ReservasComponent implements OnInit {
           },
         });
     } else {
-      this.requestService
-        .get(
-          `${this.localizacionesService.getRoomsByOfficeId}`,
-          new HttpParams().append('officeId', id)
-        )
+      this.localizacionesService.getRoomsByOfficeId(id)      
         .subscribe({
           next: (rooms: Room[]) => {
             this.rooms = rooms;

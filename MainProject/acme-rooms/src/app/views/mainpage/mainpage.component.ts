@@ -145,12 +145,15 @@ export class MainpageComponent {
     'https://i.pinimg.com/736x/c5/7e/9a/c57e9ac7b836d2f822b0d72190b25080--show-rooms-meeting-rooms.jpg',
   ];
 
-  constructor(private requestService: RequestService, private localizacionesService: LocalizacionesService) {
-    this.getRooms();
-  }
+  constructor(
+    private requestService: RequestService,
+    private localizacionesService: LocalizacionesService) {
+      this.getRooms();
+    }
 
   getRooms(): void {
-    this.localizacionesService.getAllCountries().subscribe({
+    this.localizacionesService.getAllCountries()
+      .subscribe({
       next: (fetchedRooms: any[]) => {
         this.rooms = fetchedRooms.map((room: any, index: number): any => {
           return {
