@@ -61,7 +61,7 @@
                 <label class="textLabel">New name: </label>
                 <input class="text" [(ngModel)]="countryName" type="text" name="countryName" id="countryName" />
               </div>
-              <input class="updateButton butt" value="Update country" (click)="updateCountry()" type="submit">
+              <input class="updateButton butt" value="Update country" (click)="updateCountry(countryId)" type="submit">
             </div>
             <div *ngFor="let country of countries" class="resultDiv">
               <p class="result">Old country: id:{{oldCountry.id}} Name: {{oldCountry.name}}</p>

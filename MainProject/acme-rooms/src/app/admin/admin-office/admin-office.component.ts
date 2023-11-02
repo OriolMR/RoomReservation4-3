@@ -12,16 +12,16 @@ import { LocalizacionesService } from '../../services/localizaciones.service';
 export class AdminOfficeComponent {
   constructor(private requestService: RequestService, private localizacionesService: LocalizacionesService) { }
   /*general*/
-  officeName = "xx"
-  officeId = 16
-  officeCityId = 32
+  officeName = "xxxx"
+  officeId = -1
+  officeCityId = -1
   /*crud */
   offices: (Office[]) = []
   oldOffice: (Office) = new Office()
   updatedOffice: (Office) = new Office()
 
   addOffice() {
-    this.requestService.post(`${this.localizacionesService.createOffice}`,
+    this.localizacionesService.createOffice(
       {
         "Name": this.officeName,
         "CityId": this.officeCityId
@@ -36,7 +36,7 @@ export class AdminOfficeComponent {
       });
   }
   getAllOffices() {
-    this.requestService.get(`${this.localizacionesService.getAllOffices}`)
+    this.localizacionesService.getAllOffices()
       .subscribe({
         next: (fetchedOffices: any[]) => {
           this.offices = fetchedOffices.map((office: any): any => {
@@ -49,8 +49,8 @@ export class AdminOfficeComponent {
         },
       });    
   }
-  getOfficeById(id: number) {
-    this.requestService.get(`${this.localizacionesService.getOfficeById}`, new HttpParams().append("id", id))
+  getOfficeById(officeId: number) {
+    this.localizacionesService.getOfficeById(officeId)
       .subscribe({
         next: (fetchedOffice: any) => {
           this.offices = [{
@@ -61,10 +61,9 @@ export class AdminOfficeComponent {
         },
       });
   }
-  updateOffice(id: number) {
+  updateOffice(officeId: number) {
     /* getting old info*/
-    this.requestService
-      .get(`${this.localizacionesService.getAllOffices}`, new HttpParams().append("id", id))
+    this.localizacionesService.getOfficeById(officeId)
       .subscribe({
         next: (fetchedOffice: any) => {
           this.oldOffice = {
@@ -75,8 +74,7 @@ export class AdminOfficeComponent {
         },
       });
     /*update database*/
-    this.requestService
-      .put(`${this.localizacionesService.updateOffice}`,
+    this.localizacionesService.updateOffice(
         {
           "Id": this.officeId,
           "Name": this.officeName,
@@ -89,8 +87,7 @@ export class AdminOfficeComponent {
           }
         });
     /*Get country with new info*/
-    this.requestService
-      .get(`${this.localizacionesService.getAllOffices}`, new HttpParams().append("id", id))
+    this.localizacionesService.getOfficeById(officeId)
       .subscribe({
         next: (fetchedOffice: any) => {
           this.updatedOffice = {
@@ -101,11 +98,9 @@ export class AdminOfficeComponent {
         },
       });
   }
-  deleteOffice() {
+  deleteOffice(officeId: number) {
     alert(this.officeId);
-    this.requestService
-      .delete(`${this.localizacionesService.deleteOffice}`,
-      new HttpParams().append('id', `${this.officeId.toString()}`))
+    this.localizacionesService.deleteOffice(officeId)
       .subscribe({});
   }
 }
