@@ -98,7 +98,7 @@
                 <label class="textLabel">Office id: </label>
                 <input class="text" [(ngModel)]="officeId" type="text" name="officeId" id="officeId" />
               </div>
-              <input class="deleteButton butt" value="Delete office" (keydown.enter)="deleteOffice()" (click)="deleteOffice()" type="submit">
+              <input class="deleteButton butt" value="Delete office" (keydown.enter)="deleteOffice(officeId)" (click)="deleteOffice(officeId)" type="submit">
             </div>
           </div>
         </li>

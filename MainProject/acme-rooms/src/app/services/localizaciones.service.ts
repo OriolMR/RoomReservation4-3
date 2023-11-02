@@ -131,9 +131,9 @@ export class LocalizacionesService {
     return this.requestService.get(url);
   }
 
-  getOfficeById(officeId: string): Observable<any> {
-    const url = `${this.apiUrl}/${this.offices}/${this.localizacionUrls.office.getOfficeById}/${officeId}`;
-    return this.requestService.get(url);
+  getOfficeById(officeId: number): Observable<any> {
+    const url = `${this.apiUrl}/${this.offices}/${this.localizacionUrls.office.getOfficeById}`;
+    return this.requestService.get(url, new HttpParams().append('id', officeId));
   }
 
   getOfficesByCountryId(countryId: string): Observable<any[]> {
@@ -151,14 +151,14 @@ export class LocalizacionesService {
     return this.requestService.post(url, officeData);
   }
 
-  updateOffice(officeId: number, officeData: any): Observable<any> {
-    const url = `${this.apiUrl}/${this.offices}/${this.localizacionUrls.office.updateOffice}/${officeId}`;
+  updateOffice(officeData: any): Observable<any> {
+    const url = `${this.apiUrl}/${this.offices}/${this.localizacionUrls.office.updateOffice}`;
     return this.requestService.put(url, officeData);
   }
 
   deleteOffice(officeId: number) {
-    const url = `${this.apiUrl}/${this.offices}/${this.localizacionUrls.office.deleteOffice}/${officeId}`;
-    return this.requestService.delete(url);
+    const url = `${this.apiUrl}/${this.offices}/${this.localizacionUrls.office.deleteOffice}`;
+    return this.requestService.delete(url, new HttpParams().append('id', officeId));
   }
 
   // Rooms
