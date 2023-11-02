@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
+import { Observable, shareReplay, tap, throwError } from 'rxjs';
 import { __rest } from 'tslib';
-
+import * as dayjs from 'dayjs';
 
 
 @Injectable({
@@ -24,6 +24,9 @@ export class UserService {
     getUserByEmail: 'GetUserByEmail',
     updateUser: 'UpdateUser',
     updatePassword: 'UpdatePassword',
+    login: 'login',
+    logout: 'logout',
+    register: 'register'
   }
 
   getAllUsers(): Observable<any[]> {
@@ -46,4 +49,62 @@ export class UserService {
     return this.requestService.put(url, userData);
   }
 
+  public login(email: string, password: string): Observable<any> {
+    const url = `${this.apiUrl}/${this.userUrls.login}`;
+    console.log(url);
+    return this.requestService.post(url, new HttpParams().append(email, password)
+    )
+      .pipe(
+        tap((res: any) => this.setSession(res, email)),
+        shareReplay()
+      );
+  }
+
+  private setSession(authenticationResult: any, email: string): void {
+    const expiration = dayjs().add(authenticationResult.expiration, 'minutes');
+
+    localStorage.setItem('token', authenticationResult.token);
+    localStorage.setItem('expiration', JSON.stringify(expiration.valueOf()));
+    localStorage.setItem('userId', authenticationResult.userId);
+    localStorage.setItem('email', email);
+    localStorage.setItem('claims', authenticationResult.claims);
+    localStorage.setItem('phoneNumber', authenticationResult.phoneNumber);
+    /*alert(localStorage.getItem('phoneNumber'));*/
+    this.setUserName(email);
+    /*alert(JSON.stringify(authenticationResult));*/
+    //alert(JSON.stringify(authenticationResult.claims));
+  }
+
+  setUserName(email: string) {
+    this.requestService
+      .get(
+        `${this.setUserName}`,
+        new HttpParams().append('email', email)
+      )
+      .subscribe({
+        next: (user: any) => {
+          localStorage.setItem('userName', user.userName);
+          //this.userName = user.userName;
+        },
+      });
+  }
+
+
+  public logout(): void {
+    localStorage.clear();
+  }
+
+  register(userData: any) {
+    let url = `${this.apiUrl}/${this.userUrls.register}`
+    return this.requestService.put(url, userData);
+
+  }
+  
+  private getExpiration(): dayjs.Dayjs {
+    return dayjs(JSON.parse(localStorage.getItem('expiration') as string));
+  }
+
+  public isTokenStillValid(): boolean {
+    return dayjs().isBefore(this.getExpiration());
+  }
 }

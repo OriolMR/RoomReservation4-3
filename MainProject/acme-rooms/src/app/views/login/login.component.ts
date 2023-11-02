@@ -2,12 +2,9 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/services/authentication-service/authentication.service';
 import { Observable } from 'node_modules/rxjs';
-//import {
-//  environment,
-//  apiControllers,
-//  apiUrls,
-//} from 'src/environments/environment';
+import { RequestService } from './../../services/request.service';
 import { UserServiceService } from 'src/app/user.service.service';
+import { UserService } from 'src/app/services/users.service';
 
 @Component({
   selector: 'app-login',
@@ -22,6 +19,8 @@ export class LoginComponent {
   constructor(
     private router: Router,
     private authenticationService: AuthenticationService,
+    private requestService: RequestService,
+    private userService: UserService
   ) {}
   goToRegister() {
     this.router.navigate(['register']);
@@ -36,12 +35,9 @@ export class LoginComponent {
   }
 
   login() {
-    //this.authenticationService
-    //  .login(this.user.email, this.user.password)
-    this.requestService.
+    this.userService.login(this.user.email, this.user.password)
       .subscribe({
         next: (response: any) => {
-          //alert(JSON.stringify(response));
           if (response['token']) {
             //alert(`You have successfully logged in as ${this.user.email}.`);
             this.goToHome();
