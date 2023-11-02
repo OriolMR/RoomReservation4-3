@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LockedDates", "LockedDates\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Locations", "Locations\Locations.csproj", "{F744A868-48D6-48B7-AEB6-098422DD428C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Email", "Email\Email.csproj", "{173BF746-4ACC-4C29-BD41-D7A7CF3121BE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Email", "Email\Email.csproj", "{3C52DAFD-BC8C-4464-B95B-D2CB654E56E8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,10 +35,10 @@ Global
 		{F744A868-48D6-48B7-AEB6-098422DD428C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F744A868-48D6-48B7-AEB6-098422DD428C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F744A868-48D6-48B7-AEB6-098422DD428C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{173BF746-4ACC-4C29-BD41-D7A7CF3121BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{173BF746-4ACC-4C29-BD41-D7A7CF3121BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{173BF746-4ACC-4C29-BD41-D7A7CF3121BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{173BF746-4ACC-4C29-BD41-D7A7CF3121BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3C52DAFD-BC8C-4464-B95B-D2CB654E56E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C52DAFD-BC8C-4464-B95B-D2CB654E56E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C52DAFD-BC8C-4464-B95B-D2CB654E56E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C52DAFD-BC8C-4464-B95B-D2CB654E56E8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

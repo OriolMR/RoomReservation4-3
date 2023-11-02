@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { AuthenticationService } from 'src/app/services/authentication.service';
+/*import { AuthenticationService } from 'src/app/services/authentication.service';*/
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { RequestService } from '../services/request.service';
@@ -15,9 +15,9 @@ export class NavbarComponent implements OnInit {
   @Input() titulo: string = '';
   constructor(
     private router: Router,
-    private authenticationService: AuthenticationService,
-    private crudService: RequestService,
-    private localizacionesService: LocalizacionesService
+    /*private authenticationService: AuthenticationService,*/
+    private localizacionesService: LocalizacionesService,
+    private crudService: RequestService
   ) {}
 
   navbarInfo: NavbarInfo[] = [];
@@ -68,21 +68,28 @@ export class NavbarComponent implements OnInit {
     this.router.navigate(['view-all-rooms']);
   }
   ngOnInit(): void {
-    this.crudService.get(`${this.localizacionesService.getAllCountries}`)
-      .subscribe({next: (countries:any) => {
-        countries.forEach((country:any) => {
+    this.localizacionesService.getAllCountries().subscribe({
+      next: (countries: any) => {
+        countries.forEach((country: any) => {
           console.log(country);
           let offices = [];
-          this.crudService.get(`${this.localizacionesService.getOfficesByCountryId}`, new HttpParams().append('countryId', country.id))
-            .subscribe({next: (officesResponse:any) => {
+          this.localizacionesService.getCountryById(country.id).subscribe({
+            next: (officesResponse: any) => {
               console.table(officesResponse);
-              let newInfo = new NavbarInfo(country.id,country.name,officesResponse);
+              let newInfo = new NavbarInfo(country.id, country.name, officesResponse);
               this.navbarInfo.push(newInfo);
               console.table(newInfo);
               console.log(newInfo.officeName);
-            }});
+            },
+            error: (error: Error) => {
+              console.error(`Error fetching country ${country.id}: ${error}`);
+            }
+          });
         });
-      }, error: (error: Error) => {alert(`${error.name.toUpperCase()}: ${error.message}`)}
+      },
+      error: (error: Error) => {
+        console.error(`Error fetching countries: ${error}`);
+      }
     });
     
     this.navbarInfo.sort((a,b) => {
@@ -95,7 +102,7 @@ export class NavbarComponent implements OnInit {
   }
   /* FUNCIONES BACKEND */
   salir() {
-    this.authenticationService.logout();
+    /*this.authenticationService.logout();*/
     this.goToLogin();
   }
 }

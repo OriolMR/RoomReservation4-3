@@ -1,11 +1,7 @@
 import { Injectable } from '@angular/core';
 import { RequestService } from 'src/app/services/request.service';
-import {
-  environment,
-  apiControllers,
-  apiUrls,
-} from '../environments/environment';
 import { HttpParams } from '@angular/common/http';
+import { UserService } from './services/users.service';
 
 @Injectable({
   providedIn: 'root',
@@ -13,12 +9,12 @@ import { HttpParams } from '@angular/common/http';
 export class UserServiceService {
   //private userName: string = '';
 
-  constructor(private requestService: RequestService) {}
+  constructor(private requestService: RequestService, private userService: UserService) { }
 
   setUserName(email: string) {
     this.requestService
       .get(
-        `${environment.apiUrl}${apiControllers.user}${apiUrls.user.getUserByEmail}`,
+        `${this.setUserName}`,
         new HttpParams().append('email', email)
       )
       .subscribe({

@@ -1,8 +1,11 @@
 import { Component } from '@angular/core';
 import { RequestService } from 'src/app/services/request.service';
 
-import { Room } from '../models/room';
-import { RoomExtendedDTO } from '../models/room-extended-dto';
+import { Room } from '../models/room-models/room';
+import { RoomExtendedDTO } from '../models/room-models/room-extended-dto';
+import { LocalizacionesService } from '../services/localizaciones.service';
+import { ReservationService } from '../services/reservation-service/reservation.service';
+import { ReservationsService } from '../services/reservation-service/reservations.service';
 
 @Component({
   selector: 'app-view-all',
@@ -149,34 +152,30 @@ export class ViewAllComponent {
   countryKeys: string[] = [];
   userInput: string = "";
 
-  constructor(private requestService: RequestService) {
+  constructor(private requestService: RequestService, private localizacionesService: LocalizacionesService) {
     this.getAllRooms();
   }
 
 
   getAllRooms(): void {
-    this.requestService
-      .get(
-        `${environment.localizacionApiUrl}${apiControllers.room}${localizacionUrls.room.getAllRoomExtendedDTOs}`
-      )
+    this.localizacionesService.getAllRoomExtendedDTOs()
       .subscribe({
         next: (fetchedRoomDTOs: RoomExtendedDTO[]) => {
           this.rooms = fetchedRoomDTOs;
+          
           this.roomDTOsByCountry = fetchedRoomDTOs.reduce(
 
             (accumulatorObject: { [country: string]: RoomExtendedDTO[] }, room: RoomExtendedDTO) => {
               accumulatorObject[room.countryName] = accumulatorObject[room.countryName]?.concat(room) ?? [room];
+              /*console.log(JSON.stringify(this.roomDTOsByCountry));*/
+              console.log(JSON.stringify(accumulatorObject));
               return accumulatorObject;
-
             },
-
             {}
-
           );
           this.countryKeys = Object.keys(this.roomDTOsByCountry);
           /*alert(JSON.stringify(this.roomDTOsByCountry));*/
         },
-
         complete: () => {
           this.filterRoom();
         },
@@ -184,16 +183,13 @@ export class ViewAllComponent {
           console.log(err.message);
         },
       });
-
-
-
   }
+  //filtro de search
   public filterRoom(): void {
-    //if (this.valorInput === "") {
     if (this.userInput === "") {
       return;
     } else {
-      alert(this.userInput);
+      //alert(this.userInput);
       this.rooms = ([] as RoomExtendedDTO[])
         .concat(
           this.rooms.filter((roomDTO) =>
