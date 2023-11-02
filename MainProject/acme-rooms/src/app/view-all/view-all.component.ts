@@ -158,7 +158,7 @@ export class ViewAllComponent {
 
 
   getAllRooms(): void {
-    this.localizacionesService.getAllRooms()
+    this.localizacionesService.getAllRoomExtendedDTOs()
       .subscribe({
         next: (fetchedRoomDTOs: RoomExtendedDTO[]) => {
           this.rooms = fetchedRoomDTOs;
@@ -167,17 +167,15 @@ export class ViewAllComponent {
 
             (accumulatorObject: { [country: string]: RoomExtendedDTO[] }, room: RoomExtendedDTO) => {
               accumulatorObject[room.countryName] = accumulatorObject[room.countryName]?.concat(room) ?? [room];
+              /*console.log(JSON.stringify(this.roomDTOsByCountry));*/
+              console.log(JSON.stringify(accumulatorObject));
               return accumulatorObject;
-
             },
-
             {}
-
           );
           this.countryKeys = Object.keys(this.roomDTOsByCountry);
           /*alert(JSON.stringify(this.roomDTOsByCountry));*/
         },
-
         complete: () => {
           this.filterRoom();
         },
@@ -185,9 +183,6 @@ export class ViewAllComponent {
           console.log(err.message);
         },
       });
-
-
-
   }
   //filtro de search
   public filterRoom(): void {

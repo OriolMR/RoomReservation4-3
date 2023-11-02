@@ -187,8 +187,8 @@ export class LocalizacionesService {
     return this.requestService.get(url);
   }
 
-  getAllRoomExtendedDTOs(cityId: number): Observable<any[]> {
-    const url = `${this.apiUrl}/${this.rooms}/${this.localizacionUrls.room.getAllRoomExtendedDTOs}/${cityId}`;
+  getAllRoomExtendedDTOs(): Observable<any[]> {
+    const url = `${this.apiUrl}/${this.rooms}/${this.localizacionUrls.room.getAllRoomExtendedDTOs}`;
     return this.requestService.get(url);
   }
 
