@@ -16,7 +16,6 @@ export class AdminAdministratorComponent {
 
   /*CREATE*/
   addAdmin() { }
-
   getAllAdmins() { }
   getAdminById() { }
   updateAdmin() { }

@@ -21,7 +21,7 @@ export class AdminCityComponent {
   updatedCity: (City) = new City()
 
   addCity() {
-    this.requestService.post(`${this.localizacionesService.createCity}`,
+    this.localizacionesService.createCity(
       {
         "Name": this.cityName,
         "CountryId": this.cityCountryId
@@ -38,9 +38,8 @@ export class AdminCityComponent {
 
 
   }
-
   getCityById(id: number) {
-    this.requestService.get(`${this.localizacionesService.getCityById}`, new HttpParams().append("id", id))
+    this.localizacionesService.getCityById(id)
       .subscribe({
         next: (fetchedCity: any) => {
           this.cities = [{
@@ -53,7 +52,7 @@ export class AdminCityComponent {
   }
 
   getAllCities() {
-    this.requestService.get(`${this.localizacionesService.getAllCities}`)
+    this.localizacionesService.getAllCities()
       .subscribe({
         next: (fetchedCities: any[]) => {
           this.cities = fetchedCities.map((city: any): any => {
@@ -69,9 +68,7 @@ export class AdminCityComponent {
 
   updateCity() {
     /* getting old info*/
-    this.requestService
-      .get(`${this.localizacionesService.getAllCities}`,
-        new HttpParams().append('id', this.cityId))
+    this.localizacionesService.getCityById(this.cityId)
       .subscribe({
         next: (fetchedCity: any) => {
           this.oldCity = {
@@ -82,8 +79,7 @@ export class AdminCityComponent {
         },
       });
     /*update database*/
-    this.requestService
-      .put(`${this.localizacionesService.updateCity}`,
+    this.localizacionesService.updateCity(
         {
           "Id": this.cityId,
           "Name": this.cityName,
@@ -96,10 +92,7 @@ export class AdminCityComponent {
           }
         });
     /*Get country with new info*/
-    /*this.getCityById(this.cityId)*/
-    this.requestService
-      .get(`${this.localizacionesService.getCityById}`,
-        new HttpParams().append('id', this.cityId))
+    this.localizacionesService.getCityById(this.cityId)
       .subscribe({
         next: (fetchedCity: any) => {
           this.updatedCity = {
@@ -111,11 +104,9 @@ export class AdminCityComponent {
       });
   }
 
-  deleteCity() {
+  deleteCity(cityId: number) {
     alert(this.cityId);
-    this.requestService
-      .delete(`${this.localizacionesService.deleteCity}`,
-      new HttpParams().append('id', `${this.cityId.toString()}`))
+    this.localizacionesService.deleteCity(this.cityId)
       .subscribe({});
   }
 }

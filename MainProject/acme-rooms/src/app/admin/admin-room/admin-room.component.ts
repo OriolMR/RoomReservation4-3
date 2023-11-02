@@ -43,7 +43,7 @@ export class AdminRoomComponent {
     this.localizacionesService.getAllRooms()
       .subscribe({
         next: (fetchedRooms: any[]) => {
-          this.rooms = fetchedRooms.map((room: any): any => {
+          this.rooms = fetchedRooms.map((room: any): any => { 
             return {
               id: room.id,
               name: room.name,

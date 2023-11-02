@@ -99,11 +99,11 @@ export class LocalizacionesService {
     return this.requestService.get(url);
   }
 
-  getCityById(cityId: string): Observable<any> {
-    const url = `${this.apiUrl}/${this.cities}/${this.localizacionUrls.city.getCityById}/${cityId}`;
-    return this.requestService.get(url);
+  getCityById(cityId: number): Observable<any> {
+    const url = `${this.apiUrl}/${this.cities}/${this.localizacionUrls.city.getCityById}`;
+    return this.requestService.get(url, new HttpParams().append('id', cityId));
   }
-
+  //type string para verificar any from filter
   getCitiesByCountryId(countryId: string): Observable<any[]> {
     const url = `${this.apiUrl}/${this.cities}/${this.localizacionUrls.city.getCitiesByCountryId}?countryId=${countryId}`;
     return this.requestService.get(url);
@@ -114,14 +114,14 @@ export class LocalizacionesService {
     return this.requestService.post(url,cityData);
   }
 
-  updateCity(cityId: number, cityData: any): Observable<any> {
-    const url = `${this.apiUrl}/${this.cities}/${this.localizacionUrls.city.updateCity}/${cityId}`;
+  updateCity(cityData: any): Observable<any> {
+    const url = `${this.apiUrl}/${this.cities}/${this.localizacionUrls.city.updateCity}`;
     return this.requestService.put(url,cityData);
   }
 
   deleteCity(cityId: number) {
-    const url = `${this.apiUrl}/${this.cities}/${this.localizacionUrls.city.deleteCity}/${cityId}`;
-    return this.requestService.delete(url);
+    const url = `${this.apiUrl}/${this.cities}/${this.localizacionUrls.city.deleteCity}`;
+    return this.requestService.delete(url, new HttpParams().append('id', cityId));
   }
 
   // Offices
