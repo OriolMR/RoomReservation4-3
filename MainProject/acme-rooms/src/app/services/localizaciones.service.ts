@@ -82,14 +82,14 @@ export class LocalizacionesService {
     return this.requestService.post(url, countryData);
   }
 
-  updateCountry(countryId: number, countryData: any): Observable<any> {
-    const url = `${this.apiUrl}/${this.countries}/${this.localizacionUrls.country.updateCountry}/${countryId}`;
+  updateCountry( countryData: any): Observable<any> {
+    const url = `${this.apiUrl}/${this.countries}/${this.localizacionUrls.country.updateCountry}`;
     return this.requestService.put(url, countryData);
   }
 
   deleteCountry(countryId: number) {
-    const url = `${this.apiUrl}/${this.countries}/${this.localizacionUrls.country.deleteCountry}/${countryId}`;
-    return this.requestService.delete(url);
+    const url = `${this.apiUrl}/${this.countries}/${this.localizacionUrls.country.deleteCountry}`;
+    return this.requestService.delete(url, new HttpParams().append('id', countryId));
   }
 
   // Cities

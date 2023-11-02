@@ -28,7 +28,7 @@ export class AdminCountryComponent {
   addCountry() {
     alert(this.countryName);
     if (this.countryName !== null || this.countryName !== undefined || this.countryName !== '') {
-      this.requestService.post(`${this.localizacionesService.createCountry}`,
+      this.localizacionesService.createCountry(
         {
           "Name": this.countryName
         })
@@ -49,9 +49,7 @@ export class AdminCountryComponent {
 
   getAllCountries() {
     alert(this.countryId);
-    this.requestService
-      .get(
-        `${this.localizacionesService.getAllCountries}`)
+    this.localizacionesService.getAllCountries()
       .subscribe({
         next: (fetchedCountries: any[]) => {
           this.countries = fetchedCountries.map((country: any): any => {
@@ -65,9 +63,7 @@ export class AdminCountryComponent {
   }
 
   getCountryById(id:number) {
-    this.requestService
-      .get(`${this.localizacionesService.getCountryById}`,
-        new HttpParams().append('id', id))
+    this.localizacionesService.getCountryById(id)
       .subscribe({
         next: (fetchedCountry: any) => {
           this.countries = [{
@@ -77,11 +73,9 @@ export class AdminCountryComponent {
         },
       });
   }  
-  updateCountry() {
+  updateCountry(id: number) {
     /* getting old info*/
-    this.requestService
-      .get(`${this.localizacionesService.updateCountry}`,
-        new HttpParams().append('id', this.countryId))
+    this.localizacionesService.getCountryById(id)
       .subscribe({
         next: (fetchedCountry: any) => {
           /*alert(JSON.stringify(fetchedCountry));*/
@@ -92,10 +86,11 @@ export class AdminCountryComponent {
         },
       });
 
+
+
     /*update database*/
-    this.requestService
-      .put(`${this.localizacionesService.updateCountry}`
-        , {
+    this.localizacionesService.updateCountry(
+         {
           "Id": this.countryId,
           "Name": this.countryName
 
@@ -107,13 +102,11 @@ export class AdminCountryComponent {
           }
     });
     /*Get country with new info*/
-    this.getCountryById(this.countryId)
+    this.getCountryById(id)
   }
   deleteCountry(id: number) {
     alert(this.countryId);
-    this.requestService
-      .delete(`${this.localizacionesService.deleteCountry}`,
-        new HttpParams().append('id', `${id}`))
+    this.localizacionesService.deleteCountry(id)
       .subscribe({ });
   }
 
