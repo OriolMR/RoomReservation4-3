@@ -26,7 +26,6 @@ import { AdminRoomComponent } from './admin/admin-room/admin-room.component';
 import { AdminAdministratorComponent } from './admin/admin-administrator/admin-administrator.component';
 import { AdminUserComponent } from './admin/admin-user/admin-user.component';
 import { NoReservaComponent } from './views/reservation/components/no-reserva/no-reserva.component';
-import { AllRoomsComponent } from './all-rooms/all-rooms.component';
 import { ViewAllComponent } from './view-all/view-all.component';
 import { DatepickerComponent } from './datepicker/datepicker.component';
 
@@ -52,7 +51,6 @@ import { DatepickerComponent } from './datepicker/datepicker.component';
     AdminAdministratorComponent,
     AdminUserComponent,
     NoReservaComponent,
-    AllRoomsComponent,
     ViewAllComponent,
     DatepickerComponent
   ],

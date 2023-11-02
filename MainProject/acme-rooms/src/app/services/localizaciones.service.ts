@@ -3,6 +3,7 @@ import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http'
 import { Observable, throwError } from 'rxjs';
 import { __rest } from 'tslib';
 import { RequestService } from './request.service';
+import { Room } from '../models/room-models/room';
 
 
 
@@ -167,9 +168,9 @@ export class LocalizacionesService {
     return this.requestService.get(url);
   }
 
-  getRoomById(roomId: string): Observable<any> {
-    const url = `${this.apiUrl}/${this.rooms}/${this.localizacionUrls.room.getRoomById}/${roomId}`;
-    return this.requestService.get(url);
+  getRoomById(roomId: number): Observable<any> {
+    const url = `${this.apiUrl}/${this.rooms}/${this.localizacionUrls.room.getRoomById}`;
+    return this.requestService.get(url, new HttpParams().append('id', roomId));
   }
 
   getRoomsByCountryId(countryId: string): Observable<any[]> {
@@ -177,7 +178,7 @@ export class LocalizacionesService {
     return this.requestService.get(url);
   }
 
-  getRoomsByCityId(cityId: string): Observable<any[]> {
+  getRoomsByCityId(cityId: number): Observable<any[]> {
     const url = `${this.apiUrl}/${this.rooms}/${this.localizacionUrls.room.getRoomsByCityId}?cityId=${cityId}`;
     return this.requestService.get(url);
   }
@@ -187,8 +188,8 @@ export class LocalizacionesService {
     return this.requestService.get(url);
   }
 
-  getAllRoomExtendedDTOs(cityId: number): Observable<any[]> {
-    const url = `${this.apiUrl}/${this.rooms}/${this.localizacionUrls.room.getAllRoomExtendedDTOs}/${cityId}`;
+  getAllRoomExtendedDTOs(): Observable<any[]> {
+    const url = `${this.apiUrl}/${this.rooms}/${this.localizacionUrls.room.getAllRoomExtendedDTOs}`;
     return this.requestService.get(url);
   }
 
@@ -197,14 +198,14 @@ export class LocalizacionesService {
     return this.requestService.post(url, roomData);
   }
 
-  updateRoom(roomId: number, roomData: any): Observable<any> {
-    const url = `${this.apiUrl}/${this.rooms}/${this.localizacionUrls.room.updateRoom}/${roomId}`;
+  updateRoom(roomData: any): Observable<any> {
+    const url = `${this.apiUrl}/${this.rooms}/${this.localizacionUrls.room.updateRoom}`;
     return this.requestService.put(url, roomData);
   }
 
   deleteRoom(roomId: number): Observable<number> {
-    const url = `${this.apiUrl}/${this.rooms}/${this.localizacionUrls.room.deleteRoom}/${roomId}`;
-    return this.requestService.delete(url);
+    const url = `${this.apiUrl}/${this.rooms}/${this.localizacionUrls.room.deleteRoom}`;
+    return this.requestService.delete(url, new HttpParams().append('id', roomId));
   }
 
 
