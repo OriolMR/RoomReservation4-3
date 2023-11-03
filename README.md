@@ -1,6 +1,6 @@
 # Documentation RoomReservation4-3
 #### Contributors:  
-Guillermo Jaume, Harpreet Kaur, Joana Lin Chen, Oriol Martinez
+Guillermo Jaume, Harpreet Kaur, Joana Lin, Oriol Martinez
 
 ## Introduction
 
