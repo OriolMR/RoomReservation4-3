@@ -29,6 +29,8 @@ import { NoReservaComponent } from './views/reservation/components/no-reserva/no
 import { ViewAllComponent } from './view-all/view-all.component';
 import { DatepickerComponent } from './datepicker/datepicker.component';
 
+//POP-UP
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 @NgModule({
   declarations: [
@@ -60,6 +62,7 @@ import { DatepickerComponent } from './datepicker/datepicker.component';
     FormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    SweetAlert2Module
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthenticationInterceptorService, multi: true },
