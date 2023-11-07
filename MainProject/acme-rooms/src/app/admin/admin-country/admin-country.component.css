@@ -160,3 +160,9 @@ button {
 .result {
     margin: 0;
 }
+/*POP-UP */
+.small-alert {
+  padding: 8px; /* Ajusta el relleno según tus preferencias */
+  font-size: 14px; /* Ajusta el tamaño de fuente según tus preferencias */
+  height: 200px;
+}
