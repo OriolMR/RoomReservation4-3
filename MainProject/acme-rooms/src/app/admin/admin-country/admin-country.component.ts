@@ -107,8 +107,18 @@ export class AdminCountryComponent {
   deleteCountry(id: number) {
     alert(this.countryId);
     this.localizacionesService.deleteCountry(id)
-      .subscribe({ });
+        .subscribe({
+        });
+    
   }
 
-}
+      
+
+ 
+
+    
+    
+  }
+
+
 

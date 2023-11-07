@@ -43,6 +43,7 @@ export class LocalizacionesService {
       createOffice: 'CreateOffice',
       updateOffice: 'UpdateOffice',
       deleteOffice: 'DeleteOffice',
+      siExiste: 'ifExiste'
     },
     room: {
       getAllRooms: 'GetAllRooms',
@@ -160,6 +161,12 @@ export class LocalizacionesService {
     const url = `${this.apiUrl}/${this.offices}/${this.localizacionUrls.office.deleteOffice}`;
     return this.requestService.delete(url, new HttpParams().append('id', officeId));
   }
+  siExiste(officeId: number) {
+    const url = `${this.apiUrl}/${this.offices}/${this.localizacionUrls.office.siExiste}?officeId=${officeId}`;
+    return this.requestService.get(url)
+
+  }
+
 
   // Rooms
 
@@ -207,6 +214,7 @@ export class LocalizacionesService {
     const url = `${this.apiUrl}/${this.rooms}/${this.localizacionUrls.room.deleteRoom}`;
     return this.requestService.delete(url, new HttpParams().append('id', roomId));
   }
+
 
 
 

@@ -98,9 +98,32 @@ export class AdminOfficeComponent {
         },
       });
   }
+
   deleteOffice(officeId: number) {
-    alert(this.officeId);
-    this.localizacionesService.deleteOffice(officeId)
-      .subscribe({});
+    alert("hello")
+    if (this.localizacionesService.siExiste(this.officeId)) {
+      alert(this.officeId)
+      this.localizacionesService.deleteOffice(this.officeId)
+        .subscribe(
+          (response) => {
+            alert("Office deleted successfully");
+          },
+          (error) => {
+            console.error("Error deleting office:", error);
+          }
+        );
+    } else {
+      alert("Office does not exist");
+    }
   }
+
+
+ 
+
+
+
+
+
+
+
 }
