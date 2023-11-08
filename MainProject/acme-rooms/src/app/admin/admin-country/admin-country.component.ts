@@ -14,64 +14,47 @@ import Swal from 'sweetalert2';
   styleUrls: ['./admin-country.component.css'],
 })
 export class AdminCountryComponent {
-  constructor(private requestService: RequestService, private localizacionesService: LocalizacionesService) { }
+  constructor(
+    private requestService: RequestService,
+    private localizacionesService: LocalizacionesService
+  ) {}
 
   addedNewContryPopUp(name: string): void {
     const Toast = Swal.mixin({
       toast: true,
-      position: "top-end",
+      position: 'top-end',
       showConfirmButton: false,
       timer: 3000,
-      timerProgressBar: true,
+      timerProgressBar: false,
       didOpen: (toast) => {
         toast.onmouseenter = Swal.stopTimer;
         toast.onmouseleave = Swal.resumeTimer;
       },
       showClass: {
         popup: '', // Establece la animación de salida como una cadena vacía
-      }
-    });
-    Toast.fire({
-      icon: "success",
-      title: name + " added!"
-    });
-  }
-
-  deletedContryPopUp(id: number): void {
-    const Toast = Swal.mixin({
-      toast: true,
-      position: "top-end",
-      showConfirmButton: false,
-      timer: 3000,
-      timerProgressBar: true,
-      didOpen: (toast) => {
-        toast.onmouseenter = Swal.stopTimer;
-        toast.onmouseleave = Swal.resumeTimer;
       },
-      showClass: {
-        popup: '', // Establece la animación de salida como una cadena vacía
-      }
     });
     Toast.fire({
-      icon: "success",
-      title: "Country " + id + " deleted."
+      icon: 'success',
+      title: 'New country added!',
+      text: 'Country: ' + name,
     });
   }
 
   updatedContryPopUp(name : string): void {
     const Toast = Swal.mixin({
       toast: true,
-      position: "top-end",
+      position: 'top-end',
       showConfirmButton: false,
       timer: 3000,
-      timerProgressBar: true,
+      timerProgressBar: false,
       didOpen: (toast) => {
         toast.onmouseenter = Swal.stopTimer;
         toast.onmouseleave = Swal.resumeTimer;
       },
       showClass: {
         popup: '', // Establece la animación de salida como una cadena vacía
-      }
+      },
     });
     Toast.fire({
       icon: "success",
@@ -107,10 +90,10 @@ export class AdminCountryComponent {
   countryId = 0
   /* Add var */
   /* Get var */
-  countries: (Country[]) = []
+  countries: Country[] = [];
   /* Update var 
   updatedCountry: (Country[]) = []*/
-  oldCountry: (Country) = new Country()
+  oldCountry: Country = new Country();
   /* Delete var 
   deletedCountry: (Country) = new Country()*/
 
@@ -145,30 +128,32 @@ export class AdminCountryComponent {
 
   getAllCountries() {
     //alert(this.countryId);
-    this.localizacionesService.getAllCountries()
-      .subscribe({
-        next: (fetchedCountries: any[]) => {
-          this.countries = fetchedCountries.map((country: any): any => {
-            return {
-              id: country.id,
-              name: country.name,
-            };
-          });
-        },
-      });
+    this.localizacionesService.getAllCountries().subscribe({
+      next: (fetchedCountries: any[]) => {
+        this.countries = fetchedCountries.map((country: any): any => {
+          return {
+            id: country.id,
+            name: country.name,
+          };
+        });
+      },
+    });
   }
 
-  getCountryById(id:number) {
-    this.localizacionesService.getCountryById(id)
-      .subscribe({
-        next: (fetchedCountry: any) => {
-          this.countries = [{
+  getCountryById(id: number) {
+    this.localizacionesService.getCountryById(id).subscribe({
+      next: (fetchedCountry: any) => {
+        this.countries = [
+          {
             id: fetchedCountry.id,
             name: fetchedCountry.name,
-          }];
-        },
-      });
-  }  
+          },
+        ];
+      },
+    });
+  }
+
+
   updateCountry(id: number) {
     /* getting old info*/
     this.localizacionesService.getCountryById(id)
@@ -182,30 +167,26 @@ export class AdminCountryComponent {
         },
       });
 
-
-
     /*update database*/
-    this.localizacionesService.updateCountry(
-         {
-          "Id": this.countryId,
-          "Name": this.countryName
+    this.localizacionesService
+      .updateCountry({
+        Id: this.countryId,
+        Name: this.countryName,
+      })
+      .subscribe({
+        next() {},
+        error(err: Error) {
+          alert(err.message);
+        },
+      });
 
-        }).subscribe({
-          next() {
-          },
-          error(err: Error) {
-            alert(err.message)
-          }
-    });
     /*Get country with new info*/
     this.getCountryById(id)
     this.updatedContryPopUp(this.countryName)
   }
   deleteCountry(id: number) {
     //alert(this.countryId);
-    this.localizacionesService.deleteCountry(id)
-      .subscribe({ });
-      this.deletedContryPopUp(id);
+    this.localizacionesService.deleteCountry(id).subscribe({});
   }
 }
 
