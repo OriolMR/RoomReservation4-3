@@ -3,9 +3,9 @@ import { RequestService } from 'src/app/services/request.service';
 import { HttpParams } from '@angular/common/http';
 import { Country } from 'src/app/models/country-models/country';
 import { LocalizacionesService } from '../../services/localizaciones.service';
-//POP-UP
-import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import Swal from 'sweetalert2';
+
+
 
 
 @Component({
@@ -58,7 +58,7 @@ export class AdminCountryComponent {
     });
   }
 
-  updatedContryPopUp(id: number): void {
+  updatedContryPopUp(name : string): void {
     const Toast = Swal.mixin({
       toast: true,
       position: "top-end",
@@ -75,12 +75,36 @@ export class AdminCountryComponent {
     });
     Toast.fire({
       icon: "success",
-      title: "Country " + id + " updated!"
+      title: "Country updated!",
+      text: "Country: " + name
     });
   }
+
+  addCountryErrorPopUp(): void {
+    const Toast = Swal.mixin({
+      toast: true,
+      position: "top-end",
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.onmouseenter = Swal.stopTimer;
+        toast.onmouseleave = Swal.resumeTimer;
+      },
+      showClass: {
+        popup: '', // Establece la animación de salida como una cadena vacía
+      }
+    });
+    Toast.fire({
+      icon: "error",
+      title: "Error while creating a new country",
+      text: "Please enter a valid name"
+    });
+  }
+
   /* Inputs var */
-  countryName = "xx"
-  countryId = 18
+  countryName = ""
+  countryId = 0
   /* Add var */
   /* Get var */
   countries: (Country[]) = []
@@ -90,28 +114,32 @@ export class AdminCountryComponent {
   /* Delete var 
   deletedCountry: (Country) = new Country()*/
 
-  
+ isStringNumber(countryName: string): boolean {
+  const num = parseInt(countryName, 10); //parseInt devuele NAN si la cadena no contiene nuemero
+  return !isNaN(num);
+}
  
   addCountry() {
     //alert(this.countryName);
-    if (this.countryName !== null || this.countryName !== undefined || this.countryName !== '') {
+    if (this.countryName == null || this.countryName == undefined
+      || this.isStringNumber(this.countryName) == true || this.countryName.length <= 1) {
+      this.addCountryErrorPopUp()        
+    } else {
       this.localizacionesService.createCountry(
         {
           "Name": this.countryName
         })
         .subscribe({
-          next(response: any) {
+          next: (response: any) => {
             if (response !== null) {
               //alert(`You have successfully added the country.`);
+              this.addedNewContryPopUp(this.countryName);
             }
           },
-          error(err: Error) {
-            alert(err.message)
+          error: (err: Error) => {
+            this.addCountryErrorPopUp()
           }
         });
-        this.addedNewContryPopUp(this.countryName);
-    } else {
-      alert("Please enter a valid name");
     }
   }
 
@@ -150,8 +178,7 @@ export class AdminCountryComponent {
           this.oldCountry = {
             id: fetchedCountry.id,
             name: fetchedCountry.name,
-          };
-          this.updatedContryPopUp(id);
+          };          
         },
       });
 
@@ -172,6 +199,7 @@ export class AdminCountryComponent {
     });
     /*Get country with new info*/
     this.getCountryById(id)
+    this.updatedContryPopUp(this.countryName)
   }
   deleteCountry(id: number) {
     //alert(this.countryId);
