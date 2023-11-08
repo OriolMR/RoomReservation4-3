@@ -92,7 +92,7 @@
               <label class="textLabel">Admin id: </label>
               <input class="text" [(ngModel)]="adminId" type="text" name="adminId" id="adminId" />
             </div>
-            <input class="deleteButton butt" value="Delete admin" (keydown.enter)="deleteAdmin()" (click)="deleteAdmin()" type="submit">
+            <input class="deleteButton butt" value="Delete admin" (keydown.enter)="confirmDeleteAdmin(adminId)" (click)="confirmDeleteAdmin(adminId)" type="submit">
           </div>
         </li>
       </ul>

@@ -10,6 +10,7 @@ import { Room } from '../../models/room-models/room';
 import * as dayjs from 'dayjs';
 import { ReservationExtendedDTO } from '../../models/reservation-models/reservation-extended-dto';
 import { ReservationsService } from '../../services/reservation-service/reservations.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-admin-reservation',
@@ -32,6 +33,85 @@ export class AdminReservationComponent {
   reservas: (Reservation[]) = []
   reservation: (Reservation) = new Reservation()
   constructor(private requestService: RequestService, private reservationsService: ReservationsService) { }
+
+  addedNewReservationPopUp(id: number): void {
+    const Toast = Swal.mixin({
+      toast: true,
+      position: "top-end",
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.onmouseenter = Swal.stopTimer;
+        toast.onmouseleave = Swal.resumeTimer;
+      },
+      showClass: {
+        popup: '', // Establece la animación de salida como una cadena vacía
+      }
+    });
+    Toast.fire({
+      icon: "success",
+      title: "New reservation added!",
+      text: "Reservation ID: " + id
+    });
+  }
+  
+  updatedReservationPopUp(id: number): void {
+    const Toast = Swal.mixin({
+      toast: true,
+      position: "top-end",
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.onmouseenter = Swal.stopTimer;
+        toast.onmouseleave = Swal.resumeTimer;
+      },
+      showClass: {
+        popup: '', // Establece la animación de salida como una cadena vacía
+      }
+    });
+    Toast.fire({
+      icon: "success",
+      title: "Reservation updated!",
+      text: "Reservation ID: " + id
+    });
+  }
+
+  confirmDeleteCity(reservationId: number){
+    Swal.fire({
+      title: "Are you sure you want to delete this Reservation?",
+      text: "Reservation ID: " + reservationId,
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.deleteReservation(reservationId)
+        const Toast = Swal.mixin({
+          toast: true,
+          position: "top-end",
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true,
+          didOpen: (toast) => {
+            toast.onmouseenter = Swal.stopTimer;
+            toast.onmouseleave = Swal.resumeTimer;
+          },
+          showClass: {
+            popup: '', // Establece la animación de salida como una cadena vacía
+          }
+        });
+        Toast.fire({
+          icon: "success",
+          title: "Reservation deleted!",
+          text: "Reservation ID: " + reservationId
+        });
+      }
+    });
+  }
 
   /*CREATE*/
   addReservation() {
@@ -177,6 +257,6 @@ export class AdminReservationComponent {
         },
       });
   }
-  deleteReservation() { }
+  deleteReservation(reservationId: number) { }
 
 }

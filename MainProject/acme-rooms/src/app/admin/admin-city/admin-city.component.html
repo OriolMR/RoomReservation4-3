@@ -96,7 +96,7 @@
                 <label class="textLabel">City id: </label>
                 <input class="text" [(ngModel)]="cityId" type="text" name="cityId" id="cityId" />
               </div>
-              <input class="deleteButton butt" value="Delete city" (keydown.enter)="deleteCity(cityId)" (click)="deleteCity(cityId)" type="submit">
+              <input class="deleteButton butt" value="Delete city" (keydown.enter)="confirmDeleteCity(cityId)" (click)="confirmDeleteCity(cityId)" type="submit">
             </div>
           </div>
         </li>

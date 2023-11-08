@@ -132,7 +132,7 @@
                 <label class="textLabel">Id: </label>
                 <input class="text" [(ngModel)]="reservation.id" type="text" name="reservationId" id="id" />
               </div>
-              <input class="deleteButton butt" value="Delete reservation" (keydown.enter)="deleteReservation()" (click)="deleteReservation()" type="submit">
+              <input class="deleteButton butt" value="Delete reservation" (keydown.enter)="confirmDeleteCity(reservaId)" (click)="confirmDeleteCity(reservaId)" type="submit">
             </div>
             <!--<div *ngFor="let reserva of reservas" class="resultDiv">
               <p class="result">{{reserva | json}}</p>
