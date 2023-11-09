@@ -63,6 +63,41 @@ export class AdminCountryComponent {
     });
   }
 
+  confirmDeleteCountry(countryId: number){
+    Swal.fire({
+      title: "Are you sure you want to delete this City?",
+      text: "City ID: " + countryId,
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.deleteCountry(countryId)
+        const Toast = Swal.mixin({
+          toast: true,
+          position: "top-end",
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true,
+          didOpen: (toast) => {
+            toast.onmouseenter = Swal.stopTimer;
+            toast.onmouseleave = Swal.resumeTimer;
+          },
+          showClass: {
+            popup: '', // Establece la animación de salida como una cadena vacía
+          }
+        });
+        Toast.fire({
+          icon: "success",
+          title: "City deleted!",
+          text: "City ID: " + countryId
+        });
+      }
+    });
+  }
+
   addCountryErrorPopUp(): void {
     const Toast = Swal.mixin({
       toast: true,
