@@ -5,6 +5,9 @@ import { Country } from 'src/app/models/country-models/country';
 import { LocalizacionesService } from '../../services/localizaciones.service';
 import Swal from 'sweetalert2';
 
+
+
+
 @Component({
   selector: 'app-admin-country',
   templateUrl: './admin-country.component.html',
@@ -38,7 +41,7 @@ export class AdminCountryComponent {
     });
   }
 
-  updatedContryPopUp(id : number): void {
+  updatedContryPopUp(name : string): void {
     const Toast = Swal.mixin({
       toast: true,
       position: 'top-end',
@@ -54,14 +57,37 @@ export class AdminCountryComponent {
       },
     });
     Toast.fire({
-      icon: 'success',
-      title: 'Country updated!',
-      text: 'Country : ' + id,
+      icon: "success",
+      title: "Country updated!",
+      text: "Country: " + name
     });
   }
+
+  addCountryErrorPopUp(): void {
+    const Toast = Swal.mixin({
+      toast: true,
+      position: "top-end",
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.onmouseenter = Swal.stopTimer;
+        toast.onmouseleave = Swal.resumeTimer;
+      },
+      showClass: {
+        popup: '', // Establece la animación de salida como una cadena vacía
+      }
+    });
+    Toast.fire({
+      icon: "error",
+      title: "Error while creating a new country",
+      text: "Please enter a valid name"
+    });
+  }
+
   /* Inputs var */
-  countryName = 'xx';
-  countryId = 18;
+  countryName = ""
+  countryId = 0
   /* Add var */
   /* Get var */
   countries: Country[] = [];
@@ -71,30 +97,32 @@ export class AdminCountryComponent {
   /* Delete var 
   deletedCountry: (Country) = new Country()*/
 
+ isStringNumber(countryName: string): boolean {
+  const num = parseInt(countryName, 10); //parseInt devuele NAN si la cadena no contiene nuemero
+  return !isNaN(num);
+}
+ 
   addCountry() {
     //alert(this.countryName);
-    if (
-      this.countryName !== null ||
-      this.countryName !== undefined ||
-      this.countryName !== ''
-    ) {
-      this.localizacionesService
-        .createCountry({
-          Name: this.countryName,
+    if (this.countryName == null || this.countryName == undefined
+      || this.isStringNumber(this.countryName) == true || this.countryName.length <= 1) {
+      this.addCountryErrorPopUp()        
+    } else {
+      this.localizacionesService.createCountry(
+        {
+          "Name": this.countryName
         })
         .subscribe({
-          next(response: any) {
+          next: (response: any) => {
             if (response !== null) {
               //alert(`You have successfully added the country.`);
+              this.addedNewContryPopUp(this.countryName);
             }
           },
-          error(err: Error) {
-            alert(err.message);
-          },
+          error: (err: Error) => {
+            this.addCountryErrorPopUp()
+          }
         });
-      this.addedNewContryPopUp(this.countryName);
-    } else {
-      alert('Please enter a valid name');
     }
   }
 
@@ -128,16 +156,16 @@ export class AdminCountryComponent {
 
   updateCountry(id: number) {
     /* getting old info*/
-    this.localizacionesService.getCountryById(id).subscribe({
-      next: (fetchedCountry: any) => {
-        /*alert(JSON.stringify(fetchedCountry));*/
-        this.oldCountry = {
-          id: fetchedCountry.id,
-          name: fetchedCountry.name,
-        };
-        this.updatedContryPopUp(id);
-      },
-    });
+    this.localizacionesService.getCountryById(id)
+      .subscribe({
+        next: (fetchedCountry: any) => {
+          /*alert(JSON.stringify(fetchedCountry));*/
+          this.oldCountry = {
+            id: fetchedCountry.id,
+            name: fetchedCountry.name,
+          };          
+        },
+      });
 
     /*update database*/
     this.localizacionesService
@@ -153,49 +181,14 @@ export class AdminCountryComponent {
       });
 
     /*Get country with new info*/
-    this.getCountryById(id);
+    this.getCountryById(id)
+    this.updatedContryPopUp(this.countryName)
   }
   deleteCountry(id: number) {
     //alert(this.countryId);
     this.localizacionesService.deleteCountry(id).subscribe({});
   }
-
-  confirmDeleteCountry(countryId: number) {
-    Swal.fire({
-      title: 'Do you want to delete this Country?',
-      text: 'Country ID: ' + countryId,
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes, delete it!',
-      customClass: {
-        popup: 'custom-font-size'
-      }
-      
-    }).then((result) => {
-      if (result.isConfirmed) {
-        this.deleteCountry(countryId);
-        const Toast = Swal.mixin({
-          toast: true,
-          position: 'top-end',
-          showConfirmButton: false,
-          timer: 3000,
-          timerProgressBar: false,
-          didOpen: (toast) => {
-            toast.onmouseenter = Swal.stopTimer;
-            toast.onmouseleave = Swal.resumeTimer;
-          },
-          showClass: {
-            popup: '', // Establece la animación de salida como una cadena vacía
-          },
-        });
-        Toast.fire({
-          icon: 'success',
-          title: 'Country deleted!',
-          text: 'Country ID: ' + countryId,
-        });
-      }
-    });
-  }
 }
+
+
+

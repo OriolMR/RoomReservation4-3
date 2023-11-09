@@ -31,7 +31,9 @@ public class OfficesController : Controller
     [HttpGet]
     [Route("GetOfficeById")]
     public async Task<IActionResult> GetOfficeById(int id) =>
+        
         Ok(await _context.Offices.FindAsync(id));
+
 
     [HttpGet]
     [Route("GetOfficesByCityId")]
@@ -113,8 +115,9 @@ public class OfficesController : Controller
         await _context.SaveChangesAsync();
         return NoContent();
     }
-
-    private bool OfficeExists(int id)
+    [HttpGet]
+    [Route("ifExists")]
+    public bool OfficeExists(int id)
     {
         return (_context.Offices?.Any(e => e.Id == id)).GetValueOrDefault();
     }
