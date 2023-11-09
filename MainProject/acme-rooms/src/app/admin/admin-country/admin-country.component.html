@@ -65,7 +65,7 @@
             </div>
             <div *ngFor="let country of countries" class="resultDiv">
               <p class="result">Old country: id:{{oldCountry.id}} Name: {{oldCountry.name}}</p>
-              <p class="result">New country: id: {{country.id}} Name: {{country.name}}</p>
+              <p class="result">New country: id: {{countryId}} Name: {{countryName}}</p>
             </div>
           </div>
           
@@ -79,7 +79,7 @@
                 <label class="textLabel">Country id: </label>
                 <input class="text" [(ngModel)]="countryId" type="text" name="countryId" id="countryId" />
               </div>
-              <input class="deleteButton butt" value="Delete country" (keydown.enter)="confirmDeleteCountry(countryId)" (click)="confirmDeleteCountry(countryId)" type="submit">
+              <input class="deleteButton butt" value="Delete country" (keydown.enter)="deleteCountry(countryId)" (click)="deleteCountry(countryId)" type="submit">
             </div>
             <div *ngFor="let country of countries" class="resultDiv">
               <p class="result">Deleted: id:{{country.id}} Name: {{country.name}}</p>

@@ -5,9 +5,6 @@ import { Country } from 'src/app/models/country-models/country';
 import { LocalizacionesService } from '../../services/localizaciones.service';
 import Swal from 'sweetalert2';
 
-
-
-
 @Component({
   selector: 'app-admin-country',
   templateUrl: './admin-country.component.html',
@@ -220,8 +217,8 @@ export class AdminCountryComponent {
     this.updatedContryPopUp(this.countryName)
   }
   deleteCountry(id: number) {
-    //alert(this.countryId);
     this.localizacionesService.deleteCountry(id).subscribe({});
+    this.confirmDeleteCountry(id);
   }
 }
 
