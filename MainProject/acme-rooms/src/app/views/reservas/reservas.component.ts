@@ -2,7 +2,6 @@ import { Component, ElementRef } from '@angular/core';
 import * as dayjs from 'dayjs';
 import { FormsModule } from '@angular/forms';
 import { RequestService } from 'src/app/services/request.service';
-
 import { OnInit, ViewChild } from '@angular/core';
 import { Observable } from 'rxjs';
 import { toArray } from 'rxjs/operators';
@@ -12,17 +11,16 @@ import { Office } from '../../models/office-models/office';
 import { Room } from '../../models/room-models/room';
 import { ReservationRegistrationForm } from '../../models/reservation-models/reservation-registration-form';
 import { Reservation } from '../../models/reservation-models/reservation';
-import { HttpParams } from '@angular/common/http';
 import { LocalizacionesService } from '../../services/localizaciones.service';
 import { ReservationsService } from '../../services/reservation-service/reservations.service';
-
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-reservas',
   templateUrl: './reservas.component.html',
   styleUrls: ['./reservas.component.css'],
 })
 export class ReservasComponent implements OnInit {
-
   public reservationRegistrationForm: ReservationRegistrationForm;
   selection: {
     country: 'any' | number;
@@ -42,6 +40,47 @@ export class ReservasComponent implements OnInit {
     this.reservationRegistrationForm = new ReservationRegistrationForm();
   }
 
+  newReservationPopUp(): void {
+    const Toast = Swal.mixin({
+      toast: true,
+      position: "top-end",
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.onmouseenter = Swal.stopTimer;
+        toast.onmouseleave = Swal.resumeTimer;
+      },
+      showClass: {
+        popup: '', // Establece la animación de salida como una cadena vacía
+      }
+    });
+    Toast.fire({
+      icon: "success",
+      title: "Room reserved!"
+    });
+  }
+  registerFailedPopUp(): void {
+    const Toast = Swal.mixin({
+      toast: true,
+      position: "top-end",
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.onmouseenter = Swal.stopTimer;
+        toast.onmouseleave = Swal.resumeTimer;
+      },
+      showClass: {
+        popup: '', // Establece la animación de salida como una cadena vacía
+      }
+    });
+    Toast.fire({
+      icon: "error",
+      title: "Failed to make a reservation."
+    });
+  }
+
 
   ngOnInit(): void {  
     this.localizacionesService.getAllCountries()
@@ -50,8 +89,6 @@ export class ReservasComponent implements OnInit {
           this.countries = countries;
         },
       });
-
-
     this.onCountrySelected(this.selection.country.toString());
     this.onOfficeSelected(this.selection.office.toString());
   }
@@ -64,9 +101,11 @@ export class ReservasComponent implements OnInit {
       .subscribe({
         next: (response: object) => {
           /*alert(JSON.stringify(response));*/
+          this.newReservationPopUp();
         },
         error: (err: Error) => {
           console.log(err.message);
+          this.registerFailedPopUp();
         },
       });
   }

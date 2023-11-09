@@ -145,6 +145,7 @@ export class AdminOfficeComponent {
         },
       });
   }
+
   deleteOffice(officeId: number) {
     //alert(this.officeId);
     this.localizacionesService.deleteOffice(officeId)

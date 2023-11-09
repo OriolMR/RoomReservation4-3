@@ -63,13 +63,17 @@ public class CountriesController : Controller
     [Route("DeleteCountry")]
     public async Task<IActionResult> DeleteCountry(int id)
     {
+        
         var countryToDelete = await _context.Countries.FindAsync(id);
         if (countryToDelete == null)
         {
             return NotFound();
+            
         }
         _context.Countries.Remove(countryToDelete);
         await _context.SaveChangesAsync();
         return NoContent();
     }
 }
+
+
