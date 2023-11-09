@@ -11,7 +11,7 @@ It has two elements: a web API that interfaces with a Microsoft SQL Server datab
 The web API is written in C#, using an entity/controller model based on Asp.NET Core and EntityFramework Core.
 For authentication and authorisation, Asp.NET Core Identity was used, together with the Asp.NET Core JwtBearer namespace. Successful authentication sends a JWT token to the user, which is then included in requests to the API as an authorisation header.
 
-The front-end app is written in Angular and TypeScript.
+The front-end app is written in Angular (framework) and TypeScript.
 
 ## Project structure
 
@@ -673,3 +673,9 @@ The database contains the following tables:
 		This table stores tokens and maps them to users, and is unused in the current implementation of the app, as the authorisation tokens are simply stored in memory.
 	- AspNetUserLogins  
 		This table maps users to external login providers, and is unused in the current implementation of the app.
+
+
+# FRONT-END: ANGULAR (FRAMEWORK)
+## Introduction
+##  Front-End Structure
+
