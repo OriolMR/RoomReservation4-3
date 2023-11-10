@@ -113,6 +113,28 @@ export class AdminReservationComponent {
     });
   }
 
+  reservationErrorPopUp(): void {
+    const Toast = Swal.mixin({
+      toast: true,
+      position: "top-end",
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.onmouseenter = Swal.stopTimer;
+        toast.onmouseleave = Swal.resumeTimer;
+      },
+      showClass: {
+        popup: '', // Establece la animación de salida como una cadena vacía
+      }
+    });
+    Toast.fire({
+      icon: "error",
+      title: "Error",
+      text: ""
+    });
+  }
+
   /*CREATE*/
   addReservation() {
     this.requestService
@@ -131,7 +153,7 @@ export class AdminReservationComponent {
           alert(JSON.stringify(response));
         },
         error: (err: Error) => {
-          alert(err.message);
+          this.reservationErrorPopUp()
         },
       });
   }
@@ -152,7 +174,7 @@ export class AdminReservationComponent {
             );
         },
         error: (err: Error) => {
-          alert(err.message);
+          this.reservationErrorPopUp()
         },
       });
   }
@@ -167,7 +189,7 @@ export class AdminReservationComponent {
           this.llistaReservas = fetchedReservations
         },
         error: (err: Error) => {
-          alert(err.message);
+          this.reservationErrorPopUp()
         },
       });
 
@@ -195,7 +217,7 @@ export class AdminReservationComponent {
           alert("funciona");
         },
         error: (err: Error) => {
-          alert(err.message);
+          this.reservationErrorPopUp()
         },
       });
 
@@ -225,7 +247,7 @@ export class AdminReservationComponent {
           alert("funciona");
         },
         error: (err: Error) => {
-          alert(err.message);
+          this.reservationErrorPopUp()
           alert("comprueba que es una reserva existente");
         },
       });

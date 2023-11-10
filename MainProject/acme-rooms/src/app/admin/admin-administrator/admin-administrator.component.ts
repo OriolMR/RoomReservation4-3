@@ -96,6 +96,11 @@ export class AdminAdministratorComponent {
   }
 
   /*CREATE*/
+
+  isStringNumber(countryName: string): boolean {
+    const num = parseInt(countryName, 10); //parseInt devuele NAN si la cadena no contiene nuemero
+    return !isNaN(num);
+  }
   addAdmin() { }
   getAllAdmins() { }
   getAdminById() { }
