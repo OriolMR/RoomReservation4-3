@@ -11,6 +11,7 @@ import Swal from 'sweetalert2';
   styleUrls: ['./admin-country.component.css'],
 })
 export class AdminCountryComponent {
+
   constructor(
     private requestService: RequestService,
     private localizacionesService: LocalizacionesService
@@ -95,7 +96,7 @@ export class AdminCountryComponent {
     });
   }
 
-  addCountryErrorPopUp(): void {
+  countryErrorPopUp(mensajeTitle : String, mensajeTexto :String): void {
     const Toast = Swal.mixin({
       toast: true,
       position: "top-end",
@@ -111,9 +112,9 @@ export class AdminCountryComponent {
       }
     });
     Toast.fire({
-      icon: "error",
-      title: "Error while creating a new country",
-      text: "Please enter a valid name"
+      icon: 'error',
+      title: '' + mensajeTitle,
+      text: '' + mensajeTexto,
     });
   }
 
@@ -138,7 +139,7 @@ export class AdminCountryComponent {
     //alert(this.countryName);
     if (this.countryName == null || this.countryName == undefined
       || this.isStringNumber(this.countryName) == true || this.countryName.length <= 1) {
-      this.addCountryErrorPopUp()        
+      this.countryErrorPopUp("Error, while creating a new country","Avoid special caracters and numbers")        
     } else {
       this.localizacionesService.createCountry(
         {
@@ -147,12 +148,11 @@ export class AdminCountryComponent {
         .subscribe({
           next: (response: any) => {
             if (response !== null) {
-              //alert(`You have successfully added the country.`);
               this.addedNewContryPopUp(this.countryName);
             }
           },
           error: (err: Error) => {
-            this.addCountryErrorPopUp()
+            this.countryErrorPopUp("Error!", " Tonterías no")
           }
         });
     }
@@ -185,7 +185,6 @@ export class AdminCountryComponent {
     });
   }
 
-
   updateCountry(id: number) {
     /* getting old info*/
     this.localizacionesService.getCountryById(id)
@@ -199,22 +198,35 @@ export class AdminCountryComponent {
         },
       });
 
+    if (this.countryName == null || this.countryId == null || this.countryId == undefined || this.countryName == undefined
+      || this.isStringNumber(this.countryName) == true || this.isStringNumber(this.countryId + "") == false
+      || this.countryName.length <= 1) {
+
+      this.countryErrorPopUp("Error, while updating the country", "Avoid special caracters and numbers")
+
+    } else {
+      this.localizacionesService
+        .updateCountry({
+          Id: this.countryId,
+          Name: this.countryName,
+        })
+        .subscribe({
+          next:() =>{
+            this.updatedContryPopUp(this.countryName)
+},
+          error:(err: Error) =>{
+            this.countryErrorPopUp("Error", "Backend Error")
+          },
+        });
+
+    }
+
     /*update database*/
-    this.localizacionesService
-      .updateCountry({
-        Id: this.countryId,
-        Name: this.countryName,
-      })
-      .subscribe({
-        next() {},
-        error(err: Error) {
-          alert(err.message);
-        },
-      });
+    
 
     /*Get country with new info*/
     this.getCountryById(id)
-    this.updatedContryPopUp(this.countryName)
+    
   }
   deleteCountry(id: number) {
     this.localizacionesService.deleteCountry(id).subscribe({});
