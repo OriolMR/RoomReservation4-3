@@ -676,6 +676,42 @@ The database contains the following tables:
 
 
 # FRONT-END: ANGULAR (FRAMEWORK)
-## Introduction
-##  Front-End Structure
 
+## Dependencies
+- ### Software dependencies and libraries used
+	#### Angular Framework  
+	This project is based on the Angular framework for the development of web applications. Make sure you have the supported version of Angular CLI installed for efficient project management.
+	- Angular Cli: https://angular.io/cli  
+	- **@angular/animations:** Version 16.1.0  
+    - **@angular/common:** Version 16.1.0  
+    - **@angular/compiler:** Version 16.1.0  
+    - **@angular/core:** Version 16.1.0 
+    - **@angular/forms:** Version 16.1.0  
+    - **@angular/platform-browser:** Version 16.1.0  
+    - **@angular/platform-browser-dynamic:** Version 16.1.0  
+    - **@angular/router:** Version 16.1.0  
+    - **@easepick/bundle:** Version 1.2.1
+    - **@sweetalert2/ngx-sweetalert2:** Version 12.2.0 
+	#### Herramientas de Desarrollo
+	In addition to the Angular-specific libraries, this project makes use of the following development tools.
+
+    - **bootstrap":** Version 5.3.1  
+    - **dayjs":** Version 1.11.9  
+    - **fuzzysearch-ts":** Version 1.0.3  
+    - **ng2-search-filter":** Version 0.5.1  
+    - **node":** Version 20.6.0  
+    - **rxjs":** Version 7.8.0  
+    - **sweetalert2":** Version 11.6.13  
+    - **tslib":** Version 2.3.0  
+    - **zone.js":** Version 0.13.  
+
+	Make sure you have these dependencies installed before starting development or running the application. For more details about each library or tool, please refer to their respective official documentations.
+
+##  Front-End Structure
+- ### Explanation of how the source code is organized.
+	The folders are organized in an intuitive way and so that it is easy for developers to find the files they are looking for.
+	The first folder we have inside src/app is /admin, where the different components that we use for the administrator panel are located. Next we have the datepicker component. Next, we will see the models folder where the different models of the entities used are saved. Furthermore, we have two .ts files (locked-date.ts and user.ts). Continuing with the components, we will find two more, the nav-menu and the nav-var. Later, in the services folder we will have the services that we use to make the connection with the backend, authentication-service and reservation-service.
+
+	View-all: Todas las rooms separadas por paises. (nombre sala, ciudad, pais y capacidad)
+
+- ### Files and folders description 
