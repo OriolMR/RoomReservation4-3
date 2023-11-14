@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 namespace Users.Data;
 
 public class UsersDbContext : IdentityDbContext<IdentityUser>
-{
+{ 
     public UsersDbContext(DbContextOptions<UsersDbContext> options)
         : base(options) { }
 

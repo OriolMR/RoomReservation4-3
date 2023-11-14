@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
-using Usuarios.Models;
+using Users.Models;
 using System.Data;
 
-namespace Usuarios.Controllers;
+namespace Users.Controllers;
 
 public class ClaimController : Controller
 {

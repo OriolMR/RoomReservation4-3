@@ -3,6 +3,7 @@ import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http'
 import { Observable, throwError } from 'rxjs';
 import { __rest } from 'tslib';
 import { RequestService } from './request.service';
+import { Room } from '../models/room-models/room';
 
 
 
@@ -42,6 +43,7 @@ export class LocalizacionesService {
       createOffice: 'CreateOffice',
       updateOffice: 'UpdateOffice',
       deleteOffice: 'DeleteOffice',
+      siExiste: 'ifExiste'
     },
     room: {
       getAllRooms: 'GetAllRooms',
@@ -56,6 +58,7 @@ export class LocalizacionesService {
     },
   }
 
+  
   countries = 'Countries';
   cities = 'Cities';
   offices = 'Offices';
@@ -70,137 +73,148 @@ export class LocalizacionesService {
     return this.requestService.get(url);
   }
 
-
   getCountryById(countryId: number): Observable<any> {
-    const url = `${this.apiUrl}/${this.localizacionUrls.country.getCountryById}`;
+    const url = `${this.apiUrl}/${this.countries}/${this.localizacionUrls.country.getCountryById}`;
     return this.requestService.get(url, new HttpParams().append('id', countryId));
   }
 
   createCountry(countryData: any): Observable<any>  {
-    const url = `${this.apiUrl}/${this.localizacionUrls.country.createCountry}`;
+    const url = `${this.apiUrl}/${this.countries}/${this.localizacionUrls.country.createCountry}`;
     return this.requestService.post(url, countryData);
   }
 
-  updateCountry(countryId: number, countryData: any): Observable<any> {
-    const url = `${this.apiUrl}/${this.localizacionUrls.country.updateCountry}/${countryId}`;
+  updateCountry( countryData: any): Observable<any> {
+    const url = `${this.apiUrl}/${this.countries}/${this.localizacionUrls.country.updateCountry}`;
     return this.requestService.put(url, countryData);
   }
 
   deleteCountry(countryId: number) {
-    const url = `${this.apiUrl}/${this.localizacionUrls.country.deleteCountry}/${countryId}`;
-    return this.requestService.delete(url);
+    const url = `${this.apiUrl}/${this.countries}/${this.localizacionUrls.country.deleteCountry}`;
+    return this.requestService.delete(url, new HttpParams().append('id', countryId));
   }
 
   // Cities
 
   getAllCities(): Observable<any[]> {
-    const url = `${this.apiUrl}/${this.localizacionUrls.city.getAllCities}`;
+    const url = `${this.apiUrl}/${this.cities}/${this.localizacionUrls.city.getAllCities}`;
     return this.requestService.get(url);
   }
 
-  getCityById(cityId: string): Observable<any> {
-    const url = `${this.apiUrl}/${this.localizacionUrls.city.getCityById}/${cityId}`;
-    return this.requestService.get(url);
+  getCityById(cityId: number): Observable<any> {
+    const url = `${this.apiUrl}/${this.cities}/${this.localizacionUrls.city.getCityById}`;
+    return this.requestService.get(url, new HttpParams().append('id', cityId));
   }
-
-  getCitiesByCountryId(countryId: number): Observable<any[]> {
-    const url = `${this.apiUrl}/${this.localizacionUrls.city.getCitiesByCountryId}/${countryId}`;
+  //type string para verificar any from filter
+  getCitiesByCountryId(countryId: string): Observable<any[]> {
+    const url = `${this.apiUrl}/${this.cities}/${this.localizacionUrls.city.getCitiesByCountryId}?countryId=${countryId}`;
     return this.requestService.get(url);
   }
 
   createCity(cityData: any): Observable<any> {
-    const url = `${this.apiUrl}/${this.localizacionUrls.city.createCity}`;
+    const url = `${this.apiUrl}/${this.cities}/${this.localizacionUrls.city.createCity}`;
     return this.requestService.post(url,cityData);
   }
 
-  updateCity(cityId: number, cityData: any): Observable<any> {
-    const url = `${this.apiUrl}/${this.localizacionUrls.city.updateCity}/${cityId}`;
+  updateCity(cityData: any): Observable<any> {
+    const url = `${this.apiUrl}/${this.cities}/${this.localizacionUrls.city.updateCity}`;
     return this.requestService.put(url,cityData);
   }
 
   deleteCity(cityId: number) {
-    const url = `${this.apiUrl}/${this.localizacionUrls.city.deleteCity}/${cityId}`;
-    return this.requestService.delete(url);
+    const url = `${this.apiUrl}/${this.cities}/${this.localizacionUrls.city.deleteCity}`;
+    return this.requestService.delete(url, new HttpParams().append('id', cityId));
   }
 
   // Offices
 
   getAllOffices(): Observable<any[]> {
-    const url = `${this.apiUrl}/${this.localizacionUrls.office.getAllOffices}`;
+    const url = `${this.apiUrl}/${this.offices}/${this.localizacionUrls.office.getAllOffices}`;
     return this.requestService.get(url);
   }
 
-  getOfficeById(officeId: string): Observable<any> {
-    const url = `${this.apiUrl}/${this.localizacionUrls.office.getOfficeById}/${officeId}`;
+  getOfficeById(officeId: number): Observable<any> {
+    const url = `${this.apiUrl}/${this.offices}/${this.localizacionUrls.office.getOfficeById}`;
+    return this.requestService.get(url, new HttpParams().append('id', officeId));
+  }
+
+  getOfficesByCountryId(countryId: string): Observable<any[]> {
+    const url = `${this.apiUrl}/${this.offices}/${this.localizacionUrls.office.getOfficesByCountryId}?countryId=${countryId}`;
     return this.requestService.get(url);
   }
 
-  getOfficesByCountryId(countryId: number): Observable<any[]> {
-    const url = `${this.apiUrl}/${this.localizacionUrls.office.getOfficesByCountryId}/${countryId}`;
+  getOfficesByCityId(cityId: string): Observable<any[]> {
+    const url = `${this.apiUrl}/${this.offices}/${this.localizacionUrls.office.getOfficesByCityId}?cityId=${cityId}`;
     return this.requestService.get(url);
   }
 
   createOffice(officeData: any): Observable<any> {
-    const url = `${this.apiUrl}/${this.localizacionUrls.office.createOffice}`;
+    const url = `${this.apiUrl}/${this.offices}/${this.localizacionUrls.office.createOffice}`;
     return this.requestService.post(url, officeData);
   }
 
-  updateOffice(officeId: number, officeData: any): Observable<any> {
-    const url = `${this.apiUrl}/${this.localizacionUrls.office.updateOffice}/${officeId}`;
+  updateOffice(officeData: any): Observable<any> {
+    const url = `${this.apiUrl}/${this.offices}/${this.localizacionUrls.office.updateOffice}`;
     return this.requestService.put(url, officeData);
   }
 
   deleteOffice(officeId: number) {
-    const url = `${this.apiUrl}/${this.localizacionUrls.office.deleteOffice}/${officeId}`;
-    return this.requestService.delete(url);
+    const url = `${this.apiUrl}/${this.offices}/${this.localizacionUrls.office.deleteOffice}`;
+    return this.requestService.delete(url, new HttpParams().append('id', officeId));
   }
+  siExiste(officeId: number) {
+    const url = `${this.apiUrl}/${this.offices}/${this.localizacionUrls.office.siExiste}?officeId=${officeId}`;
+    return this.requestService.get(url)
+
+  }
+
 
   // Rooms
 
   getAllRooms(): Observable<any[]> {
-    const url = `${this.apiUrl}/${this.localizacionUrls.room.getAllRooms}`;
+    const url = `${this.apiUrl}/${this.rooms}/${this.localizacionUrls.room.getAllRooms}`;
     return this.requestService.get(url);
   }
 
-  getRoomById(roomId: string): Observable<any> {
-    const url = `${this.apiUrl}/${this.localizacionUrls.room.getRoomById}/${roomId}`;
-    return this.requestService.get(url);
+  getRoomById(roomId: number): Observable<any> {
+    const url = `${this.apiUrl}/${this.rooms}/${this.localizacionUrls.room.getRoomById}`;
+    return this.requestService.get(url, new HttpParams().append('id', roomId));
   }
 
   getRoomsByCountryId(countryId: string): Observable<any[]> {
-    const url = `${this.apiUrl}/${this.localizacionUrls.room.getRoomsByCountryId}/${countryId}`;
+    const url = `${this.apiUrl}/${this.rooms}/${this.localizacionUrls.room.getRoomsByCountryId}?countryId=${countryId}`;
     return this.requestService.get(url);
   }
 
-  getRoomsBycityId(cityId: number): Observable<any[]> {
-    const url = `${this.apiUrl}/${this.localizacionUrls.room.getRoomsByCityId}/${cityId}`;
+  getRoomsByCityId(cityId: number): Observable<any[]> {
+    const url = `${this.apiUrl}/${this.rooms}/${this.localizacionUrls.room.getRoomsByCityId}?cityId=${cityId}`;
     return this.requestService.get(url);
   }
 
-  getRoomsByOfficeId(cityId: number): Observable<any[]> {
-    const url = `${this.apiUrl}/${this.localizacionUrls.room.getRoomsByOfficeId}/${cityId}`;
+  getRoomsByOfficeId(officeId: string): Observable<any[]> {
+    const url = `${this.apiUrl}/${this.rooms}/${this.localizacionUrls.room.getRoomsByOfficeId}?officeId=${officeId}`;
     return this.requestService.get(url);
   }
 
-  getAllRoomExtendedDTOs(cityId: number): Observable<any[]> {
-    const url = `${this.apiUrl}/${this.localizacionUrls.room.getAllRoomExtendedDTOs}/${cityId}`;
+  getAllRoomExtendedDTOs(): Observable<any[]> {
+    const url = `${this.apiUrl}/${this.rooms}/${this.localizacionUrls.room.getAllRoomExtendedDTOs}`;
     return this.requestService.get(url);
   }
 
   createRoom(roomData: any): Observable<any> {
-    const url = `${this.apiUrl}/${this.localizacionUrls.room.createRoom}`;
+    const url = `${this.apiUrl}/${this.rooms}/${this.localizacionUrls.room.createRoom}`;
     return this.requestService.post(url, roomData);
   }
 
-  updateRoom(roomId: number, roomData: any): Observable<any> {
-    const url = `${this.apiUrl}/${this.localizacionUrls.room.updateRoom}/${roomId}`;
+  updateRoom(roomData: any): Observable<any> {
+    const url = `${this.apiUrl}/${this.rooms}/${this.localizacionUrls.room.updateRoom}`;
     return this.requestService.put(url, roomData);
   }
 
   deleteRoom(roomId: number): Observable<number> {
-    const url = `${this.apiUrl}/${this.localizacionUrls.room.deleteRoom}/${roomId}`;
-    return this.requestService.delete(url);
+    const url = `${this.apiUrl}/${this.rooms}/${this.localizacionUrls.room.deleteRoom}`;
+    return this.requestService.delete(url, new HttpParams().append('id', roomId));
   }
+
 
 
 

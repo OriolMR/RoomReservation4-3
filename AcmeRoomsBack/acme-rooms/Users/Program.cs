@@ -27,6 +27,17 @@ builder.Services
     .AddRoles<IdentityRole>(); 
 
 
+builder.Services.AddDbContext<UsersDbContext>(
+    options => options.UseSqlServer(connectionString)
+);
+
+builder.Services
+    .AddIdentity<IdentityUser, IdentityRole>(options => {
+        options.User.AllowedUserNameCharacters = null;
+    })
+    .AddEntityFrameworkStores<UsersDbContext>()
+    .AddDefaultTokenProviders()
+    .AddRoles<IdentityRole>();
 
 
 

@@ -2,22 +2,21 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule, ExtraOptions } from '@angular/router';
 
 // Importa los componentes que deseas enlazar a las rutas
-import { HomeComponent } from 'src/app/home/home.component';
-import { LoginComponent } from 'src/app/login/login.component';
-import { MainpageComponent } from './mainpage/mainpage.component';
-import { HelloUserComponent } from 'src/app/hello-user/hello-user.component';
-import { ReservasComponent } from './reservas/reservas.component';
-import { ReservationComponent } from './reservation/reservation.component';
-import { AdminCountryComponent } from './admin-country/admin-country.component';
-import { AdminCityComponent } from './admin-city/admin-city.component';
-import { AdminOfficeComponent } from './admin-office/admin-office.component';
-import { AdminReservationComponent } from './admin-reservation/admin-reservation.component';
-import { AdminRoomComponent } from './admin-room/admin-room.component';
-import { AdminAdministratorComponent } from './admin-administrator/admin-administrator.component';
-import { AdminUserComponent } from './admin-user/admin-user.component';
-import { RoomsComponent } from './rooms/rooms.component';
-import { NoReservaComponent } from 'src/app/no-reserva/no-reserva.component';
-import { AllRoomsComponent } from './all-rooms/all-rooms.component';
+import { HomeComponent } from 'src/app/views/home/home.component';
+import { LoginComponent } from 'src/app/views/login/login.component';
+import { MainpageComponent } from './views/mainpage/mainpage.component';
+import { HelloUserComponent } from 'src/app/views/hello-user/hello-user.component';
+import { ReservasComponent } from './views/reservas/reservas.component';
+import { ReservationComponent } from './views/reservation/reservation.component';
+import { AdminCountryComponent } from './admin/admin-country/admin-country.component';
+import { AdminCityComponent } from './admin/admin-city/admin-city.component';
+import { AdminOfficeComponent } from './admin/admin-office/admin-office.component';
+import { AdminReservationComponent } from './admin/admin-reservation/admin-reservation.component';
+import { AdminRoomComponent } from './admin/admin-room/admin-room.component';
+import { AdminAdministratorComponent } from './admin/admin-administrator/admin-administrator.component';
+import { AdminUserComponent } from './admin/admin-user/admin-user.component';
+import { RoomsComponent } from './views/rooms/rooms.component';
+import { NoReservaComponent } from 'src/app/views/reservation/components/no-reserva/no-reserva.component';
 import { ViewAllComponent } from './view-all/view-all.component';
 import { LoginPopupComponent } from 'src/app/login-popup/login-popup.component';
 
@@ -36,7 +35,6 @@ const routes: Routes = [
   { path: 'adminProfile/rooms', component: AdminRoomComponent },
   { path: 'adminProfile/users', component: AdminUserComponent },
   { path: 'adminProfile/administrators', component: AdminAdministratorComponent },
-  { path: 'all-rooms', component: AllRoomsComponent },
   { path: 'noReserva', component: NoReservaComponent },
   { path: '**', component: HomeComponent },
   { path: '', redirectTo: '/register', pathMatch: 'full' },
