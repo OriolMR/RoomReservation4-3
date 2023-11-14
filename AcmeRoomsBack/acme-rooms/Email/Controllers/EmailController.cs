@@ -70,6 +70,7 @@ namespace webapi.Controllers
                 mailMessage.Body = $"Haga clic en el siguiente enlace para restablecer su contraseña:                       " +
                     $"https://tuapp.com/reset?token={resetToken}";
 
+
                 await smtpClient.SendMailAsync(mailMessage);
             }
         }
