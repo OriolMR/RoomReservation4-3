@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Identity;
 using Usuarios.Models;
 
 
-namespace Usuarios.Controllers;
+namespace Users.Controllers;
 
 //[Authorize]
 [ApiController]
