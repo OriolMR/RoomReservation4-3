@@ -33,8 +33,8 @@ export class AuthenticationService {
   
   return this.httpClient
       .post(
-        `${/*environment.apiUrl}${apiControllers.authentication}${apiUrls.authentication.login*/""}`,
-        { email: email, password: password }
+        `${"https://localhost:5036/connect/token"}`,
+        { email: email, password: password  }
       )
       .pipe(
         tap((res: any) => this.setSession(res, email)),

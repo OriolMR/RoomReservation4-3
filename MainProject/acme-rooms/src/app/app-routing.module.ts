@@ -19,6 +19,7 @@ import { RoomsComponent } from './rooms/rooms.component';
 import { NoReservaComponent } from 'src/app/no-reserva/no-reserva.component';
 import { AllRoomsComponent } from './all-rooms/all-rooms.component';
 import { ViewAllComponent } from './view-all/view-all.component';
+import { LoginPopupComponent } from 'src/app/login-popup/login-popup.component';
 
 // Define las rutas
 const routes: Routes = [
@@ -38,7 +39,8 @@ const routes: Routes = [
   { path: 'all-rooms', component: AllRoomsComponent },
   { path: 'noReserva', component: NoReservaComponent },
   { path: '**', component: HomeComponent },
-  { path:'', redirectTo: '/register', pathMatch: 'full' }
+  { path: '', redirectTo: '/register', pathMatch: 'full' },
+  { path: 'login-popup', component: LoginPopupComponent }
 ];
 
 @NgModule({

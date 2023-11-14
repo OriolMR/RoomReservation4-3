@@ -35,7 +35,7 @@ namespace AuthorizationServer
                     DisplayName = "Postman",
                     RedirectUris = { new Uri("https://oauth.pstmn.io/v1/browser-callback") },
                     Permissions =
-{
+                      {
     OpenIddictConstants.Permissions.Endpoints.Authorization,
     OpenIddictConstants.Permissions.Endpoints.Token,
 

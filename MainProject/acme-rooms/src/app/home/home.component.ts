@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { RequestService } from 'src/app/services/request.service';
 import { Observable } from 'node_modules/rxjs';
+import { OidcSecurityService } from 'angular-auth-oidc-client';
 
 @Component({
   selector: 'app-home',
@@ -15,9 +16,23 @@ export class HomeComponent {
     password: ""
   }
 
-  constructor(private router: Router, private requestService: RequestService ) { } 
+  constructor(private router: Router, private requestService: RequestService, private oidcSecurityService: OidcSecurityService) { } 
+
   goToLogin() {
-    this.router.navigate(['login']);
+    const authOptions = {
+      customParams: {
+        some: 'params',
+      },
+      urlHandler: () => {
+        // ...
+      },
+      
+    };
+    this.router.navigate(['login-popup'])
+
+    const configIdOrNull = " ";
+
+      this.oidcSecurityService.authorize(configIdOrNull, authOptions);
   }
 
   registerSubmit() {

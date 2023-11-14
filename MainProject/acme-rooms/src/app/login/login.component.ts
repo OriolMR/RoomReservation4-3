@@ -8,6 +8,8 @@ import { Observable } from 'node_modules/rxjs';
 //  apiUrls,
 //} from 'src/environments/environment';
 import { UserServiceService } from 'src/app/user.service.service';
+import { OidcSecurityService } from 'angular-auth-oidc-client';
+import { UserService } from '../services/users.service';
 
 @Component({
   selector: 'app-login',
@@ -21,34 +23,37 @@ export class LoginComponent {
   };
   constructor(
     private router: Router,
-    private authenticationService: AuthenticationService,
-  ) {}
+    private authenticationService: AuthenticationService, private userService: UserService
+  ) { }
+
   goToRegister() {
     this.router.navigate(['register']);
   }
 
   goToHome() {
     if (localStorage.getItem('claims')?.includes("Admin")) { 
-      this.router.navigate(['adminProfile']);
+      this.router.navigate(["http://localhost:5000"]);
     } else {
       this.router.navigate(['home']);
     }
   }
 
   login() {
-    this.authenticationService
-      .login(this.user.email, this.user.password)
+    this.userService.login(this.user.email, this.user.password)
       .subscribe({
         next: (response: any) => {
-          //alert(JSON.stringify(response));
           if (response['token']) {
-            //alert(`You have successfully logged in as ${this.user.email}.`);
+            //alert(`You have successfully logged in as ${this.user.email}.`);            
             this.goToHome();
           }
         },
         error(err: Error) {
           console.log(err.message);
+          /*this.loginFailedPopUp();*/
         },
       });
   }
+
+
+  
 }

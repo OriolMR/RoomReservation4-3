@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.InMemory;
-
+using System.Security.Cryptography.X509Certificates;
 
 namespace AuthorizationServer
 {
@@ -16,7 +16,7 @@ namespace AuthorizationServer
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            builder.Services.AddControllersWithViews();
+            
             builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
                             .AddCookie(CookieAuthenticationDefaults.AuthenticationScheme, options =>
                              {
@@ -31,6 +31,19 @@ namespace AuthorizationServer
                 // Register the entity sets needed by OpenIddict.
                 options.UseOpenIddict();
             });
+
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy(
+                    name: "MyCorsPolicy",
+                    policy =>
+                    {
+                        policy.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
+                    }
+                );
+            });
+
+            builder.Services.AddControllersWithViews();
 
             builder.Services.AddOpenIddict()
 
@@ -79,10 +92,9 @@ namespace AuthorizationServer
                                .AddEphemeralSigningKey()
                                .DisableAccessTokenEncryption();
 
-              
+
                     });
 
-            builder.Services.AddHostedService<TestData>();
 
             var app = builder.Build();
 
@@ -97,6 +109,7 @@ namespace AuthorizationServer
 
             app.UseStaticFiles();
             app.UseRouting();
+            app.UseCors("AllowAnyOrigin");
 
             app.UseAuthentication();
 
