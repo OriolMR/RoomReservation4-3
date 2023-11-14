@@ -18,6 +18,7 @@ import { AdminUserComponent } from './admin/admin-user/admin-user.component';
 import { RoomsComponent } from './views/rooms/rooms.component';
 import { NoReservaComponent } from 'src/app/views/reservation/components/no-reserva/no-reserva.component';
 import { ViewAllComponent } from './view-all/view-all.component';
+import { PasswordRecoveryEmailComponent } from './views/password-recovery-email/password-recovery-email.component';
 
 // Define las rutas
 const routes: Routes = [
@@ -35,6 +36,7 @@ const routes: Routes = [
   { path: 'adminProfile/users', component: AdminUserComponent },
   { path: 'adminProfile/administrators', component: AdminAdministratorComponent },
   { path: 'noReserva', component: NoReservaComponent },
+  { path: 'password-recovery', component: PasswordRecoveryEmailComponent},
   { path: '**', component: HomeComponent },
   { path:'', redirectTo: '/register', pathMatch: 'full' }
 ];

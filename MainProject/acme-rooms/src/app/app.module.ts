@@ -28,6 +28,7 @@ import { AdminUserComponent } from './admin/admin-user/admin-user.component';
 import { NoReservaComponent } from './views/reservation/components/no-reserva/no-reserva.component';
 import { ViewAllComponent } from './view-all/view-all.component';
 import { DatepickerComponent } from './datepicker/datepicker.component';
+import { PasswordRecoveryEmailComponent } from './views/password-recovery-email/password-recovery-email.component';
 
 //POP-UP
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
@@ -54,7 +55,8 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
     AdminUserComponent,
     NoReservaComponent,
     ViewAllComponent,
-    DatepickerComponent
+    DatepickerComponent,
+    PasswordRecoveryEmailComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
