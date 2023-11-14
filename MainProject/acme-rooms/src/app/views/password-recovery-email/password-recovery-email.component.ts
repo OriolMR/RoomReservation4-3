@@ -19,10 +19,11 @@ export class PasswordRecoveryEmailComponent {
   popUp(email: String): void {
     const Toast = Swal.mixin({
       toast: true,
+      width: 450,
       position: "top-end",
       showConfirmButton: false,
       timer: 3000,
-      timerProgressBar: true,
+      timerProgressBar: true,   
       didOpen: (toast) => {
         toast.onmouseenter = Swal.stopTimer;
         toast.onmouseleave = Swal.resumeTimer;
