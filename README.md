@@ -708,10 +708,18 @@ The database contains the following tables:
 	Make sure you have these dependencies installed before starting development or running the application. For more details about each library or tool, please refer to their respective official documentations.
 
 ##  Front-End Structure
-- ### Explanation of how the source code is organized.
+- ### Explanation of how the source code is organized
 	The folders are organized in an intuitive way and so that it is easy for developers to find the files they are looking for.
 	The first folder we have inside src/app is /admin, where the different components that we use for the administrator panel are located. Next we have the datepicker component. Next, we will see the models folder where the different models of the entities used are saved. Furthermore, we have two .ts files (locked-date.ts and user.ts). Continuing with the components, we will find two more, the nav-menu and the nav-var. Later, in the services folder we will have the services that we use to make the connection with the backend, authentication-service and reservation-service.
 
 	View-all: Todas las rooms separadas por paises. (nombre sala, ciudad, pais y capacidad)
 
 - ### Files and folders description 
+
+## Configuration
+- ### Development environment configuration
+
+## Instalation and Start up
+- ### Detailed instructions for installing the project in a new environment  
+- ### Steps to run the project locally
+First of all, in order to view the frontend we will have to open the terminal, either the operating system's own or the IDE's own terminal that we are using. Once opened we will go to the root folder of the project, in this case it is /acme-rooms. From here, the only thing we will need to deploy our frontend will be to execute the command **ng serve -o**. This command has several execution options, here we leave you the link so you can see these options: https://angular.io/cli/serve. At this moment, we have the frontend opened, however, the web application is not working since the backend is not operational. In order to initialize the backend we will have to go to VisualStudio and open the project solution (acme-rooms.sln). Once there, at the top we will have several sections, we open the **Project** drop-down menu and we will go to **Configure startup project**. Within the window that has just opened, we will select **Multiple Startup Projects** option and in the drop-down menus on the right we will choose the **Start** option.
