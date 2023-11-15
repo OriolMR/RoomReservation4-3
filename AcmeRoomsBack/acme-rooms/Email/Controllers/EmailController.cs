@@ -70,9 +70,9 @@ namespace webapi.Controllers
                 mailMessage.Body = $@"
                 <html>
                     <body>
-                        <p>We have sent you this email in response to your request to reset your password</p>
+                        <p>We have sent you this email in response to your request to reset your password.</p>
                         <p>To reset your password for AcmeRooms, please follow the link below:</p>
-                        <p><a href='https://tuapp.com/reset?token={resetToken}'>Reset Password</a></p>
+                        <p> <a href = 'http://localhost:4200/password-reset?token={resetToken}'> Reset Password </a> </p>
                         <img src='https://upload.wikimedia.org/wikipedia/en/thumb/6/6b/Hello_Web_Series_%28Wordmark%29_Logo.png/800px-Hello_Web_Series_%28Wordmark%29_Logo.png' alt='hello' />
                     </body>
                 </html>
@@ -87,3 +87,5 @@ namespace webapi.Controllers
         }
     }
 }
+
+//< p >< a href = 'https://tuapp.com/reset?token={resetToken}' > Reset Password </ a ></ p >

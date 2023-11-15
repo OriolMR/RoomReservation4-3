@@ -60,6 +60,13 @@ export class UserService {
       );
   }
 
+  public sendEmailRequest(email: string) {
+    let url = `http://localhost:7001/api/Email`
+    return this.requestService.post(url, email
+    )
+
+  }
+
   private setSession(authenticationResult: any, email: string): void {
     const expiration = dayjs().add(authenticationResult.expiration, 'minutes');
 
@@ -107,4 +114,6 @@ export class UserService {
   public isTokenStillValid(): boolean {
     return dayjs().isBefore(this.getExpiration());
   }
+
+  
 }
