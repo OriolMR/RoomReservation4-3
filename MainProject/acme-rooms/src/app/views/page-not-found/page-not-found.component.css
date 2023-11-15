@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Caprasimo&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700&display=swap');
+
+
+* {
+    font-family: 'Roboto', sans-serif; /*Tipografia general*/
+    color: white;
+}
+#home {
+    font-size: 20px;
+    cursor: pointer;
+  }
+  #error404 {
+     font-size: 100px;
+     font-weight: bolder;
+  }
+  
+  #pageNotFound {
+    font-size: 40px;
+    font-weight: bolder;
+  }
+  
+  .general {
+    display: flex;
+    flex-direction: column; /* Cambiado a column */
+    align-items: center;
+}
+
+.div1, .div2, .div3 {
+    display: flex;
+    justify-content: center;
+    margin-top: 0%; /* Cambiado a 20px para hacerlo más sutil */
+    padding: 10px;
+
+}
+.div1{
+    margin-top: 15%;
+}

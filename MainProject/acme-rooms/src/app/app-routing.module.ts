@@ -20,6 +20,7 @@ import { NoReservaComponent } from 'src/app/views/reservation/components/no-rese
 import { ViewAllComponent } from './view-all/view-all.component';
 import { PasswordRecoveryEmailComponent } from './views/password-recovery-email/password-recovery-email.component';
 import { PasswordResetComponent } from './views/password-reset/password-reset.component';
+import { PageNotFoundComponent } from './views/page-not-found/page-not-found.component';
 
 // Define las rutas
 const routes: Routes = [
@@ -39,7 +40,7 @@ const routes: Routes = [
   { path: 'noReserva', component: NoReservaComponent },
   { path: 'password-recovery', component: PasswordRecoveryEmailComponent},
   { path: 'password-reset', component: PasswordResetComponent}, 
-  { path: '**', component: HomeComponent },
+  { path: '**', pathMatch: 'full', component: PageNotFoundComponent},
   { path:'', redirectTo: '/register', pathMatch: 'full' }
 ];
 
