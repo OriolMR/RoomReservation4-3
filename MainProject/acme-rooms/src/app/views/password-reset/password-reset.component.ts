@@ -3,26 +3,27 @@ import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-password-recovery-email',
-  templateUrl: './password-recovery-email.component.html',
-  styleUrls: ['./password-recovery-email.component.css']
+  selector: 'app-password-reset',
+  templateUrl: './password-reset.component.html',
+  styleUrls: ['./password-reset.component.css']
 })
-export class PasswordRecoveryEmailComponent {
+export class PasswordResetComponent {
   user = {
-    email: '', 
+    password: '',
+    repeatPassword: '', 
   }
 
   constructor(
     private router: Router
   ) {}
   
-  popUp(email: String): void {
+  popUp(): void {
     const Toast = Swal.mixin({
       toast: true,
       width: 450,
       position: "top-end",
       showConfirmButton: false,
-      timer: 3000,
+      timer: 4500,
       timerProgressBar: true,   
       didOpen: (toast) => {
         toast.onmouseenter = Swal.stopTimer;
@@ -34,13 +35,9 @@ export class PasswordRecoveryEmailComponent {
     });
     Toast.fire({
       icon: "success",
-      title: "Email sent successfully",
-      text: "Email: " + email
+      title: "Password changed successfully",
+      text: "You can login with your new password"
     });
     this.router.navigate(['login']);
-  }
-
-  goToRegister() {
-    this.router.navigate(['register']);
   }
 }
