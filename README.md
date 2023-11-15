@@ -710,11 +710,31 @@ The database contains the following tables:
 ##  Front-End Structure
 - ### Explanation of how the source code is organized
 	The folders are organized in an intuitive way and so that it is easy for developers to find the files they are looking for.
-	The first folder we have inside src/app is /admin, where the different components that we use for the administrator panel are located. Next we have the datepicker component. Next, we will see the models folder where the different models of the entities used are saved. Furthermore, we have two .ts files (locked-date.ts and user.ts). Continuing with the components, we will find two more, the nav-menu and the nav-var. Later, in the services folder we will have the services that we use to make the connection with the backend, authentication-service and reservation-service.
+	The first folder we have inside src/app is /admin, where the different components that we use for the administrator panel. Next we have the datepicker component, which is used for restric some dates when the user is doing the reservation, for example, sundays. Next, we will see the models folder where the different models of the entities used are saved here. Furthermore, we have two **.ts**  files (locked-date.ts and user.ts). Continuing with the components, we will find two more, the nav-menu and the nav-var. Later, in the services folder we will have the services that we use to make the connection with the backend, authentication-service and reservation-service. Then, we have the view-all component. After that, we have a folder called views. Inside it we can find all the view of our app. Continuing we have some angular default files, like the **app-routing-module.ts** or the **app.module.ts**.
 
 	View-all: Todas las rooms separadas por paises. (nombre sala, ciudad, pais y capacidad)
 
 - ### Files and folders description 
+
+	#### Admin: Different components that are used for the administration panel. 
+	- The seven admin components do the same, allowing us to do a CRUD of all the entities of our app. Making this an easy way for moderators to add, remove and/or modify them.
+
+	#### Datepicker: 
+	- This component is used for restric some dates when the user is doing the reservation, for example, sundays. Nowadays, this component is **not implemented yet**.
+	Component used in reservas.
+
+	#### Models: Models folder where the different models of the entities used are saved here.
+	- There are five different modals: city-models, country-models, office-models, reservation-models i room-models. Furthermore, we have two **.ts** files (locked-date.ts and user.ts).
+
+	#### Nav-menu: 
+	#### Navbar: 
+	#### Services:
+	#### View-all:
+	#### Views:
+	- hello-user: This view is the profile page. Here you can chenge some specks of your account. For example, you can change the password and the email or update your phone number. In futures versions we will implement the profile picture.
+	- home: The 6 most popular rooms are displayed in this view.
+	- login: In this view you will be able to log in with your account and start using the app. If you do not have an accouint, we implemented a button to create one.
+	- mainpage:  
 
 ## Configuration
 - ### Development environment configuration
