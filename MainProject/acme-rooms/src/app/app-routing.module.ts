@@ -26,6 +26,7 @@ import { PageNotFoundComponent } from './views/page-not-found/page-not-found.com
 const routes: Routes = [
   { path: 'view-all-rooms', component: ViewAllComponent },
   { path: 'hello-user', component: HelloUserComponent },
+  { path: 'register', component: HomeComponent},
   { path: 'login', component: LoginComponent },
   { path: 'home', component: MainpageComponent},
   { path: 'reservas', component: ReservasComponent },
@@ -40,8 +41,8 @@ const routes: Routes = [
   { path: 'noReserva', component: NoReservaComponent },
   { path: 'password-recovery', component: PasswordRecoveryEmailComponent},
   { path: 'password-reset', component: PasswordResetComponent}, 
-  { path: '**', pathMatch: 'full', component: PageNotFoundComponent},
-  { path:'', redirectTo: 'register', pathMatch: 'full' }
+  { path: '', pathMatch: 'full', redirectTo: 'login'}, 
+  { path: '**', pathMatch: 'full', component: PageNotFoundComponent}, 
 ];
 
 @NgModule({
