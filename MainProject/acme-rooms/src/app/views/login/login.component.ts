@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/services/authentication-service/authentication.service';
 import { Observable } from 'node_modules/rxjs';
 import { RequestService } from './../../services/request.service';
-import { UserServiceService } from 'src/app/user.service.service';
+import { UserServiceService } from 'src/app/services/user.service.service';
 import { UserService } from 'src/app/services/users.service';
 import Swal from 'sweetalert2';
 

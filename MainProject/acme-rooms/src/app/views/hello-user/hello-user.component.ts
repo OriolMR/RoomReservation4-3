@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { RequestService } from 'src/app/services/request.service';
 import { Observable } from 'node_modules/rxjs';
 /*import { environment, apiControllers, apiUrls } from 'src/environments/environment';*/
-import { UserServiceService } from 'src/app/user.service.service';
+import { UserServiceService } from 'src/app/services/user.service.service';
 import { FormsModule } from '@angular/forms';
 import { HttpParams } from '@angular/common/http';
 import { UserService } from '../../services/users.service';
