@@ -41,6 +41,7 @@ const routes: Routes = [
   { path: 'noReserva', component: NoReservaComponent },
   { path: 'password-recovery', component: PasswordRecoveryEmailComponent},
   { path: 'password-reset', component: PasswordResetComponent}, 
+  { path: 'rooms', component: RoomsComponent},
   { path: '', pathMatch: 'full', redirectTo: 'login'}, 
   { path: '**', pathMatch: 'full', component: PageNotFoundComponent}, 
 ];

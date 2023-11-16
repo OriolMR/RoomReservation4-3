@@ -731,10 +731,30 @@ The database contains the following tables:
 	#### Services:
 	#### View-all:
 	#### Views:
-	- hello-user: This view is the profile page. Here you can chenge some specks of your account. For example, you can change the password and the email or update your phone number. In futures versions we will implement the profile picture.
-	- home: The 6 most popular rooms are displayed in this view.
-	- login: In this view you will be able to log in with your account and start using the app. If you do not have an accouint, we implemented a button to create one.
-	- mainpage:  
+	- **hello-user:** This view is the profile page. Here you can change some specks of your account. For example, you can replace the password and the email or update your phone number. In futures versions we will implement the profile picture.
+	- **home:**  Home component is the register view. There you will be able to create a new account. 
+	- **login:** In this view you will be able to log in with your account and start using the app. If you do not have an accouint, we implemented a button to create one.
+	- **mainpage:** The 6 most popular rooms are displayed in this view.
+	- **page-not-found:** This view will appear when you try to connect to an url that is not found in our server.
+	- **password-recovery-email:** If you do not remember your password, here you will be able to receive an email to create a new password for your account. 
+	- **password-reset:** In this view you will be able to create a new password for your account using the link in the email we sent to you before.
+	- **reservas:** Reservas component is used to make the reservations.
+	- **reservation:** This view will show you all your reservations. In this component you can modify them too.
+	- **rooms:** This view displays all rooms of the company.
+	You will be able to find one by the name too.
+
+	#### App-routing.module.ts
+	#### App.component.css
+	#### App.component.html
+	#### App.component.spec.ts
+	#### App.component.ts
+	#### App.module.ts
+	#### App.server.module.ts
+	#### User.service.service.spec.ts
+	#### User.service.service.ts
+	#### Environments
+	#### Main Page
+
 
 ## Configuration
 - ### Development environment configuration
@@ -742,4 +762,4 @@ The database contains the following tables:
 ## Instalation and Start up
 - ### Detailed instructions for installing the project in a new environment  
 - ### Steps to run the project locally
-First of all, in order to view the frontend we will have to open the terminal, either the operating system's own or the IDE's own terminal that we are using. Once opened we will go to the root folder of the project, in this case it is /acme-rooms. From here, the only thing we will need to deploy our frontend will be to execute the command **ng serve -o**. This command has several execution options, here we leave you the link so you can see these options: https://angular.io/cli/serve. At this moment, we have the frontend opened, however, the web application is not working since the backend is not operational. In order to initialize the backend we will have to go to VisualStudio and open the project solution (acme-rooms.sln). Once there, at the top we will have several sections, we open the **Project** drop-down menu and we will go to **Configure startup project**. Within the window that has just opened, we will select **Multiple Startup Projects** option and in the drop-down menus on the right we will choose the **Start** option.
+First of all, in order to view the frontend we will have to open the terminal, either the operating system's own or the IDE's own terminal that we are using.  The first step is clone this repository: `git clone [https://github.com/kaurhar65/proyectoAcme.git]` on your pc. Then you will have to navigate to the project directory: `cd proyectoAcme/MainProject/acme-rooms` and install the dependencies: `npm install`. Once installed we will go to the root folder of the project, in this case it is /acme-rooms. From here, the only thing we will need to deploy our frontend will be to execute the command **ng serve -o**. This command has several execution options, here we leave you the link so you can see these options: https://angular.io/cli/serve. At this moment, we have the frontend opened, however, the web application is not working since the backend is not operational. In order to initialize the backend we will have to go to VisualStudio and open the project solution (acme-rooms.sln). Once there, at the top we will have several sections, we open the **Project** drop-down menu and we will go to **Configure startup project**. Within the window that has just opened, we will select **Multiple Startup Projects** option and in the drop-down menus on the right we will choose the **Start** option.
