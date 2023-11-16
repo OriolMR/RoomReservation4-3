@@ -3,10 +3,11 @@ using System.Net;
 using System.Net.Mail;
 using EmailService.Models;
 using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Mvc;
 
 namespace webapi.Controllers
 {
-    [EnableCors("AllowLocalhost4200")]
+    [EnableCors("MyCorsPolicy")]
     [ApiController]
     [Route("api/[controller]")]
 

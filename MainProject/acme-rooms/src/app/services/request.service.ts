@@ -16,7 +16,6 @@ export class RequestService {
   }
 
   public post(url: string, body: object): Observable<any> {
-    console.log(url + " " +  body);
     return this.httpClient.post<any>(url, body);
   }
 

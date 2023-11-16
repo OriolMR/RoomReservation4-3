@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
 import { UserService } from '../../services/users.service';
+import { RequestService } from '../../services/request.service';
 /*import { send } from 'process';*/
 
 
@@ -11,12 +12,10 @@ import { UserService } from '../../services/users.service';
   styleUrls: ['./password-recovery-email.component.css']
 })
 export class PasswordRecoveryEmailComponent {
-  user = {
-    email: '',
-  }
+  email = "";
 
   constructor(
-    private router: Router, private userService: UserService
+    private router: Router, private userService: UserService, private requestService: RequestService
   ) { }
 
 
@@ -72,26 +71,37 @@ export class PasswordRecoveryEmailComponent {
 
   
 
-  clickSubmit(email: String) {
-    /*this.router.navigate(['login']);*/
-    console.log(this.user.email);
-    this.sendPassword(email);
-  }
+  //clickSubmit() {
+  //  /*this.router.navigate(['login']);*/
+  //  console.log(this.user.email);
+  //  this.sendPassword(email);
+  //}
 
-  sendPassword(email: String) {
-    alert("hello")
-    this.userService.sendEmailRequest(email)
+  sendPassword() {
+    this.userService.sendEmailRequest(
+      {
+        "emailData": this.email
+      })
       .subscribe({        
-        next: (response: any) => {
-          console.log("dentro del susbcribe")
-            this.popUp(this.user.email);
+        next: () => {            
+          this.popUp(this.email);
+          this.router.navigate(['login']);
           }
         ,
         error: (err: Error) => {
-          this.errorPopUp("Error!", " Tonterías no")
+          this.errorPopUp("Error!", "Email not sent")
         }
       });
     }
 
 
   }
+
+
+
+
+
+
+
+
+

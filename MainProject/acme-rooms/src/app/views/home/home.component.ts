@@ -77,14 +77,14 @@ export class HomeComponent {
         "Phone": "000000000"
       })
       .subscribe({
-        next(response: any) {
+        next:(response: any) => {
           alert(JSON.stringify(response))
           if (response["body"]) {
             this.registredPopUp();
             self.goToLogin();
           }
         },
-        error(err: Error) {
+        error:(err: Error) => {
           console.log(err.message)
           this.registerFailedPopUp();
         }
