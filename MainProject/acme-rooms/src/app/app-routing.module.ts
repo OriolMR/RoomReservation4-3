@@ -41,7 +41,7 @@ const routes: Routes = [
   { path: 'password-recovery', component: PasswordRecoveryEmailComponent},
   { path: 'password-reset', component: PasswordResetComponent}, 
   { path: '**', pathMatch: 'full', component: PageNotFoundComponent},
-  { path:'', redirectTo: '/register', pathMatch: 'full' }
+  { path:'', redirectTo: 'register', pathMatch: 'full' }
 ];
 
 @NgModule({

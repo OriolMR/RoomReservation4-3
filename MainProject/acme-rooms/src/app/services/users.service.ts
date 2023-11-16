@@ -26,7 +26,8 @@ export class UserService {
     updatePassword: 'UpdatePassword',
     login: 'login',
     logout: 'logout',
-    register: 'register'
+    register: 'register',
+
   }
 
   getAllUsers(): Observable<any[]> {
@@ -60,10 +61,10 @@ export class UserService {
       );
   }
 
-  public sendEmailRequest(email: string) {
-    let url = `http://localhost:7001/api/Email`
-    return this.requestService.post(url, email
-    )
+  public sendEmailRequest(email: any) {
+    const url = `https://localhost:7001/api/Email`;
+    console.log(email + '' + url);
+    return this.requestService.post(url, email);
 
   }
 
