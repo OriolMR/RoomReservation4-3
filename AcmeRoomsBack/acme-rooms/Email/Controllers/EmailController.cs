@@ -72,8 +72,8 @@ namespace webapi.Controllers
                 <html>
                     <body>
                         <h2 style='color: black;'> Reset Password </h2>
-                        <p>We have sent you this email in response to your request to reset your password.</p>
-                        <p>To reset your password for AcmeRooms, please follow the link below:</p>
+                        <p style='color: black;' >We have sent you this email in response to your request to reset your password.</p>
+                        <p style='color: black;'>To reset your password for AcmeRooms, please follow the link below:</p>
                         <p> <a href = 'http://localhost:4200/password-reset?token={resetToken}'> Reset Password </a> </p>
                         <img src='https://i.imgur.com/m6AVggz.png' alt='eslogan-acme' />
                     </body>

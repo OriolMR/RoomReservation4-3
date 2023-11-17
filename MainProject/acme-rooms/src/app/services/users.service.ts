@@ -46,11 +46,12 @@ export class UserService {
     return this.requestService.get(url);
   }
 
-  updateUser(userId: number, userData: any): Observable<any> {
-    const url = `${this.apiUrl}/${this.userUrls.updateUser}/${userId}`;
+  updateUser(/*userId: number,*/ userData: any): Observable<any> {
+
+    const url = `${this.apiUrl}/${this.userUrls.updateUser}`;
+    /*const url = `${this.apiUrl}/${this.userUrls.updateUser}/${userId}`;*/
     return this.requestService.put(url, userData);
   }
-
   public login(email: string, password: string): Observable<any> {
     const url = `${this.apiUrl}/${this.userUrls.login}`;
     console.log(url);
@@ -60,6 +61,12 @@ export class UserService {
         tap((res: any) => this.setSession(res, email)),
         shareReplay()
       );
+  }
+
+  updatePassword(username:String, userData: any): Observable<any> {
+    const url = `${this.apiUrl}/${this.userUrls.updatePassword}/${username}`;
+    console.log(url);
+    return this.requestService.put(url, userData);
   }
 
   sendEmailRequest(emailData: any): Observable<any>{
