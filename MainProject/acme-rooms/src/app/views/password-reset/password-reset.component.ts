@@ -39,5 +39,5 @@ export class PasswordResetComponent {
       text: "You can login with your new password"
     });
     this.router.navigate(['login']);
-  }
+  } 
 }

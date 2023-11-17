@@ -1,6 +1,10 @@
 import { Component } from '@angular/core';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
+import { UserService } from '../../services/users.service';
+import { RequestService } from '../../services/request.service';
+/*import { send } from 'process';*/
+
 
 @Component({
   selector: 'app-password-recovery-email',
@@ -8,14 +12,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./password-recovery-email.component.css']
 })
 export class PasswordRecoveryEmailComponent {
-  user = {
-    email: '', 
-  }
+  email = "";
 
   constructor(
-    private router: Router
-  ) {}
-  
+    private router: Router, private userService: UserService, private requestService: RequestService
+  ) { }
+
+
   popUp(email: String): void {
     const Toast = Swal.mixin({
       toast: true,
@@ -23,7 +26,7 @@ export class PasswordRecoveryEmailComponent {
       position: "top-end",
       showConfirmButton: false,
       timer: 3000,
-      timerProgressBar: true,   
+      timerProgressBar: true,
       didOpen: (toast) => {
         toast.onmouseenter = Swal.stopTimer;
         toast.onmouseleave = Swal.resumeTimer;
@@ -37,10 +40,68 @@ export class PasswordRecoveryEmailComponent {
       title: "Email sent successfully",
       text: "Email: " + email
     });
-    this.router.navigate(['login']);
+    
+  }
+
+  errorPopUp(mensajeTitle: String, mensajeTexto: String): void {
+    const Toast = Swal.mixin({
+      toast: true,
+      position: "top-end",
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.onmouseenter = Swal.stopTimer;
+        toast.onmouseleave = Swal.resumeTimer;
+      },
+      showClass: {
+        popup: '', // Establece la animación de salida como una cadena vacía
+      }
+    });
+    Toast.fire({
+      icon: 'error',
+      title: '' + mensajeTitle,
+      text: '' + mensajeTexto,
+    });
   }
 
   goToRegister() {
     this.router.navigate(['register']);
   }
-}
+
+  
+
+  //clickSubmit() {
+  //  /*this.router.navigate(['login']);*/
+  //  console.log(this.user.email);
+  //  this.sendPassword(email);
+  //}
+
+  sendPassword() {
+    this.userService.sendEmailRequest(
+      {
+        "emailData": this.email
+      })
+      .subscribe({        
+        next: () => {            
+          this.popUp(this.email);
+          this.router.navigate(['login']);
+          }
+        ,
+        error: (err: Error) => {
+          this.errorPopUp("Error!", "Email not sent")
+        }
+      });
+    }
+
+
+  }
+
+
+
+
+
+
+
+
+

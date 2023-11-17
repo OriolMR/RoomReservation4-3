@@ -5,6 +5,7 @@ import { Observable } from 'node_modules/rxjs';
 import { UserService } from '../../services/users.service';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import Swal from 'sweetalert2';
+import { ReservationsService } from '../../services/reservation-service/reservations.service';
 
 @Component({
   selector: 'app-home',
@@ -18,7 +19,7 @@ export class HomeComponent {
     password: ""
   }
 
-  constructor(private router: Router, private userService: UserService) { }
+  constructor(private router: Router, private userService: UserService, private reservations: ReservationsService) { }
 
   registerFailedPopUp(): void {
     const Toast = Swal.mixin({
@@ -76,14 +77,14 @@ export class HomeComponent {
         "Phone": "000000000"
       })
       .subscribe({
-        next(response: any) {
+        next:(response: any) => {
           alert(JSON.stringify(response))
           if (response["body"]) {
             this.registredPopUp();
             self.goToLogin();
           }
         },
-        error(err: Error) {
+        error:(err: Error) => {
           console.log(err.message)
           this.registerFailedPopUp();
         }
