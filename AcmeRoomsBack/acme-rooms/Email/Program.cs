@@ -2,17 +2,26 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
+//builder.Services.AddCors(options =>
+//{
+//    options.AddPolicy("AllowLocalhost4200",
+//        builder =>
+//        {
+//            builder.WithOrigins("https://localhost:4200")
+//                .AllowAnyHeader()
+//                .AllowAnyMethod();
+//        });
+//});
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowLocalhost4200",
-        builder =>
+    options.AddPolicy(
+        name: "MyCorsPolicy",
+        policy =>
         {
-            builder.WithOrigins("https://localhost:4200")
-                .AllowAnyHeader()
-                .AllowAnyMethod();
-        });
+            policy.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
+        }
+    );
 });
-
 builder.Services.AddControllers();
 
 builder.Services.AddEndpointsApiExplorer();

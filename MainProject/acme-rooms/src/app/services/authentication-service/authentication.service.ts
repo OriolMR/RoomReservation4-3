@@ -4,7 +4,7 @@ import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http'
 import { Observable, of } from 'node_modules/rxjs';
 import { tap, shareReplay } from 'node_modules/rxjs/operators';
 import * as dayjs from 'dayjs';
-import { UserServiceService } from 'src/app/user.service.service';
+import { UserServiceService } from 'src/app/services/user.service.service';
 import { RequestService } from './../request.service';
 import { __rest } from 'tslib';
 

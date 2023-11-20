@@ -3,6 +3,7 @@ import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http'
 import { Observable, shareReplay, tap, throwError } from 'rxjs';
 import { __rest } from 'tslib';
 import * as dayjs from 'dayjs';
+import { RequestService } from './request.service';
 
 
 @Injectable({
@@ -10,9 +11,9 @@ import * as dayjs from 'dayjs';
 })
 export class UserService {
   private apiUrl = 'https://localhost:7296/api';
-  requestService: any;
+  /*requestService: any;*/
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private requestService: RequestService) { }
 
   private handleError(error: HttpErrorResponse) {
     return throwError('Something went wrong. Please, try again.');
@@ -26,7 +27,8 @@ export class UserService {
     updatePassword: 'UpdatePassword',
     login: 'login',
     logout: 'logout',
-    register: 'register'
+    register: 'register',
+    
   }
 
   getAllUsers(): Observable<any[]> {
@@ -44,13 +46,12 @@ export class UserService {
     return this.requestService.get(url);
   }
 
-  updateUser(userId: number, userData: any): Observable<any> {
-    const url = `${this.apiUrl}/${this.userUrls.updateUser}/${userId}`;
+  updateUser(/*userId: number,*/ userData: any): Observable<any> {
+
+    const url = `${this.apiUrl}/${this.userUrls.updateUser}`;
+    /*const url = `${this.apiUrl}/${this.userUrls.updateUser}/${userId}`;*/
     return this.requestService.put(url, userData);
   }
-
-  
-
   public login(email: string, password: string): Observable<any> {
     const url = `${this.apiUrl}/${this.userUrls.login}`;
     console.log(url);
@@ -61,6 +62,19 @@ export class UserService {
         shareReplay()
       );
   }
+
+  updatePassword(username:String, userData: any): Observable<any> {
+    const url = `${this.apiUrl}/${this.userUrls.updatePassword}/${username}`;
+    console.log(url);
+    return this.requestService.put(url, userData);
+  }
+
+  sendEmailRequest(emailData: any): Observable<any>{
+    const url = `https://localhost:7001/api/Email`;
+    return this.requestService.post(url, emailData);
+  }
+
+
 
   private setSession(authenticationResult: any, email: string): void {
     const expiration = dayjs().add(authenticationResult.expiration, 'minutes');
@@ -109,4 +123,6 @@ export class UserService {
   public isTokenStillValid(): boolean {
     return dayjs().isBefore(this.getExpiration());
   }
+
+  
 }

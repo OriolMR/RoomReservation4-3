@@ -3,10 +3,11 @@ using System.Net;
 using System.Net.Mail;
 using EmailService.Models;
 using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Mvc;
 
 namespace webapi.Controllers
 {
-    [EnableCors("AllowLocalhost4200")]
+    [EnableCors("MyCorsPolicy")]
     [ApiController]
     [Route("api/[controller]")]
 
@@ -67,11 +68,26 @@ namespace webapi.Controllers
                 mailMessage.To.Add(email);
 
                 mailMessage.Subject = "Solicitud de Restablecimiento de Contraseña";
-                mailMessage.Body = $"Haga clic en el siguiente enlace para restablecer su contraseña:                       " +
-                    $"https://tuapp.com/reset?token={resetToken}";
+                mailMessage.Body = $@"
+                <html>
+                    <body>
+                        <h2 style='color: black;'> Reset Password </h2>
+                        <p style='color: black;' >We have sent you this email in response to your request to reset your password.</p>
+                        <p style='color: black;'>To reset your password for AcmeRooms, please follow the link below:</p>
+                        <p> <a href = 'http://localhost:4200/password-reset?token={resetToken}'> Reset Password </a> </p>
+                        <img src='https://i.imgur.com/m6AVggz.png' alt='eslogan-acme' />
+                    </body>
+                </html>
+            ";
+
+                // Establecer el tipo de contenido del cuerpo del mensaje como HTML
+                mailMessage.IsBodyHtml = true;
+
 
                 await smtpClient.SendMailAsync(mailMessage);
             }
         }
     }
 }
+
+//< p >< a href = 'https://tuapp.com/reset?token={resetToken}' > Reset Password </ a ></ p >
