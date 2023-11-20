@@ -5,9 +5,14 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Users.Data;
 using Users.Areas.Identity.Data;
+using System.Security.Claims;
+using Microsoft.Data.SqlClient;
+using Microsoft.AspNetCore.DataProtection;
+using Microsoft.IdentityModel.Protocols.OpenIdConnect;
 
 var builder = WebApplication.CreateBuilder(args);
-var connectionString = builder.Configuration.GetConnectionString("UsersContextConnection") ?? throw new InvalidOperationException("Connection string 'UsersContextConnection' not found.");
+var connectionString = builder.Configuration.GetConnectionString("UsersContextConnection") 
+    ?? throw new InvalidOperationException("Connection string 'UsersContextConnection' not found.");
 
 builder.Services.AddDbContext<UsersDbContext>(
     options => options.UseSqlServer(connectionString)
@@ -19,7 +24,20 @@ builder.Services
     })
     .AddEntityFrameworkStores<UsersDbContext>()
     .AddDefaultTokenProviders()
-    .AddRoles<IdentityRole>();
+    .AddRoles<IdentityRole>(); 
+
+
+builder.Services.AddDbContext<UsersDbContext>(
+    options => options.UseSqlServer(connectionString)
+);
+
+//builder.Services
+//    .AddIdentity<IdentityUser, IdentityRole>(options => {
+//        options.User.AllowedUserNameCharacters = null;
+//    })
+//    .AddEntityFrameworkStores<UsersDbContext>()
+//    .AddDefaultTokenProviders()
+//    .AddRoles<IdentityRole>();
 
 
 
