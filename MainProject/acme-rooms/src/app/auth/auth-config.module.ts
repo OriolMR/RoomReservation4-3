@@ -5,7 +5,7 @@ import { AuthModule } from 'angular-auth-oidc-client';
 @NgModule({
     imports: [AuthModule.forRoot({
         config: {
-              authority: 'https://localhost:5000',
+              authority: 'https://localhost:44310',
               redirectUrl: 'http://localhost:4200/callback',
               postLogoutRedirectUri: window.location.origin,
               clientId: 'web',
