@@ -75,12 +75,12 @@ public class UserController : Controller
 
     [Route("UpdatePassword")]
     [HttpPut]
-    public async Task<IActionResult> UpdatePassword(string id, UpdatePasswordModel model)
+    public async Task<IActionResult> UpdatePassword(string username, UpdatePasswordModel model)
     {
         if (model.NewPassword == model.NewPasswordConfirmation)
         {
             var result = await _userManager.ChangePasswordAsync(
-                await _userManager.FindByIdAsync(id),
+                await _userManager.FindByNameAsync(username),
                 model.CurrentPassword,
                 model.NewPassword
             );
@@ -108,6 +108,42 @@ public class UserController : Controller
             }
         );
     }
+
+    //[Route("UpdatePassword")]
+    //[HttpPut]
+    //public async Task<IActionResult> UpdatePassword(string username, UpdatePasswordModel model)
+    //{
+    //    if (model.NewPassword == model.NewPasswordConfirmation)
+    //    {
+    //        var result = await _userManager.ChangePasswordAsync(
+    //            await _userManager.FindByIdAsync(username),
+    //            model.CurrentPassword,
+    //            model.NewPassword
+    //        );
+    //        if (result.Succeeded)
+    //        {
+    //            return Ok("Password updated successfully.");
+    //        }
+    //        return StatusCode(
+    //            StatusCodes.Status500InternalServerError,
+    //            new Response
+    //            {
+    //                Status = "Error.",
+    //                Message = result.Errors
+    //                    .Select(error => error.Description)
+    //                    .Aggregate("", (acc, error) => acc + $"*SEPARATOR*{error}")
+    //            }
+    //        );
+    //    }
+    //    return StatusCode(
+    //        StatusCodes.Status500InternalServerError,
+    //        new Response
+    //        {
+    //            Status = "Error.",
+    //            Message = "New password doesn't match password confirmation field."
+    //        }
+    //    );
+    //}
 
     [Route("CheckPassword")]
     [HttpGet]
