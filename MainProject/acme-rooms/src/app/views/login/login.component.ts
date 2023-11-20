@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/services/authentication-service/authentication.service';
 import { Observable } from 'node_modules/rxjs';
@@ -7,20 +7,24 @@ import { UserServiceService } from 'src/app/user.service.service';
 import { UserService } from 'src/app/services/users.service';
 import Swal from 'sweetalert2';
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
 })
+
+
 export class LoginComponent {
   user = {
     email: '',
     password: '',
   };
+
   constructor(
+    private authService: AuthenticationService,
     private router: Router,
-    private userService: UserService
-  ) { }
+    ) { }
 
   loginFailedPopUp(): void{
     const Toast = Swal.mixin({
@@ -56,21 +60,8 @@ export class LoginComponent {
     }
   }
 
-  login(){
-    this.userService.login(this.user.email, this.user.password)
-      .subscribe({
-        next: (response: any) => {
-          if (response['token']) {
-            //alert(`You have successfully logged in as ${this.user.email}.`);            
-            this.goToHome();
-          }
-        },
-        error(err: Error) {
-          console.log(err.message);
-          /*this.loginFailedPopUp();*/
-          
-        },
-      });
+  login() {
+    this.authService.login()
   }
 
 

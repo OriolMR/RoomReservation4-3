@@ -13,7 +13,7 @@ namespace AuthorizationServer.Controllers
     {
         [HttpGet]
         [AllowAnonymous]
-        public IActionResult Login(string returnUrl = null)
+        public IActionResult Login(string returnUrl = "/")
         {
             ViewData["ReturnUrl"] = returnUrl;
             return View();

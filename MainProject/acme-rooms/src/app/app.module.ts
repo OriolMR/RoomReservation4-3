@@ -32,6 +32,8 @@ import { LoginPopupComponent } from './login-popup/login-popup.component';
 
 //POP-UP
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { OidcSecurityService } from 'angular-auth-oidc-client';
+import { AuthConfigModule } from './auth/auth-config.module';
 
 @NgModule({
   declarations: [
@@ -64,11 +66,19 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
     FormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    SweetAlert2Module
+    SweetAlert2Module,
+    AuthConfigModule
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: AuthenticationInterceptorService, multi: true },
+ 
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthenticationInterceptorService,
+      multi: true,
+    },
+    
   ],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,6 +1,0 @@
-{
-  "dependencies": {
-    "@easepick/bundle": "^1.2.1",
-    "angular-auth-oidc-client": "^16.0.1"
-  }
-}

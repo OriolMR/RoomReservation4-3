@@ -33,20 +33,34 @@ namespace AuthorizationServer
                     ClientId = "postman",
                     ClientSecret = "postman-secret",
                     DisplayName = "Postman",
-                    RedirectUris = { new Uri("https://oauth.pstmn.io/v1/browser-callback") },
                     Permissions =
-                      {
-    OpenIddictConstants.Permissions.Endpoints.Authorization,
-    OpenIddictConstants.Permissions.Endpoints.Token,
+                    {
+                        OpenIddictConstants.Permissions.Endpoints.Token,
+                        OpenIddictConstants.Permissions.GrantTypes.ClientCredentials,
 
-    OpenIddictConstants.Permissions.GrantTypes.AuthorizationCode,
-    OpenIddictConstants.Permissions.GrantTypes.ClientCredentials,
-
-    OpenIddictConstants.Permissions.Prefixes.Scope + "api",
-
-    OpenIddictConstants.Permissions.ResponseTypes.Code
-}
+                        OpenIddictConstants.Permissions.Prefixes.Scope + "api"
+                    }
                 }, cancellationToken);
+            }
+
+            if (await manager.FindByClientIdAsync("web", cancellationToken) is null)
+            {
+                var descriptor = new OpenIddictApplicationDescriptor
+                {
+                    ClientId = "web",
+                    DisplayName = "Web",
+                    Permissions =
+                    {
+                        OpenIddictConstants.Permissions.Endpoints.Token,
+                        OpenIddictConstants.Permissions.Endpoints.Authorization,
+                        OpenIddictConstants.Permissions.ResponseTypes.Code,
+                        OpenIddictConstants.Permissions.GrantTypes.AuthorizationCode,
+                        OpenIddictConstants.Permissions.Prefixes.Scope + "api"
+                    }
+                };
+                descriptor.RedirectUris.Add(new Uri("https://oauth.pstmn.io/v1/callback"));
+                descriptor.RedirectUris.Add(new Uri("http://localhost:4200/callback"));
+                await manager.CreateAsync(descriptor, cancellationToken);
             }
         }
 
