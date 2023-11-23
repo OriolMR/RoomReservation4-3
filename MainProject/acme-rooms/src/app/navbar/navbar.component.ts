@@ -71,15 +71,11 @@ export class NavbarComponent implements OnInit {
     this.localizacionesService.getAllCountries().subscribe({
       next: (countries: any) => {
         countries.forEach((country: any) => {
-          console.log(country);
           let offices = [];
           this.localizacionesService.getCountryById(country.id).subscribe({
             next: (officesResponse: any) => {
-              console.table(officesResponse);
               let newInfo = new NavbarInfo(country.id, country.name, officesResponse);
               this.navbarInfo.push(newInfo);
-              console.table(newInfo);
-              console.log(newInfo.officeName);
             },
             error: (error: Error) => {
               console.error(`Error fetching country ${country.id}: ${error}`);

@@ -59,6 +59,7 @@ namespace Skoruba.IdentityServer4.STS.Identity
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            app.UseCors(config => config.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
             app.UseCookiePolicy();
 
             if (env.IsDevelopment())

@@ -6,10 +6,10 @@ import { AuthModule } from 'angular-auth-oidc-client';
     imports: [AuthModule.forRoot({
         config: {
               authority: 'https://localhost:44310',
-              redirectUrl: 'http://localhost:4200/callback',
+              redirectUrl: 'http://localhost:4200/home',
               postLogoutRedirectUri: window.location.origin,
               clientId: 'web',
-              scope: 'api', 
+              scope: 'openid', 
               responseType: 'code',
               silentRenew: true,
               useRefreshToken: true,
