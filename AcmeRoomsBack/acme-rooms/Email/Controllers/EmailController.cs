@@ -4,6 +4,8 @@ using System.Net.Mail;
 using EmailService.Models;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Identity;
+using System;
 
 namespace webapi.Controllers
 {
@@ -18,7 +20,9 @@ namespace webapi.Controllers
         public EmailController(IConfiguration configuration)
         {
             this.configuration = configuration;
+            
         }
+        
 
         [HttpPost]
         public async Task<IActionResult> RequestPasswordReset([FromBody] EmailDataModel emailData)
@@ -72,7 +76,7 @@ namespace webapi.Controllers
                 <html>
                     <body>
                         <h2 style='color: black;'> Reset Password </h2>
-                        <p style='color: black;' >We have sent you this email in response to your request to reset your password.</p>
+                        <p style='color: black;'> We have sent you this email in response to your request to reset your password.</p>
                         <p style='color: black;'>To reset your password for AcmeRooms, please follow the link below:</p>
                         <p> <a href = 'http://localhost:4200/password-reset?token={resetToken}'> Reset Password </a> </p>
                         <img src='https://i.imgur.com/m6AVggz.png' alt='eslogan-acme' />
@@ -87,7 +91,9 @@ namespace webapi.Controllers
                 await smtpClient.SendMailAsync(mailMessage);
             }
         }
+
+
+        
     }
 }
 
-//< p >< a href = 'https://tuapp.com/reset?token={resetToken}' > Reset Password </ a ></ p >

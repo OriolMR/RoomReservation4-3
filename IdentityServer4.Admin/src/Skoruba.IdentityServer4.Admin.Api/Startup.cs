@@ -112,6 +112,7 @@ namespace Skoruba.IdentityServer4.Admin.Api
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, AdminApiConfiguration adminApiConfiguration)
         {
             app.AddForwardHeaders();
+            //app.Response.Headers.Add("Content-Security-Policy", "style-src 'self' 'sha256-pILX+5FGCpLRHvNBgtABIdSMmytrYudGxJBUYXY1t0s=' 'unsafe-hashes'");
 
             if (env.IsDevelopment())
             {

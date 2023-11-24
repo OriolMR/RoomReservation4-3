@@ -57,6 +57,7 @@ namespace Skoruba.IdentityServer4.Admin.Api
             configurationBuilder.AddCommandLine(args);
             configurationBuilder.AddEnvironmentVariables();
 
+
             return configurationBuilder.Build();
         }
 

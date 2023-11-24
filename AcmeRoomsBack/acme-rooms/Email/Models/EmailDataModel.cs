@@ -1,7 +1,11 @@
-﻿namespace EmailService.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace EmailService.Models
 {
     public class EmailDataModel
     {
-        public string emailData { get; set; }
-    }
+            [Required]
+            [EmailAddress]
+            public string emailData { get; set; }
+        }
 }
